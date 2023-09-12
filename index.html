@@ -3,9 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funkoshop</title>
+    <title>FunkoShop</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    
+    <!-- Inicio header -->
+    <header>
+        <nav class="container navbar">
+            <picture class="navbar__logo">
+                <a href="/index.html">
+                    <img src="/img/branding/logo_light_horizontal.svg" alt="FunkoShop Logo">
+                </a>
+            </picture>
+            <!-- Barra de navegación -->
+            <ul class="navbar__menu">
+                <li class="navbar__item whit-submenu">
+                    <a class="navbar__link whit-icon " href="/pages/shop/shop.html">SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
+                    <ul class="submenu">
+                        <li class="submenu__item"><a href="/pages/shop/funkos.html" class="submenu__link">Funkos</a></li>
+                        <li class="submenu__item"><a href="/pages/shop/remeras.html" class="submenu__link">Remeras</a></li>
+                        <li class="submenu__item"><a href="/pages/shop/llaveros.html" class="submenu__link">Llaveros</a></li>
+                    </ul>
+                </li>
+                <li class="navbar__item"><a class="navbar__link" href="login.html">LOGIN</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="/pages/contact.html">CONTACTO</a></li>
+                <li class="navbar__item"><a class="navbar__cart" href="/pages/shop/cart.html"><img src="/img/icons/cart-icon.svg" alt="Carrito de compras"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Inicio Banner -->
+    <section class="hero">
+        <section class="container hero__content">
+            <h3 class="hero__title">Nuevos ingresos</h3>
+            <p class="hero__description">Descrubrí el próximo Funko Pop de tu colección</p>
+            <a class="hero__link" href="/pages/shop/shop.html">SHOP</a>
+        </section>
+    </section>
+
+    <!-- Inicio main -->
+    <main class="container">
+        <!-- Seccion de colecciones destacadas -->
+        <section class="container__collection">
+
+            <article class="collection">
+                <section class="collection__content">
+                    <h3 class="collection__title">star wars & the mandalorian</h3>
+                    <p class="collection__description">Disfruta de una saga que sigue agregando personajes a su colección</p>
+                    <hr class="collection__line">
+                    <a href="" class="collection__link">VER COLECCIÓN</a>
+                </section>
+                <picture class="collection__picture">
+                    <img src="img/star-wars/baby-yoda-1.webp" alt="Funko baby yoda">
+                </picture>
+            </article>
+
+            <article class="collection">
+                <section class="collection__content">
+                    <h3 class="collection__title">pokemon indigo</h3>
+                    <p class="collection__description">Atrapa todos los que puedas y disfruta de una coleccion llena de amigos</p>
+                    <hr class="collection__line">
+                    <a href="" class="collection__link">VER COLECCIÓN</a>
+                </section>
+                <picture class="collection__picture">
+                    <img src="img/pokemon/vulpix-1.webp" alt="Funko Vulpix">
+                </picture>
+            </article>
+
+            <article class="collection">
+                <section class="collection__content">
+                    <h3 class="collection__title">harry potter</h3>
+                    <p class="collection__description">Revive los recuerdos de una saga llena de magia y encanto</p>
+                    <hr class="collection__line">
+                    <a href="" class="collection__link">VER COLECCIÓN</a>
+                </section>
+                <picture class="collection__picture">
+                    <img src="img/harry-potter/snape-patronus-1.webp" alt="Funko Snape patronus">
+                </picture>
+            </article>
+        </section>
+
+        <!-- Seccion de ultimos lanzamientos -->
+        <section class="container">
+            <h2 class="container__title">ÚLTIMOS LANZAMIENTOS</h2>
+            <section class="container__releases">
+
+                <article class="item item--new">
+                    <picture class="item__picture">
+                        <img src="img/star-wars/trooper-1.webp" alt="Funko Stormtrooper">
+                    </picture>
+                    <section class="item__content">
+                        <span class="item__collection">star wars</span>
+                        <h4 class="item__name">stormtrooper lightsaber</h4>
+                        <span class="item__price">$ 1799,99</span>
+                        <span class="item__payments">3 cuotas sin interés</span>
+                    </section>
+                </article>
+
+                <article class="item item--new">
+                    <picture class="item__picture">
+                        <img src="img/pokemon/pidgeotto-1.webp" alt="Funko Pidgeotto">
+                    </picture>
+                    <section class="item__content">
+                        <span class="item__collection">pokemon</span>
+                        <h4 class="item__name">pidgeotto</h4>
+                        <span class="item__price">$ 1799,99</span>
+                        <span class="item__payments">3 cuotas sin interés</span>
+                    </section>
+                </article>
+
+                <article class="item item--new">
+                    <picture class="item__picture">
+                        <img src="img/harry-potter/luna-1.webp" alt="Funko Luna Lovegood">
+                    </picture>
+                    <section class="item__content">
+                        <span class="item__collection">harry potter</span>
+                        <h4 class="item__name">luna lovegood lion mask</h4>
+                        <span class="item__price">$ 1799,99</span>
+                        <span class="item__payments">3 cuotas sin interés</span>
+                    </section>
+                </article>
+                
+            </section>
+        </section>
+    </main>
+
+    <!-- Inicio footer -->
+    <footer>
+        <section class="container navbar">
+            <ul>
+                <li class="navbar__item"><a class="navbar__link" href="/pages/shop/shop.html">SHOP</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="./login.html">LOGIN</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="/pages/contact.html">CONTACTO</a></li>
+            </ul>
+            <picture>
+                <a href="/index.html"><img src="/img/branding/isotype.svg" alt="Logo FunkoShop"></a>
+            </picture>
+        </section>
+        <span>All rights reserved 2023 - FunkoShop &copy;</span>
+    </footer>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 </html>
