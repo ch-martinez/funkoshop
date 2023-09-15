@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Crear nuevo item</title>
+        <title>Editar item</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -22,15 +22,15 @@
                 </ul>
             </nav>
         </header> <!-- FIN HEADER -->
-
+        
         <main> <!-- INICIO MAIN -->
-            <h1>CREAR NUEVO ITEM</h1>
-            <form id="create-form" action="#" method="post">
+            <h1>EDITAR ITEM</h1>
+            <form id="edit-form" action="#" method="post">
                 <div>
                     <div> <!-- Categoria del producto -->
                         <label for="item-category">Categoría:</label>
                         <select id="item-category" name="Category" required>
-                            <option value="" disabled selected>Seleccionar</option>
+                            <option value="" disabled selected>Figuras</option>
                             <option value="Category-1">Categoria-1</option>
                             <option value="Category-2">Categoria-2</option>
                             <option value="Category-3">Categoria-3</option>
@@ -40,7 +40,7 @@
                     <div> <!-- Licencia del producto -->
                         <label for="item-license">Licencia:</label>
                         <select id="item-license" name="License" required>
-                            <option value="" disabled selected>Seleccionar</option>
+                            <option value="" disabled selected>Naruto Shippuden</option>
                             <option value="License-1">Licencia-1</option>
                             <option value="License-2">Licencia-2</option>
                             <option value="License-3">Licencia-3</option>
@@ -53,6 +53,7 @@
                     <input id="item-name"
                            type="text"
                            name="Item-name"
+                           value="Kakashi Hatake Shippuden Saga"
                            placeholder="Kakashi Hatake Shippuden Saga"
                            required>
                 </div>
@@ -61,8 +62,8 @@
                     <textarea id="item-description"
                               name="Item-description"
                               rows="10"
-                              cols="40"
-                              placeholder="Descripción del producto"></textarea>
+                              cols="60"
+                              placeholder="Descripción del producto">Figura Funko coleccionable de Kakashi Hatake de la saga Naruto Shipudden invocando chidori.</textarea>
                 </div>
 
                 <div>
@@ -71,6 +72,7 @@
                         <input id="item-sku"
                                type="text"
                                name="Item-sku"
+                               value="NAR001012"
                                placeholder="SSK11AB001"
                                required>
                     </div>
@@ -80,6 +82,7 @@
                         <input id="item-price"
                                type="text"
                                name="Item-price"
+                               value="$ 1.799,00"
                                placeholder="$ 0.000,00"
                                required>
                     </div>
@@ -89,6 +92,7 @@
                         <input id="item-stock"
                                type="number"
                                name="Item-stock"
+                               value="10"
                                placeholder="0"
                                required>
                     </div>
@@ -100,6 +104,7 @@
                         <input id="item-discount"
                                type="text"
                                name="Item-discount"
+                               value="10%"
                                placeholder="0%"
                                required>
                     </div>
@@ -108,7 +113,7 @@
                         <label for="item-fees">Cuotas:</label>
                         <select id="item-fees" name="Fees" required>
                             <option value="" disabled selected>3 Cuotas sin interés</option>
-                            <option value="Fees-1">Cuotas-1</option>
+                            <option value="Fees-1" selected>6 Cuotas sin interés</option>
                             <option value="Fees-2">Cuotas-2</option>
                             <option value="Fees-3">Cuotas-3</option>
                         </select>
@@ -122,18 +127,27 @@
                            name="Item-img">
                 </div>
 
-                <div> <!-- Botones -->
-                    <button type="submit">Agregar Producto</button>
-                    <button type="reset">Limpiar</button>
+                <div> <!-- Imágenes del producto -->
+                    <figure>
+                        <img src="../img/harry-potter/hermione-1.webp" alt="Funkopop de Hermione Granger de frente">
+                        <figcaption>Frente</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../img/harry-potter/hermione-box.webp" alt="Funkopop de Hermione Granger dentro de la caja">
+                        <figcaption>Dorso</figcaption>
+                    </figure>
+                </div>
+
+                <div> <!-- Botón -->
+                    <button type="submit">Modificar Producto</button>
                 </div>
             </form>
         </main> <!-- FIN MAIN -->
 
-
         <footer> <!-- INICIO FOOTER -->
             <nav>
                 <ul>
-                    <li><a href="./shop.html">SHOP</a></li>
+                    <li><a href="./shop/shop.html">SHOP</a></li>
                     <li><a href="./register.html">REGISTRARSE</a></li>
                     <li><a href="./login.html">INGRESAR</a></li>
                     <li><a href="./contact.html">CONTACTO</a></li>
