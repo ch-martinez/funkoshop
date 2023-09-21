@@ -1,0 +1,28 @@
+/* Container de main */
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Container de header y footer */
+.container-menu{
+    padding: var(--spacing-36);
+    background-color: var(--bg-dark-solid);
+}
+
+/* Botones redondos */
+.btn-round{
+    display: inline-block;
+    padding: var(--spacing-12) var(--spacing-68);
+    color: var(--font-light-solid);
+    font-size: var(--font-medium);
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color: var(--bg-dark-solid);
+    border-radius: 50px;
+    transition: var(--transition-links);
+}
+
+.btn-round:hover{
+    background-color: var(--primary-solid);
+}
