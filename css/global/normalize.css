@@ -1,0 +1,38 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: var(--font-base);
+    font-size: 62.5%;
+    color: var(--dark-solid);
+}
+
+a {
+    text-decoration: none;
+    font-family: inherit;
+    color: inherit;
+}
+
+footer {
+    font-family: var(--font-alternative);
+    color: var(--font-light-solid);
+}
+
+ul, ol {
+    list-style-type: none;
+}
+
+img {
+    width: 100%;
+}
+
+input[type="text"]::placeholder {
+    color: var(--dark-300);
+    font-family: var(--font-base);
+    font-weight: 500;
+}

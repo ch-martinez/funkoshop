@@ -1,0 +1,51 @@
+
+/* Cards */
+.card{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 360px;
+    padding: var(--spacing-20);
+    gap: var(--spacing-28);
+}
+
+.card__content{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-12);
+    text-transform: uppercase;
+}
+
+.card__collection{
+    font-size: var(--font-xsmall);
+    font-weight: 500;
+}
+
+.card__name{
+    font-size: var(--font-medium);
+    font-weight: 700;
+}
+
+.card__price{
+    font-size: var(--font-small);
+    font-weight: 400;
+}
+
+.card__payments{
+    font-size: var(--font-xsmall);
+    font-weight: 700;
+    color: var(--secondary-solid);
+}
+
+/* Nuevo item */
+.new-item::before{
+    content: 'NUEVO';
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--font-light-solid);
+    font-size: var(--font-xsmall);
+    font-weight: 500;
+    background-color: var(--primary-solid);
+    padding: var(--spacing-8) var(--spacing-16);
+}
