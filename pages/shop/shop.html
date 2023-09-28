@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SHOP</title>
+    <!--link rel="stylesheet" href="/css/shop.css" /-->
+    <link rel="stylesheet" href="/css/imports.css" />
     <link rel="stylesheet" href="/css/shop.css" />
     <link
       rel="shortcut icon"
@@ -13,36 +15,45 @@
     />
   </head>
   <body>
-    <header class="head_container">
-      <img
-        class="head_img"
-        src="/img/branding/logo_light_horizontal.svg"
-        alt="logo"
-      />
-      <nav class="head_navigation">
-        <ul class="head_navigation_container">
-          <li>
-            <a href="pages/shop/shop.html"
-              ><select name="selec" id="#">
-                <option value="">shop</option>
-                <option value="">2</option>
-              </select></a
-            >
-          </li>
-          <li><a href="pages/contact.html">contacto</a></li>
-          <li><a href="/login.html">Login</a></li>
-          <li>
-            <a href="#"
-              ><img
-                width="32"
-                height="24"
-                src="/img/icons/cart-icon.svg"
-                alt="icon"
-            /></a>
-          </li>
-        </ul>
+    <!-- Inicio header -->
+    <header class="container-menu">
+      <nav class="navbar container">
+          <picture class="navbar__logo">
+              <a href="/index.html">
+                  <img src="/img/branding/logo_light_horizontal.svg" alt="FunkoShop Logo">
+              </a>
+          </picture>
+          <!-- Menu de navegacion -->
+          <ul class="navbar__menu">
+              <li class="navbar__item whit-submenu">
+                  <a class="navbar__link whit-icon" href="/pages/shop/shop.html">SHOP<iconify-icon icon="mdi:chevron-down"></iconify-icon></a>
+                  <!-- Submenu desplegable de productos -->
+                  <ul class="submenu">
+                      <li class="submenu__item navbar__item">
+                          <a class="navbar__link" href="/pages/shop/funkos.html">FUNKOS</a>
+                      </li>
+                      <li class="submenu__item navbar__item">
+                          <a class="navbar__link" href="/pages/shop/remeras.html">REMERAS</a>
+                      </li>
+                      <li class="submenu__item navbar__item">
+                          <a class="navbar__link" href="/pages/shop/llaveros.html">LLAVEROS</a>
+                      </li>
+                  </ul>
+              </li>
+              <li class="navbar__item">
+                  <a class="navbar__link" href="/pages/admin/login.html">LOGIN</a>
+              </li>
+              <li class="navbar__item">
+                  <a class="navbar__link" href="/pages/contact.html">CONTACTO</a>
+              </li>
+              <li class="navbar__item cart-icon">
+                  <a class="navbar__link" href="/pages/shop/cart.html">
+                      <img src="/img/icons/cart-icon.svg" alt="Carrito de compras">
+                  </a>
+              </li>
+          </ul>
       </nav>
-    </header>
+  </header>
     <div class="container-shop">
       <div class="caja1">
         <div class="formulario">
@@ -92,7 +103,7 @@
         <div class="card-shop">
           <div class="imgBox-shop">
             <span class="title-bottom-nuevo">NUEVO</span>
-            <img src="./img/pokemon/pidgeotto-1.webp" alt="trooper" />
+            <img src="/img/pokemon/pidgeotto-1.webp" alt="trooper" />
           </div>
           <div class="content-shop">
             <h6>pokemon</h6>
@@ -198,21 +209,29 @@
         <button>></button>
       </div>
     </div>
-    <footer class="footer">
-      <div class="navigation">
-        <ul>
-          <li><a href="/pages/shop/shop.html">shop</a></li>
-          <li><a href="/pages/register.html">registrese</a></li>
-          <li><a href="/login.html">ingresar</a></li>
-          <li><a href="/pages/contact.html">contacto</a></li>
-        </ul>
-      </div>
-      <div class="copyrigth">
-        <p>All rights reserved 2022, Funkoshop &copy;</p>
-      </div>
-      <div class="logo-footer">
-        <img src="/img/branding/isotype.svg" alt="logo" />
-      </div>
-    </footer>
+    <!-- Inicio footer -->
+    <footer class="container-menu">
+      <section class="navbar navbar--footer container">
+          <!-- Menu navegacion footer -->
+          <ul class="navbar__menu--footer">
+              <li class="navbar__item">
+                  <a class="navbar__link" href="/pages/shop/shop.html">SHOP</a>
+              </li>    
+              <li class="navbar__item">
+                  <a class="navbar__link" href="/pages/admin/login.html">LOGIN</a>
+              </li>
+              <li class="navbar__item">
+                  <a class="navbar__link" href="/pages/contact.html">CONTACTO</a>
+              </li>
+          </ul>
+          <picture class="navbar-footer__logo">
+              <a href="/index.html">
+                  <img src="/img/branding/isotype.svg" alt="FunkoShop Logo">
+              </a>
+          </picture>
+      </section>
+      <!-- Pie de pagina -->
+      <p class="footer__rights">All rights reserved 2023 - Funkoshop &copy;</p>
+  </footer>
   </body>
 </html>

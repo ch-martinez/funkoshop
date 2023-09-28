@@ -1,0 +1,46 @@
+.form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 4rem;
+  }
+  .form__box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.6em;
+  }
+  .form__box--label {
+    min-width: 100px;
+    color: #4f4f4f;
+  }
+  .form__box--input {
+    flex-grow: 3;
+    padding: 1rem 0.5rem;
+    border: none;
+    border-bottom: 2px solid #ff3333;
+  }
+  .form--btn {
+    padding: 1.2rem 2.7rem;
+    max-width: 200px;
+    background-color: #ff3333;
+    color: #ffffff;
+    font-weight: 500;
+    border: none;
+    margin: auto;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .form--btn:hover {
+    background-color: #111111;
+  }
+  .form a {
+    color: #4f4f4f;
+    font-size: 1.2em;
+    text-align: center;
+  }
+  

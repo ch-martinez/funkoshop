@@ -4,26 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/imports.css">
+    <link rel="stylesheet" href="/css/login.css">
     <link rel="shortcut icon" href="/img/branding/isotype.svg" type="image/x-icon">
-    <title><%= pageTitle %> | Funkoshop</title>
+    <title>Login| Funkoshop</title>
 </head>
 <body>
-<header>
-    <nav class="navbar">
-        <picture class="navbar__logo">
-           <!--a href="/"><img class="navbar__logo--img"src="/img/branding/dark.svg" alt="Funkoshop dark logo"></a-->
-           <a href="/"><img class="navbar__logo--img"src="/img/branding/logo_light_horizontal.svg" alt="Funkoshop dark logo"></a>
-        </picture>
-        <ul>
-            <li class="link"><a href="/pages/shop/shop.html">SHOP</a></li>
-            <li class="link"><a href="/pages/contact.html">CONTACTO</a></li>
-            <li class="navbar__item"><a class="navbar__link" href="/login.html">LOGIN</a></li>
-            <!--li class="link icon"><a href="/login.html"><img class="link__icon" src="/img/icons/monster-icon.svg" alt="Monster face icon for login"></a></li-->
-            <li class="link icon"><a href="/pages/shop/cart.html"><img class="link__icon" src="/img/icons/cart-icon.svg" alt="Shop cart icon"></a></li>
-        </ul>
-    </nav>
-</header>
+    <header class="container-menu">
+        <nav class="navbar container">
+            <picture class="navbar__logo">
+                <a href="/index.html">
+                    <img src="/img/branding/logo_light_horizontal.svg" alt="FunkoShop Logo">
+                </a>
+            </picture>
+            <!-- Menu de navegacion -->
+            <ul class="navbar__menu">
+                <li class="navbar__item whit-submenu">
+                    <a class="navbar__link whit-icon" href="/pages/shop/shop.html">SHOP<iconify-icon icon="mdi:chevron-down"></iconify-icon></a>
+                    <!-- Submenu desplegable de productos -->
+                    <ul class="submenu">
+                        <li class="submenu__item navbar__item">
+                            <a class="navbar__link" href="/pages/shop/funkos.html">FUNKOS</a>
+                        </li>
+                        <li class="submenu__item navbar__item">
+                            <a class="navbar__link" href="/pages/shop/remeras.html">REMERAS</a>
+                        </li>
+                        <li class="submenu__item navbar__item">
+                            <a class="navbar__link" href="/pages/shop/llaveros.html">LLAVEROS</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="/pages/admin/login.html">LOGIN</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="/pages/contact.html">CONTACTO</a>
+                </li>
+                <li class="navbar__item cart-icon">
+                    <a class="navbar__link" href="/pages/shop/cart.html">
+                        <img src="/img/icons/cart-icon.svg" alt="Carrito de compras">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 <main>
     <section id="login" class="container">
         <h2>Ingresa a tu cuenta:</h2>
@@ -47,23 +71,29 @@
         </form>
     </section>
 </main>
-<footer>
-    <section>
-        <nav class="navbar">
-            <ul class="navbar__list">
-                <li class="navbar__list--link"><a href="/index.html">HOME</a></li>
-                <li class="navbar__list--link"><a href="/pages/shop/shop.html">SHOP</a></li>
-                <li class="navbar__list--link"><a href="/pages/contact.html">CONTACTO</a></li>
-                <li class="navbar__list--link"><a href="/pages/register.html">REGISTRARSE</a></li>
-                <li class="navbar__list--link"><a href="/login.html">INGRESAR</a></li>
-                <li class="navbar__list--link"><a href="/pages/shop/cart.html">CARRITO</a></li>
-            </ul>
-        </nav>
-        <picture>
-            <img src="/img/branding/isotype.svg" alt="Isotipo de la marca Funkoshop">
+  <!-- Inicio footer -->
+  <footer class="container-menu">
+    <section class="navbar navbar--footer container">
+        <!-- Menu navegacion footer -->
+        <ul class="navbar__menu--footer">
+            <li class="navbar__item">
+                <a class="navbar__link" href="/pages/shop/shop.html">SHOP</a>
+            </li>    
+            <li class="navbar__item">
+                <a class="navbar__link" href="/pages/admin/login.html">LOGIN</a>
+            </li>
+            <li class="navbar__item">
+                <a class="navbar__link" href="/pages/contact.html">CONTACTO</a>
+            </li>
+        </ul>
+        <picture class="navbar-footer__logo">
+            <a href="/index.html">
+                <img src="/img/branding/isotype.svg" alt="FunkoShop Logo">
+            </a>
         </picture>
     </section>
-    <p class="copy">All rights reserved <%= new Date().getFullYear(); %> - Funkoshop &copy;</p>
+    <!-- Pie de pagina -->
+    <p class="footer__rights">All rights reserved 2023 - Funkoshop &copy;</p>
 </footer>
 <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
