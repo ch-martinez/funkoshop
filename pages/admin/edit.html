@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Editar item</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header> <!-- INICIO HEADER -->
+            <nav>
+                <figure>
+                    <a href="../index.html">
+                        <img src="../img/branding/logo_light_horizontal.svg" 
+                             alt="Isotipo de la tienda Funkoshop">
+                    </a>
+                </figure>
+
+                <ul>
+                    <li><a href="./shop.html">VER TIENDA</a></li>
+                    <li><a href="./admin.html">ADMIN</a></li>
+                    <li><a href="../index.html">SALIR</a></li>
+                </ul>
+            </nav>
+        </header> <!-- FIN HEADER -->
+        
+        <main> <!-- INICIO MAIN -->
+            <h1>EDITAR ITEM</h1>
+            <form id="edit-form" action="#" method="post">
+                <div>
+                    <div> <!-- Categoria del producto -->
+                        <label for="item-category">Categoría:</label>
+                        <select id="item-category" name="Category" required>
+                            <option value="" disabled selected>Figuras</option>
+                            <option value="Category-1">Categoria-1</option>
+                            <option value="Category-2">Categoria-2</option>
+                            <option value="Category-3">Categoria-3</option>
+                        </select>
+                    </div>
+
+                    <div> <!-- Licencia del producto -->
+                        <label for="item-license">Licencia:</label>
+                        <select id="item-license" name="License" required>
+                            <option value="" disabled selected>Naruto Shippuden</option>
+                            <option value="License-1">Licencia-1</option>
+                            <option value="License-2">Licencia-2</option>
+                            <option value="License-3">Licencia-3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div> <!-- Nombre del producto -->
+                    <label for="item-name">Nombre del producto:</label>
+                    <input id="item-name"
+                           type="text"
+                           name="Item-name"
+                           value="Kakashi Hatake Shippuden Saga"
+                           placeholder="Kakashi Hatake Shippuden Saga"
+                           required>
+                </div>
+
+                <div> <!-- Descripción del producto -->
+                    <textarea id="item-description"
+                              name="Item-description"
+                              rows="10"
+                              cols="60"
+                              placeholder="Descripción del producto">Figura Funko coleccionable de Kakashi Hatake de la saga Naruto Shipudden invocando chidori.</textarea>
+                </div>
+
+                <div>
+                    <div> <!-- SKU del producto -->
+                        <label for="item-sku">SKU:</label>
+                        <input id="item-sku"
+                               type="text"
+                               name="Item-sku"
+                               value="NAR001012"
+                               placeholder="SSK11AB001"
+                               required>
+                    </div>
+
+                    <div> <!-- Precio del producto -->
+                        <label for="item-price">Precio:</label>
+                        <input id="item-price"
+                               type="text"
+                               name="Item-price"
+                               value="$ 1.799,00"
+                               placeholder="$ 0.000,00"
+                               required>
+                    </div>
+
+                    <div> <!-- Stock del producto -->
+                        <label for="item-stock">Stock:</label>
+                        <input id="item-stock"
+                               type="number"
+                               name="Item-stock"
+                               value="10"
+                               placeholder="0"
+                               required>
+                    </div>
+                </div>
+
+                <div>
+                    <div> <!-- Descuento del producto -->
+                        <label for="item-discount">Descuento:</label>
+                        <input id="item-discount"
+                               type="text"
+                               name="Item-discount"
+                               value="10%"
+                               placeholder="0%"
+                               required>
+                    </div>
+
+                    <div> <!-- Cuotas del producto -->
+                        <label for="item-fees">Cuotas:</label>
+                        <select id="item-fees" name="Fees" required>
+                            <option value="" disabled selected>3 Cuotas sin interés</option>
+                            <option value="Fees-1" selected>6 Cuotas sin interés</option>
+                            <option value="Fees-2">Cuotas-2</option>
+                            <option value="Fees-3">Cuotas-3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div> <!-- Seleccionar imágenes del producto -->
+                    <label for="item-img">Imágenes:</label>
+                    <input id="item-img"
+                           type="file"
+                           name="Item-img">
+                </div>
+
+                <div> <!-- Imágenes del producto -->
+                    <figure>
+                        <img src="../img/harry-potter/hermione-1.webp" alt="Funkopop de Hermione Granger de frente">
+                        <figcaption>Frente</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../img/harry-potter/hermione-box.webp" alt="Funkopop de Hermione Granger dentro de la caja">
+                        <figcaption>Dorso</figcaption>
+                    </figure>
+                </div>
+
+                <div> <!-- Botón -->
+                    <button type="submit">Modificar Producto</button>
+                </div>
+            </form>
+        </main> <!-- FIN MAIN -->
+
+        <footer> <!-- INICIO FOOTER -->
+            <nav>
+                <ul>
+                    <li><a href="./shop/shop.html">SHOP</a></li>
+                    <li><a href="./register.html">REGISTRARSE</a></li>
+                    <li><a href="./login.html">INGRESAR</a></li>
+                    <li><a href="./contact.html">CONTACTO</a></li>
+                </ul>
+
+                <figure>
+                    <a href="../index.html">
+                        <img src="../img/branding/isotype.svg" 
+                             alt="Isotipo de la tienda Funkoshop">
+                    </a>
+                </figure>
+            </nav>
+            <p>All rights reserved 2023 - Funkoshop &copy;</p>
+        </footer> <!-- FIN FOOTER -->
+    </body>
+</html>
