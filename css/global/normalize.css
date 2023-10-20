@@ -12,6 +12,10 @@ html {
     color: var(--dark-solid);
 }
 
+body{
+    background-color: var(--bg-light-soft);
+}
+
 a {
     text-decoration: none;
     font-family: inherit;
