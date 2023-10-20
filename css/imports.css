@@ -3,6 +3,7 @@
 @import url('/css/global/variables.css'); /* Variables globales */
 @import url('/css/global/form.css'); /* Variables globales */
 @import url('/css/global/header_footer.css'); /* Header, navbar y footer */
+@import url('/css/global/inputs.css');
 
 /* Fuentes externas */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap');

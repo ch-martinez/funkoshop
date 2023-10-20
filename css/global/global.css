@@ -53,38 +53,47 @@
 }
 
 /* Cantidad de items a cargar */
-
-.quantity__container{
+.amount{
     display: flex;
     gap: var(--spacing-8);
 }
 
-.quantity-btn__container{
+.amount__btn-container{
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.quantity-btn{
+.amount__btn{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 18px;
     height: 18px;
     padding: 4px;
+    font-size: 0rem;
     background-color: var(--dark-500);
-    color: var(--font-light-solid);
-    font-weight: 700;
+    transition: var(--transition--01);
 }
 
-.quantity__input{
+    .amount__btn:hover{
+        background-color: var(--primary-solid);
+    }
+
+.amount__input{
     width: 100px;
     appearance: none;
     border: 2px solid var(--border-gray);
     font-size: var(--font-medium);
     font-weight: 700;
     text-align: center;
+    transition: var(--transition--01);
 }
+
+    .amount__input:hover, .amount__input:focus{
+        border: 2px solid var(--primary-solid);
+        outline: none;
+    }
 
 /* Hidde arrows of input number */
 .input-hide-arrows::-webkit-outer-spin-button,
