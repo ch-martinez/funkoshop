@@ -9,6 +9,43 @@
     <link rel="stylesheet" href="/css/pages/cart.css">
 
     <title>FS - Carrito de compras</title>
+    <script type='text/javascript'>
+        function addItem(elemento){   
+     
+            console.log ("add");
+            
+            // Obtenemos el div padre del elemento (el elemento "padre")
+            const padre = elemento.parentElement;
+            
+            // Obtenemos el div padre del div padre (el elemento "abuelo")
+            const abuelo = padre.parentElement;
+            // Encuentra el elemento input dentro del abuelo
+            const input = abuelo.querySelector('input[type="number"]');
+            var valorActual= parseInt (input.value);
+            input.value= valorActual + 1;
+            return false;
+    
+        }
+        function deleteItem(elemento){            
+            console.log ("delete");
+            
+            // Obtenemos el div padre del elemento (el elemento "padre")
+            const padre = elemento.parentElement;
+            
+            // Obtenemos el div padre del div padre (el elemento "abuelo")
+            const abuelo = padre.parentElement;
+            // Encuentra el elemento input dentro del abuelo
+            const input = abuelo.querySelector('input[type="number"]');
+            var valorActual= parseInt (input.value);
+            if (valorActual > 1){
+                input.value= valorActual - 1;
+            }
+            return false;
+        }
+        function prueba(){
+            console.log ("prueba");
+        }
+    </script>
 </head>
 <body>
     <!-- Inicio header -->
@@ -96,8 +133,8 @@
                             <div class="quantity__container quantity__container--table">
                                 <input class="quantity__input input-hide-arrows" type="number" value="1" min="1">
                                 <div class="quantity-btn__container">
-                                    <a class="quantity-btn quantity-btn--cart" href=""><img src="/img/icons/+.svg" alt=""></a>
-                                    <a class="quantity-btn quantity-btn--cart" href=""><img src="/img/icons/-.svg" alt="" srcset=""></a>
+                                    <a class="quantity-btn quantity-btn--cart" href="#" onclick="addItem(this)"><img src="/img/icons/+.svg" alt=""></a>
+                                    <a class="quantity-btn quantity-btn--cart" href="#" onclick="deleteItem(this)"><img src="/img/icons/-.svg" alt="" srcset=""></a>
                                 </div>
                             </div>
                         </td>
@@ -136,8 +173,8 @@
                             <div class="quantity__container quantity__container--table">
                                 <input class="quantity__input input-hide-arrows" type="number" value="1" min="1">
                                 <div class="quantity-btn__container">
-                                    <a class="quantity-btn quantity-btn--cart" href=""><img src="/img/icons/+.svg" alt=""></a>
-                                    <a class="quantity-btn quantity-btn--cart" href=""><img src="/img/icons/-.svg" alt="" srcset=""></a>
+                                    <a class="quantity-btn quantity-btn--cart" href="#" onclick="addItem(this) "><img src="/img/icons/+.svg" alt=""></a>
+                                    <a class="quantity-btn quantity-btn--cart" href="#" onclick="deleteItem(this) "><img src="/img/icons/-.svg" alt="" srcset=""></a>
                                 </div>
                             </div>
                         </td>
@@ -208,5 +245,6 @@
         <p class="footer__rights">All rights reserved 2023 - Funkoshop &copy;</p>
     </footer>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> <!-- Import iconos menu de navegación -->
+  
 </body>
 </html>
