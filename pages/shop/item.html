@@ -4,34 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ITEM</title>
+    <!-- Enlazo la hoja de estilos imports.css, pero estaría mejor que esta 
+        se importara desde una propia hoja de estilo item.css -->
+    <link rel="stylesheet" href="/css/imports.css">
 </head>
 
 <body>
-    <header> <!-- Inicio Header -->
-        <nav>
-            <picture>
-                <a href="./pages/index.html">
-                    <img src="./img/branding/logo_light_horizontal.svg" alt="">
+    <!-- HEADER -->
+    <header> 
+        <nav class="navbar container">
+            <figure class="navbar__logo--header">
+                <a href="/index.html">
+                    <img src="/img/branding/logo_light_horizontal.svg" 
+                            alt="Isotipo de la tienda FunkoShop">
                 </a>
-            </picture>
-    
-            <ul>
-                <li>
-                    <a href="./pages/shop.html">SHOP</a>
+            </figure>
+
+            <!-- INICIO MENU -->
+            <ul class="navbar__menu--shop">
+                <li class="navbar__item with-submenu">
+                    <a class="navbar__link with-icon" 
+                        href="#">SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
+                    <!-- INICIO SUBMENU -->
+                    <ul class="submenu">
+                        <li class="submenu__item">
+                            <a class="submenu__link"
+                                href="#">FUNKOS</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a class="submenu__link" 
+                                href="#">REMERAS</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a class="submenu__link" 
+                                href="#">LLAVEROS</a>
+                        </li>
+                    </ul>
+                    <!-- FIN SUBMENU -->
                 </li>
-                <li>
-                    <a href="./pages/contactos.html">CONTACTO</a>
+
+                <li class="navbar__item">
+                    <a class="navbar__link" 
+                        href="/pages/admin/login.html">LOGIN</a>
                 </li>
-                <li>
-                    <a href="./pages/login.html">LOGIN</a>
+
+                <li class="navbar__item">
+                    <a class="navbar__link"
+                        href="/pages/contact.html">CONTACTO</a>
                 </li>
-                <li>
-                    <a href="./pages/cart.html"><img src="./img/icons/cart-icon.svg" alt="CARRITO"></a>
+
+                <li class="navbar__item">
+                    <a class="navbar__cart"
+                        href="/pages/shop/cart.html">
+                        <img src="/img/icons/cart-icon.svg" 
+                                alt="Carrito de compras">
+                    </a>
                 </li>
             </ul>
+            <!-- FIN MENU -->
         </nav>
-    </header> <!-- Final Header-->
-
+    </header> 
         
     <main>
         <!-- Inicio Detalle de producto -->
@@ -108,30 +140,36 @@
         
     </main>
     
-    <footer> <!-- Inicio Footer -->
-        <section>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="./pages/shop.html">SHOP</a>
-                    </li>
-                    <li>
-                        <a href="./pages/login.html">INGRESAR</a>
-                    </li>
-                    <li>
-                        <a href="./pages/contacto.html">CONTACTO</a>
-                    </li>
-                </ul>
-                <picture>
-                    <a href="index.html"><img src="./img/branding/isotype.svg" alt="Isotipo de la marca Funkoshop"></a>
-                </picture>
-            </nav>
-            
-        </section>
-        
-        <p>All rights reserved 2023 - Funkoshop &copy;</p>
-    
-    </footer> <!-- Final Footer -->
+    <!-- FOOTER -->
+    <footer> 
+        <nav class="navbar container">
+            <ul>
+                <li>
+                    <a class="navbar__link" 
+                        href="./shop.html">SHOP</a>
+                </li>
+                <li>
+                    <a class="navbar__link"
+                        href="../admin/login.html">INGRESAR</a>
+                </li>
+                <li>
+                    <a class="navbar__link"
+                        href="../contact.html">CONTACTO</a>
+                </li>
+            </ul>
+
+            <figure class="navbar__logo--footer">
+                <a href="../../index.html">
+                    <img src="../../img/branding/isotype.svg" 
+                            alt="Isotipo de la tienda Funkoshop">
+                </a>
+            </figure>
+        </nav>
+        <p class="footer__copy">All rights reserved 2023 - Funkoshop&copy;</p>
+    </footer>
+
+    <!-- Importo íconos menú de navegación -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
         
 </body>
 </html>

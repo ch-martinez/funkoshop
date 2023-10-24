@@ -1,0 +1,61 @@
+@import url(../imports.css);
+@import url(../global/form.css);
+
+/* --- ESTILOS PROPIOS DE CREATE.HTML --- */
+
+/* --- MAIN --- */
+.main-container {
+    padding: var(--spacing-36) var(--spacing-100);
+    display: flex;
+    align-items: center;
+}
+
+.create__content {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-36);
+}
+
+.create__title {
+    font-family: var(--font-alternative);
+    font-size: var(--font-xjumbo);
+    font-weight: 700;
+}
+
+/* --- FORM --- */
+/* Contenedor de contenido por fila del formulario */
+.create-form__content {
+    display: flex;
+    gap: var(--spacing-48);
+}
+
+/* Separador entre etiqueta y elemento de formulario */
+.create-form__input {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+}
+
+/* Separador entre elementos buttons del formulario */
+.create-form__input--buttons {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-36);
+}
+
+/* Estilos únicos del formulario de esta página */
+.create-form__stock,
+.create-form__discount {
+    text-align: center;
+    width: var(--spacing-36);
+}
+
+.create-form__sku,
+.create-form__price {
+    width: var(--spacing-128);
+}
+
+.create-form__button {
+    padding: var(--spacing-12) var(--spacing-48);
+}

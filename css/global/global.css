@@ -1,22 +1,30 @@
-/* Container de main */
-.container{
+/* Los contenedores de todas las páginas tienen un ancho máximo de 1200px */
+.container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.container--main{
+/* Clase para aquellos contenedores que tengan íconos */
+.with-icon {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+}
+
+
+/* .container--main{
     padding: var(--spacing-68) 0;
     display: flex;
     flex-direction: column;
-}
+} */
 
 /* Container de header y footer */
-.container-menu{
+/* .container-menu{
     padding: var(--spacing-36);
     background-color: var(--bg-dark-solid);
-}
+} */
 
-.container__title{
+/* .container__title{
     display: inline-block;
     width: fit-content;
     font-family: var(--font-alternative);
@@ -24,10 +32,10 @@
     font-weight: 700;
     text-transform: uppercase;
     border-bottom: 5px solid var(--primary-solid);
-}
+} */
 
 /* Botones redondos */
-.btn-round{
+/* .btn-round{
     display: inline-block;
     padding: var(--spacing-12) var(--spacing-68);
     color: var(--font-light-solid);
@@ -37,24 +45,24 @@
     background-color: var(--bg-dark-solid);
     border-radius: 50px;
     transition: var(--transition-links);
-}
+} */
 
-.btn-round:hover{
+/* .btn-round:hover{
     background-color: var(--primary-solid);
-}
+} */
 
-.btn-square{
+/* .btn-square{
     display: inline-block;
     padding: var(--spacing-8) var(--spacing-16);
     background-color: var(--primary-solid);
     color: var(--font-light-solid);
     font-size: var(--font-small);
     text-align: center;
-}
+} */
 
 /* Cantidad de items a cargar */
 
-.quantity__container{
+/* .quantity__container{
     display: flex;
     gap: var(--spacing-8);
 }
@@ -84,11 +92,11 @@
     font-size: var(--font-medium);
     font-weight: 700;
     text-align: center;
-}
+} */
 
 /* Hidde arrows of input number */
-.input-hide-arrows::-webkit-outer-spin-button,
+/* .input-hide-arrows::-webkit-outer-spin-button,
 .input-hide-arrows::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-}
+} */

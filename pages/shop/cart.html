@@ -47,46 +47,62 @@
         }
     </script>
 </head>
+
 <body>
-    <!-- Inicio header -->
-    <header class="container-menu">
+    <!-- HEADER -->
+    <header> 
         <nav class="navbar container">
-            <picture class="navbar__logo">
+            <figure class="navbar__logo--header">
                 <a href="/index.html">
-                    <img src="/img/branding/logo_light_horizontal.svg" alt="FunkoShop Logo">
+                    <img src="/img/branding/logo_light_horizontal.svg" 
+                            alt="Isotipo de la tienda FunkoShop">
                 </a>
-            </picture>
-            <!-- Menu de navegacion -->
-            <ul class="navbar__menu">
-                <li class="navbar__item whit-submenu">
-                    <a class="navbar__link whit-icon" href="/pages/shop/shop.html">SHOP<iconify-icon icon="mdi:chevron-down"></iconify-icon></a>
-                    <!-- Submenu desplegable de productos -->
+            </figure>
+
+            <!-- INICIO MENU -->
+            <ul class="navbar__menu--shop">
+                <li class="navbar__item with-submenu">
+                    <a class="navbar__link with-icon" 
+                        href="#">SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
+                    <!-- INICIO SUBMENU -->
                     <ul class="submenu">
-                        <li class="submenu__item navbar__item">
-                            <a class="navbar__link" href="/pages/shop/funkos.html">FUNKOS</a>
+                        <li class="submenu__item">
+                            <a class="submenu__link"
+                                href="#">FUNKOS</a>
                         </li>
-                        <li class="submenu__item navbar__item">
-                            <a class="navbar__link" href="/pages/shop/remeras.html">REMERAS</a>
+                        <li class="submenu__item">
+                            <a class="submenu__link" 
+                                href="#">REMERAS</a>
                         </li>
-                        <li class="submenu__item navbar__item">
-                            <a class="navbar__link" href="/pages/shop/llaveros.html">LLAVEROS</a>
+                        <li class="submenu__item">
+                            <a class="submenu__link" 
+                                href="#">LLAVEROS</a>
                         </li>
                     </ul>
+                    <!-- FIN SUBMENU -->
                 </li>
+
                 <li class="navbar__item">
-                    <a class="navbar__link" href="/pages/admin/login.html">LOGIN</a>
+                    <a class="navbar__link" 
+                        href="/pages/admin/login.html">LOGIN</a>
                 </li>
+
                 <li class="navbar__item">
-                    <a class="navbar__link" href="/pages/contact.html">CONTACTO</a>
+                    <a class="navbar__link"
+                        href="/pages/contact.html">CONTACTO</a>
                 </li>
-                <li class="navbar__item cart-icon">
-                    <a class="navbar__link" href="/pages/shop/cart.html">
-                        <img src="/img/icons/cart-icon.svg" alt="Carrito de compras">
+
+                <li class="navbar__item">
+                    <a class="navbar__cart"
+                        href="/pages/shop/cart.html">
+                        <img src="/img/icons/cart-icon.svg" 
+                                alt="Carrito de compras">
                     </a>
                 </li>
             </ul>
+            <!-- FIN MENU -->
         </nav>
-    </header>
+    </header> 
 
     <main class="container container--main">
         <!-- Seccion carrito de compra -->
@@ -220,31 +236,36 @@
         </section>
     </main>
 
-    <!-- Inicio footer -->
-    <footer class="container-menu">
-        <section class="navbar navbar--footer container">
-            <!-- Menu navegacion footer -->
-            <ul class="navbar__menu--footer">
-                <li class="navbar__item">
-                    <a class="navbar__link" href="/pages/shop/shop.html">SHOP</a>
+    <!-- FOOTER -->
+    <footer> 
+        <nav class="navbar container">
+            <ul>
+                <li>
+                    <a class="navbar__link" 
+                        href="./shop.html">SHOP</a>
                 </li>
-                <li class="navbar__item">
-                    <a class="navbar__link" href="/pages/admin/login.html">LOGIN</a>
+                <li>
+                    <a class="navbar__link"
+                        href="../admin/login.html">INGRESAR</a>
                 </li>
-                <li class="navbar__item">
-                    <a class="navbar__link" href="/pages/contact.html">CONTACTO</a>
+                <li>
+                    <a class="navbar__link"
+                        href="../contact.html">CONTACTO</a>
                 </li>
             </ul>
-            <picture class="navbar-footer__logo">
-                <a href="/index.html">
-                    <img src="/img/branding/isotype.svg" alt="FunkoShop Logo">
+
+            <figure class="navbar__logo--footer">
+                <a href="../../index.html">
+                    <img src="../../img/branding/isotype.svg" 
+                            alt="Isotipo de la tienda Funkoshop">
                 </a>
-            </picture>
-        </section>
-        <!-- Pie de pagina -->
-        <p class="footer__rights">All rights reserved 2023 - Funkoshop &copy;</p>
+            </figure>
+        </nav>
+        <p class="footer__copy">All rights reserved 2023 - Funkoshop&copy;</p>
     </footer>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> <!-- Import iconos menu de navegación -->
+
+    <!-- Importo íconos menú de navegación -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   
 </body>
 </html>
