@@ -1,5 +1,4 @@
-@import url(../imports.css);
-@import url(../global/form.css);
+@import url('/css/global/form.css');
 
 /* --- ESTILOS PROPIOS DE CREATE.HTML --- */
 

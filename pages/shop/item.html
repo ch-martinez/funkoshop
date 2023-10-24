@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/imports.css">
     <link rel="stylesheet" href="/css/global/card.css">
     <link rel="stylesheet" href="/css/pages/item.css">
+    <link rel="stylesheet" href="/css/global/modal.css">
     <title>Item - FS</title>
 </head>
 <body>
@@ -28,7 +29,7 @@
             <ul class="navbar__menu--shop">
                 <li class="navbar__item with-submenu">
                     <a class="navbar__link with-icon" 
-                        href="#">SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
+                        href="/pages/shop/shop.html">SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
                     <!-- INICIO SUBMENU -->
                     <ul class="submenu">
                         <li class="submenu__item">
@@ -89,8 +90,8 @@
                     <input id="amount__input" class="amount__input input-hide-arrows" type="number" value="1" min="1">
                     <!-- Botones para incrementar y decrementar cantidad de items -->
                     <div class="amount__btn-container">
-                        <a id="btn__add" class="amount__btn" href="#" onclick="btn__add(this)"><img src="/img/icons/+.svg" alt=""></a>
-                        <a id="btn__substract" class="amount__btn" href="#" onclick="btn__substract(this)"><img src="/img/icons/-.svg" alt="" srcset=""></a>
+                        <button id="btn__add" class="amount__btn" href="" onclick="btn__add(this)"><img src="/img/icons/+.svg" alt=""></button>
+                        <button id="btn__substract" class="amount__btn" href="" onclick="btn__substract(this)"><img src="/img/icons/-.svg" alt="" srcset=""></button>
                     </div>
                     <a class="btn-link" href="/pages/shop/cart.html">Agregar al carrito</a>
                 </div>
@@ -332,25 +333,6 @@
         </section>
     </main>
 
-    <!------ Inicio footer ------>
-    <footer class="container--menu">
-        <section class="navbar navbar--footer container">
-
-            <!------ Menu de navegacion footer ------>
-            <ul class="navbar__menu--footer">
-                <li class="navbar__item">
-                    <a class="navbar__link" href="/pages/shop/shop.html">SHOP</a>
-                </li>
-                <li class="navbar__item">
-                    <a class="navbar__link" href="/pages/admin/login.html">LOGIN</a>
-                </li>
-                <li class="navbar__item">
-                    <a class="navbar__link" href="/pages/contact.html">CONTACTO</a>
-                </li>
-            </ul>
-        </section> <!-- Final Productos relacionados -->
-    </main>
-    
     <!-- FOOTER -->
     <footer> 
         <nav class="navbar container">
