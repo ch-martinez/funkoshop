@@ -26,32 +26,6 @@
     border-bottom: 5px solid var(--primary-solid);
 }
 
-/* Botones redondos */
-.btn-round{
-    display: inline-block;
-    padding: var(--spacing-12) var(--spacing-68);
-    color: var(--font-light-solid);
-    font-size: var(--font-medium);
-    font-weight: 500;
-    text-transform: uppercase;
-    background-color: var(--bg-dark-solid);
-    border-radius: 50px;
-    transition: var(--transition-links);
-}
-
-.btn-round:hover{
-    background-color: var(--primary-solid);
-}
-
-.btn-square{
-    display: inline-block;
-    padding: var(--spacing-8) var(--spacing-16);
-    background-color: var(--primary-solid);
-    color: var(--font-light-solid);
-    font-size: var(--font-small);
-    text-align: center;
-}
-
 /* Cantidad de items a cargar */
 .amount{
     display: flex;
@@ -94,10 +68,3 @@
         border: 2px solid var(--primary-solid);
         outline: none;
     }
-
-/* Hidde arrows of input number */
-.input-hide-arrows::-webkit-outer-spin-button,
-.input-hide-arrows::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}

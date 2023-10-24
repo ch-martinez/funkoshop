@@ -121,13 +121,24 @@
 .input-select{
     background-color: var(--bg-light-solid);
     padding: var(--spacing-8);
+    padding-right: var(--spacing-32);
     font-size: var(--font-medium-20);
     font-weight: 500;
     border-radius: 6px;
     border: 2px solid #30343F;
     outline: none;
     transition: var(--transition--01);
+    /* Estilos flecha del dropdown */
+    appearance: none;
+    background-image: url('https://api.iconify.design/eva/arrow-up-fill.svg?flip=vertical');
+    background-repeat: no-repeat;
+    background-position: right 0.3rem top 50%;
+    background-size: 2.5rem auto;
 }
+    /* Cambia direccion flecha del dropdown */
+    .input-select:active{
+            background-image: url('https://api.iconify.design/eva/arrow-up-fill.svg');
+        }
 
 /* Textarea */
 .input-textarea{
@@ -149,6 +160,7 @@
     .input-textarea:hover
     {
         background-color: var(--row-odd);
+        background-color: var(--bg-light-soft);
         border: 2px solid var(--primary-solid);
     }
 

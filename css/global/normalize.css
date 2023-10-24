@@ -13,7 +13,15 @@ html {
 }
 
 body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
     background-color: var(--bg-light-soft);
+}
+
+main{
+    flex-grow: 1;
 }
 
 a {

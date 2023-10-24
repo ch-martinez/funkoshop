@@ -62,19 +62,6 @@
     padding: var(--spacing-8) var(--spacing-16);
 }
 
-/* Seccion carousel*/
-.carousel__title{
-    font-size: var(--font-display);
-    font-weight: 700;
-    margin: var(--spacing-68) 0;
-}
-
-/* Contenedor de las cards */
-.carousel__cards{
-    display: flex;
-    justify-content: space-around;
-}
-
 /* Cambia de vista al hacer hover */
 .card__img-back{
     display: none;
@@ -90,4 +77,30 @@
 
 .card__cover img{
     animation: fade 0.7s;
+}
+
+/* Seccion carousel*/
+.glid__title{
+    font-size: var(--font-display);
+    font-weight: 700;
+    margin: var(--spacing-68) 0;
+}
+
+/* GLID fix arrow */
+.glide__arrow{
+    top: 62%;
+    background-color: var(--bg-light-solid);
+    box-shadow: var(--border-shadow--03);
+    color: var(--bg-dark);
+    font-size: 1.5rem;
+    line-height: 0;
+}
+
+.glide__arrow--left{
+    left: -15px;
+}
+
+.glide__arrow--right{
+    /* right: 17px; */
+    right: -15px;
 }
