@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
+<html lang="es"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FunkoShop</title>
-    <link rel="icon" type="image/jpg" href="/img/favicon.ico"/>
+    <link rel="icon" type="image/jpg" href="/img/favicon.ico" />
     <!-- CSS Libreria glide -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
@@ -13,44 +12,52 @@
     <link rel="stylesheet" href="/css/global/card.css"> <!-- Estilos cards de ultimos lanzamientos -->
     <link rel="stylesheet" href="/css/pages/home.css"> <!-- Estilos de pagina home -->
 </head>
+
 <body>
     <!-- Inicio header -->
-    <header class="container-menu">
+    <header>
         <nav class="navbar container">
-            <picture class="navbar__logo">
-                <a href="/index.html">
-                    <img src="/img/branding/logo_light_horizontal.svg" alt="FunkoShop Logo">
+            <figure class="navbar__logo--header">
+                <a href="./index.html">
+                    <img src="img/branding/logo_light_horizontal.svg" alt="Isotipo de la tienda FunkoShop">
                 </a>
-            </picture>
-            <!-- Menu de navegacion -->
-            <ul class="navbar__menu">
-                <li class="navbar__item whit-submenu">
-                    <a class="navbar__link whit-icon" href="/pages/shop/shop.html">SHOP<iconify-icon icon="mdi:chevron-down"></iconify-icon></a>
-                    <!-- Submenu desplegable de productos -->
+            </figure>
+
+            <!-- INICIO MENU -->
+            <ul class="navbar__menu--shop">
+                <li class="navbar__item with-submenu">
+                    <a class="navbar__link with-icon" href="#">SHOP<iconify-icon
+                            icon="tabler:chevron-down"></iconify-icon></a>
+                    <!-- INICIO SUBMENU -->
                     <ul class="submenu">
-                        <li class="submenu__item navbar__item">
-                            <a class="navbar__link" href="/pages/shop/funkos.html">FUNKOS</a>
+                        <li class="submenu__item">
+                            <a class="submenu__link" href="#">FUNKOS</a>
                         </li>
-                        <li class="submenu__item navbar__item">
-                            <a class="navbar__link" href="/pages/shop/remeras.html">REMERAS</a>
+                        <li class="submenu__item">
+                            <a class="submenu__link" href="#">REMERAS</a>
                         </li>
-                        <li class="submenu__item navbar__item">
-                            <a class="navbar__link" href="/pages/shop/llaveros.html">LLAVEROS</a>
+                        <li class="submenu__item">
+                            <a class="submenu__link" href="#">LLAVEROS</a>
                         </li>
                     </ul>
+                    <!-- FIN SUBMENU -->
                 </li>
+
                 <li class="navbar__item">
                     <a class="navbar__link" href="/pages/admin/login.html">LOGIN</a>
                 </li>
+
                 <li class="navbar__item">
                     <a class="navbar__link" href="/pages/contact.html">CONTACTO</a>
                 </li>
-                <li class="navbar__item cart-icon">
-                    <a class="navbar__link" href="/pages/shop/cart.html">
+
+                <li class="navbar__item">
+                    <a class="navbar__cart" href="/pages/shop/cart.html">
                         <img src="/img/icons/cart-icon.svg" alt="Carrito de compras">
                     </a>
                 </li>
             </ul>
+            <!-- FIN MENU -->
         </nav>
     </header>
 
@@ -71,7 +78,8 @@
             <article class="collection">
                 <section class="collection__content">
                     <h3 class="collection__title">star wars & the mandalorian</h3>
-                    <p class="collection__description">Disfruta de una saga que sigue agregando personajes a su colección</p>
+                    <p class="collection__description">Disfruta de una saga que sigue agregando personajes a su
+                        colección</p>
                     <hr class="collection__line">
                     <a href="" class="btn-link-rounded">VER COLECCIÓN</a>
                 </section>
@@ -83,7 +91,8 @@
             <article class="collection">
                 <section class="collection__content">
                     <h3 class="collection__title">pokemon indigo</h3>
-                    <p class="collection__description">Atrapa todos los que puedas y disfruta de una coleccion llena de amigos</p>
+                    <p class="collection__description">Atrapa todos los que puedas y disfruta de una coleccion llena de
+                        amigos</p>
                     <hr class="collection__line">
                     <a href="" class="btn-link-rounded">VER COLECCIÓN</a>
                 </section>
@@ -108,255 +117,259 @@
         <!-- Seccion de últimos lanzamientos -->
         <section class="glide glide--carousel">
             <h2 class="glid__title">ÚLTIMOS LANZAMIENTOS<h2>
-            <!-- Slide de cards -->
-            <section class="glide__track" data-glide-el="track">
-                <ul class="glide__slides">
-                    <li class="glide__slide">
-                        <article class="card new-item">
-                            <a class="card__link" href="/pages/shop/item.html">
-                                <picture class="card__cover">
-                                    <img class="card__img-front" src="/img/harry-potter/harry-1.webp" alt="">
-                                    <img class="card__img-back" src="/img/harry-potter/harry-box.webp" alt="">
-                                </picture>
-                                <section class="card__content">
-                                    <span class="card__collection">harry potter</span>
-                                    <h4 class="card__name">Harry Potter</h4>
-                                    <span class="card__price">$ 1799,99</span>
-                                    <span class="card__payments">3 cuotas sin interés</span>
-                                </section>
-                            </a>
-                        </article>
-                    </li>
-                    <li class="glide__slide">
-                        <article class="card new-item">
-                            <a class="card__link" href="/pages/shop/item.html">
-                                <picture class="card__cover">
-                                    <img class="card__img-front" src="/img/harry-potter/hermione-1.webp" alt="">
-                                    <img class="card__img-back" src="/img/harry-potter/hermione-box.webp" alt="">
-                                </picture>
-                                <section class="card__content">
-                                    <span class="card__collection">harry potter</span>
-                                    <h4 class="card__name">Hermione</h4>
-                                    <span class="card__price">$ 1799,99</span>
-                                    <span class="card__payments">3 cuotas sin interés</span>
-                                </section>
-                            </a>
-                        </article>
-                    </li>
-                    <li class="glide__slide">
-                        <article class="card new-item">
-                            <a class="card__link" href="/pages/shop/item.html">
-                                <picture class="card__cover">
-                                    <img class="card__img-front" src="/img/harry-potter/luna-1.webp" alt="">
-                                    <img class="card__img-back" src="/img/harry-potter/luna-box.webp" alt="">
-                                </picture>
-                                <section class="card__content">
-                                    <span class="card__collection">harry potter</span>
-                                    <h4 class="card__name">Luna lovegood</h4>
-                                    <span class="card__price">$ 1799,99</span>
-                                    <span class="card__payments">3 cuotas sin interés</span>
-                                </section>
-                            </a>
-                        </article>
-                    </li>
-                    <li class="glide__slide">
-                        <article class="card new-item">
-                            <a class="card__link" href="/pages/shop/item.html">
-                                <picture class="card__cover">
-                                    <img class="card__img-front" src="/img/harry-potter/snape-patronus-1.webp" alt="">
-                                    <img class="card__img-back" src="/img/harry-potter/snape-patronus-box.webp" alt="">
-                                </picture>
-                                <section class="card__content">
-                                    <span class="card__collection">harry potter</span>
-                                    <h4 class="card__name">Severus patronus</h4>
-                                    <span class="card__price">$ 1799,99</span>
-                                    <span class="card__payments">3 cuotas sin interés</span>
-                                </section>
-                            </a>
-                        </article>
-                    </li>
-                    <li class="glide__slide">
-                        <article class="card new-item">
-                            <a class="card__link" href="/pages/shop/item.html">
-                                <picture class="card__cover">
-                                    <img class="card__img-front" src="/img/pokemon/charmander-1.webp" alt="">
-                                    <img class="card__img-back" src="/img/pokemon/charmander-box.webp" alt="">
-                                </picture>
-                                <section class="card__content">
-                                    <span class="card__collection">pokemon</span>
-                                    <h4 class="card__name">charmander</h4>
-                                    <span class="card__price">$ 1799,99</span>
-                                    <span class="card__payments">3 cuotas sin interés</span>
-                                </section>
-                            </a>
-                        </article>
-                    </li>
-                    <li class="glide__slide">
-                        <article class="card new-item">
-                            <a class="card__link" href="/pages/shop/item.html">
-                                <picture class="card__cover">
-                                    <img class="card__img-front" src="/img/pokemon/dragonite-1.webp" alt="">
-                                    <img class="card__img-back" src="/img/pokemon/dragonite-box.webp" alt="">
-                                </picture>
-                                <section class="card__content">
-                                    <span class="card__collection">pokemon</span>
-                                    <h4 class="card__name">dragonite</h4>
-                                    <span class="card__price">$ 1799,99</span>
-                                    <span class="card__payments">3 cuotas sin interés</span>
-                                </section>
-                            </a>
-                        </article>
-                    </li>
-                    <li class="glide__slide">
-                        <article class="card new-item">
-                            <a class="card__link" href="/pages/shop/item.html">
-                                <picture class="card__cover">
-                                    <img class="card__img-front" src="/img/pokemon/pidgeotto-1.webp" alt="">
-                                    <img class="card__img-back" src="/img/pokemon/pidgeotto-box.webp" alt="">
-                                </picture>
-                                <section class="card__content">
-                                    <span class="card__collection">pokemon</span>
-                                    <h4 class="card__name">pidgeotto</h4>
-                                    <span class="card__price">$ 1799,99</span>
-                                    <span class="card__payments">3 cuotas sin interés</span>
-                                </section>
-                            </a>
-                        </article>
-                    </li>
-                    <li class="glide__slide">
-                        <article class="card new-item">
-                            <a class="card__link" href="/pages/shop/item.html">
-                                <picture class="card__cover">
-                                    <img class="card__img-front" src="/img/pokemon/pikachu-1.webp" alt="">
-                                    <img class="card__img-back" src="/img/pokemon/pikachu-box.webp" alt="">
-                                </picture>
-                                <section class="card__content">
-                                    <span class="card__collection">pokemon</span>
-                                    <h4 class="card__name">pikachu</h4>
-                                    <span class="card__price">$ 1799,99</span>
-                                    <span class="card__payments">3 cuotas sin interés</span>
-                                </section>
-                            </a>
-                        </article>
-                    </li>
-                    <li class="glide__slide">
-                        <article class="card new-item">
-                            <a class="card__link" href="/pages/shop/item.html">
-                                <picture class="card__cover">
-                                    <img class="card__img-front" src="/img/pokemon/vulpix-1.webp" alt="">
-                                    <img class="card__img-back" src="/img/pokemon/vulpix-box.webp" alt="">
-                                </picture>
-                                <section class="card__content">
-                                    <span class="card__collection">pokemon</span>
-                                    <h4 class="card__name">vulpix</h4>
-                                    <span class="card__price">$ 1799,99</span>
-                                    <span class="card__payments">3 cuotas sin interés</span>
-                                </section>
-                            </a>
-                        </article>
-                    </li>
-                    <li class="glide__slide">
-                        <article class="card new-item">
-                            <a class="card__link" href="/pages/shop/item.html">
-                                <picture class="card__cover">
-                                    <img class="card__img-front" src="/img/star-wars/trooper-1.webp" alt="">
-                                    <img class="card__img-back" src="/img/star-wars/trooper-box.webp" alt="">
-                                </picture>
-                                <section class="card__content">
-                                    <span class="card__collection">star wars</span>
-                                    <h4 class="card__name">stormtrooper lightsaber</h4>
-                                    <span class="card__price">$ 1799,99</span>
-                                    <span class="card__payments">3 cuotas sin interés</span>
-                                </section>
-                            </a>
-                        </article>
-                    </li>
-                    <li class="glide__slide">
-                        <article class="card new-item">
-                            <a class="card__link" href="/pages/shop/item.html">
-                                <picture class="card__cover">
-                                    <img class="card__img-front" src="/img/star-wars/luke-1.webp" alt="">
-                                    <img class="card__img-back" src="/img/star-wars/luke-box.webp" alt="">
-                                </picture>
-                                <section class="card__content">
-                                    <span class="card__collection">star wars</span>
-                                    <h4 class="card__name">luke skywalker</h4>
-                                    <span class="card__price">$ 1799,99</span>
-                                    <span class="card__payments">3 cuotas sin interés</span>
-                                </section>
-                            </a>
-                        </article>
-                    </li>
-                    <li class="glide__slide">
-                        <article class="card new-item">
-                            <a class="card__link" href="/pages/shop/item.html">
-                                <picture class="card__cover">
-                                    <img class="card__img-front" src="/img/star-wars/bobbafeth-1.webp" alt="">
-                                    <img class="card__img-back" src="/img/star-wars/bobbafeth-box.webp" alt="">
-                                </picture>
-                                <section class="card__content">
-                                    <span class="card__collection">star wars</span>
-                                    <h4 class="card__name">bobbafeth</h4>
-                                    <span class="card__price">$ 1799,99</span>
-                                    <span class="card__payments">3 cuotas sin interés</span>
-                                </section>
-                            </a>
-                        </article>
-                    </li>
-                    <li class="glide__slide">
-                        <article class="card new-item">
-                            <a class="card__link" href="/pages/shop/item.html">
-                                <picture class="card__cover">
-                                    <img class="card__img-front" src="/img/star-wars/baby-yoda-1.webp" alt="">
-                                    <img class="card__img-back" src="/img/star-wars/baby-yoda-box.webp" alt="">
-                                </picture>
-                                <section class="card__content">
-                                    <span class="card__collection">star wars</span>
-                                    <h4 class="card__name">baby yoda</h4>
-                                    <span class="card__price">$ 1799,99</span>
-                                    <span class="card__payments">3 cuotas sin interés</span>
-                                </section>
-                            </a>
-                        </article>
-                    </li>
-                </ul>
-            </section>
-            <!-- FLechas de contol slide -->
-            <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><iconify-icon icon="octicon:chevron-up-12" rotate="270deg"></iconify-icon></button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><iconify-icon icon="octicon:chevron-up-12" rotate="90deg"></iconify-icon></button>
-            </div>
+                    <!-- Slide de cards -->
+                    <section class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides">
+                            <li class="glide__slide">
+                                <article class="card new-item">
+                                    <a class="card__link" href="/pages/shop/item.html">
+                                        <picture class="card__cover">
+                                            <img class="card__img-front" src="/img/harry-potter/harry-1.webp" alt="">
+                                            <img class="card__img-back" src="/img/harry-potter/harry-box.webp" alt="">
+                                        </picture>
+                                        <section class="card__content">
+                                            <span class="card__collection">harry potter</span>
+                                            <h4 class="card__name">Harry Potter</h4>
+                                            <span class="card__price">$ 1799,99</span>
+                                            <span class="card__payments">3 cuotas sin interés</span>
+                                        </section>
+                                    </a>
+                                </article>
+                            </li>
+                            <li class="glide__slide">
+                                <article class="card new-item">
+                                    <a class="card__link" href="/pages/shop/item.html">
+                                        <picture class="card__cover">
+                                            <img class="card__img-front" src="/img/harry-potter/hermione-1.webp" alt="">
+                                            <img class="card__img-back" src="/img/harry-potter/hermione-box.webp"
+                                                alt="">
+                                        </picture>
+                                        <section class="card__content">
+                                            <span class="card__collection">harry potter</span>
+                                            <h4 class="card__name">Hermione</h4>
+                                            <span class="card__price">$ 1799,99</span>
+                                            <span class="card__payments">3 cuotas sin interés</span>
+                                        </section>
+                                    </a>
+                                </article>
+                            </li>
+                            <li class="glide__slide">
+                                <article class="card new-item">
+                                    <a class="card__link" href="/pages/shop/item.html">
+                                        <picture class="card__cover">
+                                            <img class="card__img-front" src="/img/harry-potter/luna-1.webp" alt="">
+                                            <img class="card__img-back" src="/img/harry-potter/luna-box.webp" alt="">
+                                        </picture>
+                                        <section class="card__content">
+                                            <span class="card__collection">harry potter</span>
+                                            <h4 class="card__name">Luna lovegood</h4>
+                                            <span class="card__price">$ 1799,99</span>
+                                            <span class="card__payments">3 cuotas sin interés</span>
+                                        </section>
+                                    </a>
+                                </article>
+                            </li>
+                            <li class="glide__slide">
+                                <article class="card new-item">
+                                    <a class="card__link" href="/pages/shop/item.html">
+                                        <picture class="card__cover">
+                                            <img class="card__img-front" src="/img/harry-potter/snape-patronus-1.webp"
+                                                alt="">
+                                            <img class="card__img-back" src="/img/harry-potter/snape-patronus-box.webp"
+                                                alt="">
+                                        </picture>
+                                        <section class="card__content">
+                                            <span class="card__collection">harry potter</span>
+                                            <h4 class="card__name">Severus patronus</h4>
+                                            <span class="card__price">$ 1799,99</span>
+                                            <span class="card__payments">3 cuotas sin interés</span>
+                                        </section>
+                                    </a>
+                                </article>
+                            </li>
+                            <li class="glide__slide">
+                                <article class="card new-item">
+                                    <a class="card__link" href="/pages/shop/item.html">
+                                        <picture class="card__cover">
+                                            <img class="card__img-front" src="/img/pokemon/charmander-1.webp" alt="">
+                                            <img class="card__img-back" src="/img/pokemon/charmander-box.webp" alt="">
+                                        </picture>
+                                        <section class="card__content">
+                                            <span class="card__collection">pokemon</span>
+                                            <h4 class="card__name">charmander</h4>
+                                            <span class="card__price">$ 1799,99</span>
+                                            <span class="card__payments">3 cuotas sin interés</span>
+                                        </section>
+                                    </a>
+                                </article>
+                            </li>
+                            <li class="glide__slide">
+                                <article class="card new-item">
+                                    <a class="card__link" href="/pages/shop/item.html">
+                                        <picture class="card__cover">
+                                            <img class="card__img-front" src="/img/pokemon/dragonite-1.webp" alt="">
+                                            <img class="card__img-back" src="/img/pokemon/dragonite-box.webp" alt="">
+                                        </picture>
+                                        <section class="card__content">
+                                            <span class="card__collection">pokemon</span>
+                                            <h4 class="card__name">dragonite</h4>
+                                            <span class="card__price">$ 1799,99</span>
+                                            <span class="card__payments">3 cuotas sin interés</span>
+                                        </section>
+                                    </a>
+                                </article>
+                            </li>
+                            <li class="glide__slide">
+                                <article class="card new-item">
+                                    <a class="card__link" href="/pages/shop/item.html">
+                                        <picture class="card__cover">
+                                            <img class="card__img-front" src="/img/pokemon/pidgeotto-1.webp" alt="">
+                                            <img class="card__img-back" src="/img/pokemon/pidgeotto-box.webp" alt="">
+                                        </picture>
+                                        <section class="card__content">
+                                            <span class="card__collection">pokemon</span>
+                                            <h4 class="card__name">pidgeotto</h4>
+                                            <span class="card__price">$ 1799,99</span>
+                                            <span class="card__payments">3 cuotas sin interés</span>
+                                        </section>
+                                    </a>
+                                </article>
+                            </li>
+                            <li class="glide__slide">
+                                <article class="card new-item">
+                                    <a class="card__link" href="/pages/shop/item.html">
+                                        <picture class="card__cover">
+                                            <img class="card__img-front" src="/img/pokemon/pikachu-1.webp" alt="">
+                                            <img class="card__img-back" src="/img/pokemon/pikachu-box.webp" alt="">
+                                        </picture>
+                                        <section class="card__content">
+                                            <span class="card__collection">pokemon</span>
+                                            <h4 class="card__name">pikachu</h4>
+                                            <span class="card__price">$ 1799,99</span>
+                                            <span class="card__payments">3 cuotas sin interés</span>
+                                        </section>
+                                    </a>
+                                </article>
+                            </li>
+                            <li class="glide__slide">
+                                <article class="card new-item">
+                                    <a class="card__link" href="/pages/shop/item.html">
+                                        <picture class="card__cover">
+                                            <img class="card__img-front" src="/img/pokemon/vulpix-1.webp" alt="">
+                                            <img class="card__img-back" src="/img/pokemon/vulpix-box.webp" alt="">
+                                        </picture>
+                                        <section class="card__content">
+                                            <span class="card__collection">pokemon</span>
+                                            <h4 class="card__name">vulpix</h4>
+                                            <span class="card__price">$ 1799,99</span>
+                                            <span class="card__payments">3 cuotas sin interés</span>
+                                        </section>
+                                    </a>
+                                </article>
+                            </li>
+                            <li class="glide__slide">
+                                <article class="card new-item">
+                                    <a class="card__link" href="/pages/shop/item.html">
+                                        <picture class="card__cover">
+                                            <img class="card__img-front" src="/img/star-wars/trooper-1.webp" alt="">
+                                            <img class="card__img-back" src="/img/star-wars/trooper-box.webp" alt="">
+                                        </picture>
+                                        <section class="card__content">
+                                            <span class="card__collection">star wars</span>
+                                            <h4 class="card__name">stormtrooper lightsaber</h4>
+                                            <span class="card__price">$ 1799,99</span>
+                                            <span class="card__payments">3 cuotas sin interés</span>
+                                        </section>
+                                    </a>
+                                </article>
+                            </li>
+                            <li class="glide__slide">
+                                <article class="card new-item">
+                                    <a class="card__link" href="/pages/shop/item.html">
+                                        <picture class="card__cover">
+                                            <img class="card__img-front" src="/img/star-wars/luke-1.webp" alt="">
+                                            <img class="card__img-back" src="/img/star-wars/luke-box.webp" alt="">
+                                        </picture>
+                                        <section class="card__content">
+                                            <span class="card__collection">star wars</span>
+                                            <h4 class="card__name">luke skywalker</h4>
+                                            <span class="card__price">$ 1799,99</span>
+                                            <span class="card__payments">3 cuotas sin interés</span>
+                                        </section>
+                                    </a>
+                                </article>
+                            </li>
+                            <li class="glide__slide">
+                                <article class="card new-item">
+                                    <a class="card__link" href="/pages/shop/item.html">
+                                        <picture class="card__cover">
+                                            <img class="card__img-front" src="/img/star-wars/bobbafeth-1.webp" alt="">
+                                            <img class="card__img-back" src="/img/star-wars/bobbafeth-box.webp" alt="">
+                                        </picture>
+                                        <section class="card__content">
+                                            <span class="card__collection">star wars</span>
+                                            <h4 class="card__name">bobbafeth</h4>
+                                            <span class="card__price">$ 1799,99</span>
+                                            <span class="card__payments">3 cuotas sin interés</span>
+                                        </section>
+                                    </a>
+                                </article>
+                            </li>
+                            <li class="glide__slide">
+                                <article class="card new-item">
+                                    <a class="card__link" href="/pages/shop/item.html">
+                                        <picture class="card__cover">
+                                            <img class="card__img-front" src="/img/star-wars/baby-yoda-1.webp" alt="">
+                                            <img class="card__img-back" src="/img/star-wars/baby-yoda-box.webp" alt="">
+                                        </picture>
+                                        <section class="card__content">
+                                            <span class="card__collection">star wars</span>
+                                            <h4 class="card__name">baby yoda</h4>
+                                            <span class="card__price">$ 1799,99</span>
+                                            <span class="card__payments">3 cuotas sin interés</span>
+                                        </section>
+                                    </a>
+                                </article>
+                            </li>
+                        </ul>
+                    </section>
+                    <!-- FLechas de contol slide -->
+                    <div class="glide__arrows" data-glide-el="controls">
+                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><iconify-icon
+                                icon="octicon:chevron-up-12" rotate="270deg"></iconify-icon></button>
+                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><iconify-icon
+                                icon="octicon:chevron-up-12" rotate="90deg"></iconify-icon></button>
+                    </div>
         </section>
     </main>
 
-<!-- Inicio footer -->
-    <footer class="container-menu">
-        <section class="navbar navbar--footer container">
-            <!-- Menu navegacion footer -->
-            <ul class="navbar__menu--footer">
-                <li class="navbar__item">
-                    <a class="navbar__link" href="/pages/shop/shop.html">SHOP</a>
-                </li>    
-                <li class="navbar__item">
-                    <a class="navbar__link" href="/pages/admin/login.html">LOGIN</a>
+    <!-- FOOTER -->
+    <footer>
+        <nav class="navbar container">
+            <ul>
+                <li>
+                    <a class="navbar__link" href="pages/shop/shop.html">SHOP</a>
                 </li>
-                <li class="navbar__item">
+                <li>
+                    <a class="navbar__link" href="/pages/admin/login.html">INGRESAR</a>
+                </li>
+                <li>
                     <a class="navbar__link" href="/pages/contact.html">CONTACTO</a>
                 </li>
             </ul>
-            <picture class="navbar-footer__logo">
-                <a href="/index.html">
-                    <img src="/img/branding/isotype.svg" alt="FunkoShop Logo">
+
+            <figure class="navbar__logo--footer">
+                <a href="./index.html">
+                    <img src="/img/branding/isotype.svg" alt="Isotipo de la tienda Funkoshop">
                 </a>
-            </picture>
-        </section>
-        <!-- Pie de pagina -->
-        <p class="footer__rights">All rights reserved 2023 - Funkoshop &copy;</p>
+            </figure>
+        </nav>
+        <p class="footer__copy">All rights reserved 2023 - Funkoshop&copy;</p>
     </footer>
     <!------ Scripts EXTERNOS ------>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> <!-- Iconos -->
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script> <!-- Glide (Carrousel) -->
-<!------ Scripts PROPIOS ------>
-<script src="/scripts/glide-config.js"></script> <!-- Configuracion de libreria Glide -->
+    <!------ Scripts PROPIOS ------>
+    <script src="/scripts/glide-config.js"></script> <!-- Configuracion de libreria Glide -->
 </body>
 </html>

@@ -12,11 +12,13 @@ html {
     color: var(--dark-solid);
 }
 
-body{
+
+/* Con esto se evita que haya contenido vacío cuando se achica el zoom del 
+   navegador */
+body {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-
+    min-height: 100vh;
     background-color: var(--bg-light-soft);
 }
 
@@ -30,10 +32,10 @@ a {
     color: inherit;
 }
 
-footer {
-    font-family: var(--font-alternative);
-    color: var(--font-light-solid);
+p {
+    font-size: 1.8rem;
 }
+
 
 ul, ol {
     list-style-type: none;
@@ -41,10 +43,4 @@ ul, ol {
 
 img {
     width: 100%;
-}
-
-input[type="text"]::placeholder {
-    color: var(--dark-300);
-    font-family: var(--font-base);
-    font-weight: 500;
 }

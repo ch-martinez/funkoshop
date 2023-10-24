@@ -1,29 +1,14 @@
-/* Container de main */
-.container{
+/* Los contenedores de todas las páginas tienen un ancho máximo de 1200px */
+.container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.container--main{
-    padding: var(--spacing-68) 0;
+/* Clase para aquellos contenedores que tengan íconos */
+.with-icon {
     display: flex;
-    flex-direction: column;
-}
-
-/* Container de header y footer */
-.container-menu{
-    padding: var(--spacing-36);
-    background-color: var(--bg-dark-solid);
-}
-
-.container__title{
-    display: inline-block;
-    width: fit-content;
-    font-family: var(--font-alternative);
-    font-size: var(--font-display);
-    font-weight: 700;
-    text-transform: uppercase;
-    border-bottom: 5px solid var(--primary-solid);
+    align-items: center;
+    gap: var(--spacing-8);
 }
 
 /* Cantidad de items a cargar */

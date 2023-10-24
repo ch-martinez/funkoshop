@@ -1,52 +1,170 @@
-.form {
-    margin: auto;
+/* --- <form> --- */
+.form__container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    gap: 4rem;
+
+    gap: var(--spacing-36);
 }
 
-.form__box {
+/* --- <label> --- */
+.form__label {
+    font-size: var(--font-large);
+    font-weight: 400;
+}
+
+.form__label--terms {
+
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    gap: 1rem;
-    font-size: 1.6em;
+    font-size: var(--font-medium);
+    font-weight: 400;
 }
 
-.form__box--label {
-    min-width: 100px;
-    color: #4f4f4f;
+.form__label--terms > input {
+    margin-right: var(--spacing-8);
 }
 
-.form__box--input {
-    flex-grow: 3;
-    padding: 1rem 0.5rem;
-    border: none;
-    border-bottom: 2px solid #ff3333;
-    background-color: inherit;
+.form__label--terms > a {
+    margin-left: 4px;
+    color: var(--secondary-solid);
 }
 
-.form--btn {
-    padding: 1.2rem 2.7rem;
-    max-width: 200px;
-    background-color: #ff3333;
-    color: #ffffff;
-    font-weight: 500;
-    border: none;
-    margin: auto;
+.form__label--terms > a:hover {
+    text-decoration: underline;
     cursor: pointer;
-    transition: background 0.3s ease;
 }
 
-.form--btn:hover {
-    background-color: #111111;
+
+/* --- <input type="text", "email", "password", "number"> --- */
+.form__text,
+.form__email,
+.form__password,
+.form__number {
+    border: none;
+    border-bottom: 2px solid var(--bg-dark-solid);
+    font-size: var(--font-medium);
+    font-weight: 400;
+    caret-color: var(--primary-solid);
 }
 
-.form a {
-    color: #4f4f4f;
-    font-size: 1.2em;
-    text-align: center;
+.form__text::placeholder,
+.form__email::placeholder,
+.form__password::placeholder,
+.form__number::placeholder {
+    color: var(--font-light-placeholder);
+}
+
+.form__text:focus,
+.form__email:focus,
+.form__password:focus,
+.form__number:focus {
+    outline: none;
+    border-bottom: 2px solid var(--primary-solid);
+}
+
+/* Ocultar las flechas predeterminadas del <input type="number"> */
+.form__number::-webkit-outer-spin-button,
+.form__number::-webkit-inner-spin-button {
+    margin: 0;
+    appearance: none;
+}
+
+
+/* --- <input type="checkbox"> --- */
+.form__checkbox {
+    appearance: none;
+    border: 2px solid black;
+    border-radius: 3px;
+    height: 15px;
+    width: 15px;
+}
+
+.form__checkbox:checked {
+    background-color: var(--primary-900);
+}
+
+
+/* --- <textarea> --- */
+.form__textarea {
+    border: 2px solid var(--bg-dark-solid);
+    border-radius: 4px;
+    padding: var(--spacing-12);
+    font-family: var(--font-base);
+    font-size: var(--font-medium);
+    font-weight: 400;
+    caret-color: var(--primary-solid);
+}
+
+.form__textarea::placeholder {
+    color: var(--font-light-placeholder);
+}
+
+.form__textarea:focus {
+    border: 2px solid var(--primary-solid);
+    outline: none;
+}
+
+
+/* --- <select> --- */
+.form__select {
+    appearance: none;
+    border: 2px solid var(--bg-dark-solid);
+    border-radius: 6px;
+    padding: var(--spacing-8) var(--spacing-100) var(--spacing-8) var(--spacing-8) ;
+
+    font-size: var(--font-medium-20);
+    font-weight: 500;
+
+    /* Estilos flecha del dropdown */
+    background-image: url('https://api.iconify.design/eva/arrow-up-fill.svg?flip=vertical');
+    background-repeat: no-repeat;
+    background-position: right 0.9rem top 50%;
+    background-size: 2.5rem auto;
+}
+
+.form__select:hover {
+    cursor: pointer;
+}
+
+.form__select:focus {
+    background-image: url('https://api.iconify.design/eva/arrow-up-fill.svg');
+    border: 2px solid var(--primary-solid);
+    outline: none;
+}
+
+.form__select:required:invalid {
+    color: var(--font-light-placeholder);
+}
+
+/* Estilos de las opciones */
+.form__option {
+    color: var(--bg-dark-solid);
+}
+
+.form__option--placeholder {
+    display: none;
+}
+
+
+/* --- <button> --- */
+.form__button {
+    border: none;
+    padding: var(--spacing-12) var(--spacing-24);
+    background-color: var(--dark-500);
+    transition: var(--transition-links);
+    font-family: var(--font-base);
+    font-size: var(--font-xsmall);
+    color: var(--font-light-solid);
+    font-weight: 400;
+}
+
+.form__button:hover {
+    background-color: var(--primary-solid);
+    cursor: pointer;
+}
+
+/* --- <input type="file"> */
+.form__file:focus {
+    outline: none;
+    border: 2px solid var(--primary-solid);
 }
