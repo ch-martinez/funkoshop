@@ -2,9 +2,9 @@
 .form__container {
     display: flex;
     flex-direction: column;
+
     gap: var(--spacing-36);
 }
-
 
 /* --- <label> --- */
 .form__label {
@@ -13,6 +13,7 @@
 }
 
 .form__label--terms {
+
     display: flex;
     align-items: center;
     font-size: var(--font-medium);
@@ -161,7 +162,6 @@
     background-color: var(--primary-solid);
     cursor: pointer;
 }
-
 
 /* --- <input type="file"> */
 .form__file:focus {

@@ -1,3 +1,7 @@
+@import url('/css/global/form.css'); /* Variables globales */
+@import url('/css/global/inputs.css');
+
+
 /* Fuentes externas */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&family=Raleway:wght@100;300;400;500;600;700&display=swap');
 
