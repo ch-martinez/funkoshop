@@ -4,6 +4,40 @@
     margin: 0 auto;
 }
 
+    /* Contenedor: Principal */
+    .container--main{
+        width: 100%;
+        padding: var(--spacing-68) 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+.container__title{
+    display: inline-block;
+    width: fit-content;
+    font-family: var(--font-alternative);
+    font-size: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 4px solid var(--primary-solid);
+}
+
+/* Links */
+.link__blue{
+    font-size: var(--font-xsmall);
+    color: var(--secondary-900);
+    transition: var(--transition--01);
+}
+
+    .link__blue:hover{
+        color: var(--secondary-solid);
+        text-decoration-line: underline;
+    }
+
+.link__blue--payment{
+    font-weight: 700;
+}
+
 /* Clase para aquellos contenedores que tengan íconos */
 .with-icon {
     display: flex;
@@ -33,6 +67,8 @@
     font-size: 0rem;
     background-color: var(--dark-500);
     transition: var(--transition--01);
+    border: none;
+    cursor: pointer;
 }
 
     .amount__btn:hover{
