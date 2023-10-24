@@ -12,6 +12,18 @@ html {
     color: var(--dark-solid);
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    background-color: var(--bg-light-soft);
+}
+
+main{
+    flex-grow: 1;
+}
+
 a {
     text-decoration: none;
     font-family: inherit;

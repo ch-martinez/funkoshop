@@ -1,42 +1,52 @@
-/* Global */
-.cart-box{
-    border-radius: 10px;
-    background-color: var(--bg-light-solid);
-    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0, 0.25);
-}
-
-/* FIX para redondear bordes de la tabla */
-.table__data:first-child{
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-
-.table__data:last-child{
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-/* Cart list */
+/* Listado de items */
 .container--cartlist{
     display: flex;
     flex-direction: column;
 }
 
-table{
+/* Tabla listado de items */
+.table-cart{
     border-collapse: separate;
     border-spacing: 0 var(--spacing-36);
 }
 
-.table__data--head{
-    font-size: var(--font-medium);
-    font-weight: 700;
+.table-cart__row{
+    border-radius: 10px;
+    background-color: var(--bg-light-solid);
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0, 0.25);
 }
 
-.table__data{
+.table-cart__data{
     padding: 24px;
     text-align: center;
 }
 
+    /* FIX para redondear bordes de la tabla */
+    .table-cart__data:first-child{
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    .table-cart__data:last-child{
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+.table-cart__data--head{
+    font-size: var(--font-medium);
+    font-weight: 700;
+}
+
+.table-cart__delet{
+    color: var(--dark-700);
+    transition: var(--transition--01);
+}
+
+    .table-cart__delet:hover{
+        color: var(--primary-solid);
+    }
+
+/* Modificadores */
 .card__picture--cart{
     display: inline-block;
     width: 150px;
@@ -46,21 +56,13 @@ table{
     text-align: start;
 }
 
-.quantity__container--table{
+/* Fix center amount in table */
+.amount--table{
     width: fit-content;
     margin: 0 auto;
 }
 
-.quantity-btn--cart{
-    background-color: var(--primary-solid);
-}
-
-.table__delet{
-    display: inline-block;
-    width: 28px;
-}
-
-/* Resumen */
+/* Resumen de compra */
 .container--resumen{
     align-self: flex-end;
     display: flex;
@@ -88,19 +90,19 @@ table{
     font-weight: 600;
 }
 
-.resumen__div span:last-child{
-    font-weight: 700;
-    color: #747474;
-}
+    .resumen__div span:last-child{
+        font-weight: 700;
+        color: #747474;
+    }
 
-.resumen__div:last-child{
-    padding-top: var(--spacing-8);
-    border-top: 2px solid #F33;
-    font-size: var(--font-medium-20);
-    font-weight: 700;
-}
+    .resumen__div:last-child{
+        padding-top: var(--spacing-8);
+        border-top: 2px solid #F33;
+        font-size: var(--font-medium-20);
+        font-weight: 700;
+    }
 
-.btn-square--resumen{
+.btn-link--resumen{
     font-size: var(--font-xlarge);
     font-weight: 700;
 }
