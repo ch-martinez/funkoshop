@@ -2,15 +2,18 @@
 new Glide('.glide',
     {
         type: 'carousel',
-        startAt: 1,
-        perView: 4,
+        startAt: 0,
+        perView: 3,
+        gap: 60,
         breakpoints: {
-            991: {
-                perView: 2
-            },
-            768: {
-                perView: 1
-                }
+            // Tablets
+		    1150: {
+			    perView: 2
+		    },
+		    // Celulares
+		    768: {
+			    perView: 1
+		    }
         }
     }
 ).mount();

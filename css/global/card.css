@@ -1,7 +1,6 @@
-.card{
+.card {
     margin: 3px;
     position: relative;
-    max-width: 360px;
     background-color: var(--bg-light-solid);
     border: 1px solid rgba(0,0,0,.05);
     transition: var(--transition--01);
@@ -12,7 +11,7 @@
         transform: scale(1.01);
     }
 
-.card__link{
+.card__link {
     font-size: 0rem;
     display: flex;
     flex-direction: column;
@@ -20,7 +19,7 @@
 }
 
 /* Contenido debajo de picture */
-.card__content{
+.card__content {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-12);
@@ -28,29 +27,29 @@
     text-transform: uppercase;
 }
 
-    .card__collection{
+    .card__collection {
         font-size: var(--font-xsmall);
         font-weight: 500;
     }
 
-    .card__name{
+    .card__name {
         font-size: var(--font-medium);
         font-weight: 700;
     }
 
-    .card__price{
+    .card__price {
         font-size: var(--font-small);
         font-weight: 400;
     }
 
-    .card__payments{
+    .card__payments {
         font-size: var(--font-xsmall);
         font-weight: 700;
         color: var(--secondary-solid);
     }
 
 /* Nuevo item */
-.new-item::after{
+.new-item::after {
     content: 'NUEVO';
     position: absolute;
     top: 0;
@@ -63,44 +62,18 @@
 }
 
 /* Cambia de vista al hacer hover */
-.card__img-back{
+.card__img-back {
     display: none;
 }
 
-.card__cover:hover .card__img-front{
+.card__cover:hover .card__img-front {
     display: none;
 }
 
-.card__cover:hover .card__img-back{
+.card__cover:hover .card__img-back {
     display: block;
 }
 
-.card__cover img{
+.card__cover img {
     animation: fade 0.7s;
-}
-
-/* Seccion carousel*/
-.glid__title{
-    font-size: var(--font-display);
-    font-weight: 700;
-    margin: var(--spacing-68) 0;
-}
-
-/* GLID fix arrow */
-.glide__arrow{
-    top: 62%;
-    background-color: var(--bg-light-solid);
-    box-shadow: var(--border-shadow--03);
-    color: var(--bg-dark);
-    font-size: 1.5rem;
-    line-height: 0;
-}
-
-.glide__arrow--left{
-    left: -15px;
-}
-
-.glide__arrow--right{
-    /* right: 17px; */
-    right: -15px;
 }
