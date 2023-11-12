@@ -7,6 +7,7 @@
         <link rel="icon" type="image/jpg" href="/img/favicon.ico"/>
         <link rel="stylesheet" href="/css/pages/register.css">
         <link rel="stylesheet" href="/css/imports.css">
+        <link rel="stylesheet" href="/css/pages/contact.css">
     </head>
 
     <body>
@@ -39,82 +40,145 @@
         </header>
 
         <!-- MAIN -->
-        <main class="main-container">
-            <section class="register__content container">
-                <h1 class="register__title">Envíanos tu Consulta</h1>
-                <p class="register__text">Complete el siguiente formulario para realizar su consulta</p>
-                <form id="register__form" 
-                      class="form__container" 
+        <main class="main-container">            
+            <section class="contact__container container">
+
+                <!-- FORMULARIO DE CONTACTO -->
+                <form id="form__contact" 
+                      class="contact__form" 
                       action="#" 
                       method="post">
+                    <h1 class="contact__title">Envíanos tu Mensaje</h1>
 
-                    <!-- Nombre del usuario-->
-                    <div class="register__input">
-                        <label class="form__label" 
-                               for="user-name">Nombre:</label>
+                    <!-- NOMBRE DE USUARIO -->
+
+                    <div class="form__box">
+                        <label class="contact__label" 
+                               for="user-name">Nombre</label>
                         <input id="user-name"
-                               class="form__text"
+                               class="form__input"
                                type="text" 
                                name="user-name" 
                                placeholder="John" 
                                required>
                     </div>
 
-                    <!-- Apellido del usuario -->
-                    <div class="register__input">
-                        <label class="form__label"
-                               for="user-lastname">Apellido:</label>
+                    <!-- APELLIDO DE USUARIO -->
+                    
+                    <div class="form__box">
+                        <label class="contact__label"
+                               for="user-lastname">Apellido</label>
                         <input id="user-lastname"
-                               class="form__text"
+                               class="form__input"
                                type="text"
                                name="user-lastname"
                                placeholder="Doe"
                                required>
                     </div>
 
-                    <!-- Email del usuario -->
-                    <div class="register__input">
-                        <label class="form__label" 
-                               for="user-email">Email:</label>
+                    <!-- EMAIL DE USUARIO -->
+                    
+                    <div class="form__box">
+                        <label class="contact__label" 
+                               for="user-email">Email</label>
                         <input id="user-email"
-                               class="form__email" 
+                               class="form__input" 
                                type="email"
                                name="user-email"
                                placeholder="jhondoe@correo.com"
                                required>
                     </div>
                     
-                    <!-- Teléfono del usuario -->
-                    <div class="register__input">
-                        <label class="form__label" 
-                               for="user-phone">Teléfono:</label>
+                    <!-- TELÉFONO DE USUARIO -->
+                    
+                    <div class="form__box">
+                        <label class="contact__label" 
+                               for="user-phone">Teléfono</label>
                         <input id="user-phone"
-                               class="form__email input-hide-arrows" 
+                               class="form__input input-hide-arrows" 
                                type="number"
                                name="user-phone"
                                placeholder="1123456789"
-                               required>
+                                required>
                     </div>
 
-                    <!-- Registro consulta del usuario -->
+                    <!-- REGISTRO DE CONSULTA -->
+                    
                     <div class="create-form__input">
+                        <label class="contact__label" for="consult">Consulta</label>
                         <textarea id="item-description"
-                                  class="form__textarea"
+                                  class="form__consult"
                                   name="Item-description"
                                   rows="10"
                                   cols="70"
                                   placeholder="Escribe aquí tu consulta."></textarea>
                     </div>
 
-                    <!-- Botón para enviar consulta-->
+                    <!-- BOTÓN PARA ENVIAR CONSULTA-->
+                    
                     <div class="register__input--around">
-                        <button class="form__button"
+                        <button class="contact__button"
                                 type="submit">Enviar</button>
 
                         </label>
                     </div>
+                </form>   
+                
+            <!-- SEPARADOR -->
+            <div class="separator"></div>
 
-                </form>
+            <!-- SECCIÓN LINKS DE CONTACTO -->
+            <section class="">
+                <ul class="contact__us">
+
+                    <!-- WHATSAPP -->
+                    <li class="contact">
+                        <a class="contact__link" href="">
+                    <picture class="contact__icon">
+                        <iconify-icon icon="formkit:whatsapp"></iconify-icon>
+                    </picture>
+                    <h2>Teléfono</h2>
+                    <span>+0098 9893 5467</span>
+                    <span>+0096 3434 0678</span>
+                    </a>
+                </li>
+                    
+                    <!-- EMAIL -->
+                    <li class="contact">
+                        <a class="contact__link" href="">
+                      <picture class="contact__icon">
+                        <iconify-icon icon="ic:round-mail"></iconify-icon>
+                    </picture>
+                    <h2>Email</h2>
+                    <span>contacto@funkoshop.com.ar</span>  
+                    </a>
+                </li>
+
+                    <!-- FACEBOOK -->   
+                    <li class="contact">
+                        <a class="contact__link" href="">
+                    <picture class="contact__icon">
+                        <iconify-icon icon="fe:facebook"></iconify-icon>
+                    </picture>
+                    <h2>Facebook</h2>
+                    <span>/funkoshop_ar</span>
+                    </a>
+                </li>
+                    
+                    <!-- INSTAGRAM -->
+                    <li class="contact">
+                        <a class="contact__link" href="">
+                    <picture class="contact__icon">
+                        <iconify-icon icon="ri:instagram-fill"></iconify-icon>
+                    </picture>
+                    <h2>Instagram</h2>
+                    <span>@funkoshop_ar</span>
+                    </a>
+                </li>
+                    
+                </ul>
+            </section>
+             
             </section>
         </main>
 
@@ -124,7 +188,7 @@
                 <ul>
                     <li>
                         <a class="navbar__link"
-                           href="../shop/shop.html">SHOP</a>
+                           href="./shop/shop.html">SHOP</a>
                     </li>
                     <li>
                         <a class="navbar__link"
@@ -132,7 +196,7 @@
                     </li>
                     <li>
                         <a class="navbar__link"
-                           href="./login.html">INGRESAR</a>
+                           href=".admin/login.html">INGRESAR</a>
                     </li>
                     <li>
                         <a class="navbar__link" 
@@ -149,5 +213,7 @@
             </nav>
             <p class="footer__copy">All rights reserved 2023 - Funkoshop&copy;</p>
         </footer>
+        <!-- SCRIPTS EXTERNOS -->
+        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     </body>
 </html>
