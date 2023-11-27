@@ -11,31 +11,53 @@
     </head>
 
     <body>
-        <!-- HEADER -->
+        <!-- Inicio header -->
         <header>
             <nav class="navbar container">
                 <figure class="navbar__logo--header">
-                    <a href="/index.html">
-                        <img src="/img/branding/logo_light_horizontal.svg" 
-                             alt="Isotipo de la tienda FunkoShop">
+                    <a href="./index.html">
+                        <img src="/img/branding/logo_light_horizontal.svg" alt="Isotipo de la tienda FunkoShop">
                     </a>
                 </figure>
 
-                <!-- MENU -->
-                <ul class="navbar__menu--admin">
-                    <li class="navbar__item">
-                        <a class="navbar__link" 
-                           href="/pages/shop/shop.html">VER TIENDA</a>
+                <!-- INICIO MENU -->
+                <ul class="navbar__menu--shop">
+                    <li class="navbar__item with-submenu">
+                        <a class="navbar__link with-icon" href="/pages/shop/shop.html">SHOP<iconify-icon
+                                icon="tabler:chevron-down"></iconify-icon></a>
+                        <!-- INICIO SUBMENU -->
+                        <ul class="submenu">
+                            <li class="submenu__item">
+                                <a class="submenu__link" href="#">FUNKOS</a>
+                            </li>
+                            <li class="submenu__item">
+                                <a class="submenu__link" href="#">REMERAS</a>
+                            </li>
+                            <li class="submenu__item">
+                                <a class="submenu__link" href="#">LLAVEROS</a>
+                            </li>
+                        </ul>
+                        <!-- FIN SUBMENU -->
                     </li>
+
+                    <!-- Login -->
                     <li class="navbar__item">
-                        <a class="navbar__link"
-                           href="/pages/admin/admin.html">ADMIN</a>
+                        <a class="navbar__link" href="/pages/admin/login.html">LOGIN</a>
                     </li>
+
+                    <!-- Contacto -->
                     <li class="navbar__item">
-                        <a class="navbar__link"
-                           href="/index.html">SALIR</a>
+                        <a class="navbar__link" href="/pages/contact.html">CONTACTO</a>
+                    </li>
+
+                    <!-- Carrito -->
+                    <li class="navbar__item">
+                        <a class="navbar__cart" href="/pages/shop/cart.html">
+                            <img src="/img/icons/cart-icon.svg" alt="Carrito de compras">
+                        </a>
                     </li>
                 </ul>
+                <!-- FIN MENU -->
             </nav>
         </header>
 
