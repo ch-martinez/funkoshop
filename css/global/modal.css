@@ -1,0 +1,49 @@
+.modal{
+    margin: auto;
+    padding: var(--spacing-28);
+    max-width: 1000px;
+    max-height: 70vh;
+    border: 1px solid var(--border-gray);
+    box-shadow: var(--border-shadow--02);
+}
+
+.modal[open]{
+    animation: slidein var(--animation-in-settings);
+    -webkit-animation: slidein var(--animation-in-settings);
+}
+
+.modal::backdrop{
+    background-color: rgba(0,0,0,.1);
+
+    backdrop-filter: blur(0.2rem);
+    -webkit-backdrop-filter: blur(0.2rem);
+
+    animation: fadeout var(--animation-out-settings);
+    -webkit-animation: fadeout var(--animation-out-settings);
+}
+
+/* Modal close button */
+.modal__close{
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: var(--spacing-28);
+    right: var(--spacing-20);
+    color: var(--dark-700);
+    cursor: pointer;
+    transition: var(--transition--01);
+}
+
+.modal__close:hover{
+    color: var(--primary-solid);
+}
+
+/* Modal Content */
+.modal__title{
+    font-size: var(--font-xlarge);
+    margin-bottom: var(--spacing-28);
+}
+
+.modal__text{
+    font-size: var(--font-medium-20);
+}

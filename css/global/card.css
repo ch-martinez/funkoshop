@@ -1,44 +1,55 @@
-
-/* Cards */
-.card{
-    display: flex;
-    flex-direction: column;
+.card {
+    margin: 3px;
     position: relative;
-    max-width: 360px;
-    padding: var(--spacing-20);
-    gap: var(--spacing-28);
+    background-color: var(--bg-light-solid);
+    border: 1px solid rgba(0,0,0,.05);
+    transition: var(--transition--01);
 }
 
-.card__content{
+    .card:hover{
+        box-shadow: var(--border-shadow--01);
+        transform: scale(1.01);
+    }
+
+.card__link {
+    font-size: 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Contenido debajo de picture */
+.card__content {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-12);
+    padding: var(--spacing-20);
     text-transform: uppercase;
 }
 
-.card__collection{
-    font-size: var(--font-xsmall);
-    font-weight: 500;
-}
+    .card__collection {
+        font-size: var(--font-xsmall);
+        font-weight: 500;
+    }
 
-.card__name{
-    font-size: var(--font-medium);
-    font-weight: 700;
-}
+    .card__name {
+        font-size: var(--font-medium);
+        font-weight: 700;
+    }
 
-.card__price{
-    font-size: var(--font-small);
-    font-weight: 400;
-}
+    .card__price {
+        font-size: var(--font-small);
+        font-weight: 400;
+    }
 
-.card__payments{
-    font-size: var(--font-xsmall);
-    font-weight: 700;
-    color: var(--secondary-solid);
-}
+    .card__payments {
+        font-size: var(--font-xsmall);
+        font-weight: 700;
+        color: var(--secondary-solid);
+    }
 
 /* Nuevo item */
-.new-item::before{
+.new-item::after {
     content: 'NUEVO';
     position: absolute;
     top: 0;
@@ -48,4 +59,21 @@
     font-weight: 500;
     background-color: var(--primary-solid);
     padding: var(--spacing-8) var(--spacing-16);
+}
+
+/* Cambia de vista al hacer hover */
+.card__img-back {
+    display: none;
+}
+
+.card__cover:hover .card__img-front {
+    display: none;
+}
+
+.card__cover:hover .card__img-back {
+    display: block;
+}
+
+.card__cover img {
+    animation: fade 0.7s;
 }

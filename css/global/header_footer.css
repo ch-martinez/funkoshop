@@ -1,72 +1,103 @@
-/* Header y navbar */
-.navbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.navbar__logo{
-    max-width: 300px;
-}
-
-.navbar__menu{
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-20);
+/* --- ESTILOS GENERALES --- */
+header,
+footer {
+    font-family: var(--font-alternative);
     color: var(--font-light-solid);
-    font: var(--font-alternative);
-    font-size: var(--font-medium-20);
-    font-weight: 500;
+    background-color: var(--bg-dark-solid);
 }
 
-.navbar__link{
-    display: inline-block;
-    position: relative;
-    padding: var(--spacing-8) var(--spacing-16);
-    font-size: var(--font-medium);
+/* --- HEADER --- */
+header {
+    padding: var(--spacing-36) var(--spacing-100);
 }
 
-.navbar__item{
-    transition: var(--transition-links);
-}
-
-.navbar__item:hover{
-    background-color: var(--primary-900);
-}
-
-.whit-icon{
+/* --- NAVBAR --- */
+.navbar {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: var(--spacing-8);
 }
 
-.cart-icon:hover{
-    background-color: inherit;
+.navbar__logo--header {
+    max-width: 370px;
 }
 
-/* Submenu de navbar */
-
-.whit-submenu:hover .submenu{
-    display: inline-block;
+.navbar__logo--footer {
+    max-width: 140px;
 }
 
-.submenu{
+/* Menú para las páginas admin */
+.navbar__menu--admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-68);
+}
+
+/* Menú para las páginas shop */
+.navbar__menu--shop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-36);
+}
+
+/* Submenú para las páginas shop */
+.submenu {
     display: none;
     position: absolute;
     background-color: var(--bg-dark-solid);
     z-index: 10;
 }
 
-/* Footer */
-
-.navbar--footer{
-    margin-bottom: var(--spacing-36);
+.with-submenu {
+    position: relative;
 }
 
-.footer__rights{
-    display: inline-block;
-    width: 100%;
-    text-align: center;
+.with-submenu:hover .submenu {
+    display: block;
+}
+
+/* .submenu__item {} */
+
+.submenu__link {
+    display: block;
+    padding: var(--spacing-8) var(--spacing-16);
     font-size: var(--font-medium);
-    font-weight: 500;
+    transition: var(--transition-links);
+}
+
+.submenu__link:hover {
+    background-color: var(--primary-900);
+}
+
+
+/* .navbar__item {} */
+
+.navbar__link {
+    display: block;
+    font-size: var(--font-medium-20);
+    font-weight: 400;
+    padding: var(--spacing-8) var(--spacing-16);
+    transition: var(--transition-links);
+}
+
+.navbar__link:hover {
+    background-color: var(--primary-900);
+}
+
+/* .navbar__cart {} */
+
+
+/* --- FOOTER -- */
+footer {
+    padding: var(--spacing-100) var(--spacing-100) var(--spacing-16) var(--spacing-100);
+}
+
+.footer__copy {
+    font-family: var(--font-alternative);
+    font-size: var(--font-medium-20);
+    font-weight: 400;
+    text-align: center;
+    margin-top: var(--spacing-36);
 }

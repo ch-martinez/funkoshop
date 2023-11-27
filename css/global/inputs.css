@@ -1,0 +1,237 @@
+.label{
+    font-family: var(--font-base);
+    font-size: var(--font-large);
+    font-weight: 400;
+    text-wrap: nowrap;
+}
+
+.label--checkbox{
+    font-size: var(--font-medium);
+    font-weight: 500;
+}
+
+.label--filter{
+    font-weight: 500;
+}
+
+.label--filter-price{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: var(--font-medium);
+    font-weight: 500;
+}
+
+/* Input de texto */
+.input-text{
+    width: 100%;
+    background-color: inherit;
+    color: var(--dark-900);
+    font-family: var(--font-base);
+    font-size: var(--font-medium);
+    line-height: 10px;
+    border-style: none;
+    border-bottom: 2px solid var(--bg-dark-solid);
+    outline: none;
+    transition: var(--transition--01);
+}
+
+    .input-text:focus, .input-text:hover{
+        border-bottom: 2px solid var(--primary-solid);
+    }
+
+/* Input texto estilo box */
+.input-text--box{
+    background-color: var(--bg-light-solid);
+    padding: var(--spacing-8);
+    font-size: var(--font-medium-20);
+    font-weight: 500;
+    border-radius: 6px;
+    border: 2px solid #30343F;
+    outline: none;
+    transition: var(--transition--01);
+}
+
+/* Input number */
+.input-number{
+    max-width: 60px;
+    background-color: inherit;
+    color: var(--dark-900);
+    font-family: var(--font-base);
+    font-size: var(--font-medium);
+    text-align: center;
+    line-height: 10px;
+    border-style: none;
+    border-bottom: 2px solid var(--bg-dark-solid);
+    outline: none;
+    transition: var(--transition--01);
+}
+
+    .input-number:focus, .input-number:hover{
+        border: none;
+        border-bottom: 2px solid var(--primary-solid);
+    }
+
+.input-number--box{
+    width: 60px;
+    padding: 0 var(--spacing-8);
+    background-color: var(--bg-light-solid);
+    font-size: var(--font-medium-20);
+    font-weight: 500;
+    text-align: center;
+    border: 2px solid #30343F;
+    border-radius: 6px;
+    outline: none;
+    transition: var(--transition--01);
+}
+
+/* Hidde arrows of input number */
+    .input-hide-arrows::-webkit-outer-spin-button,
+    .input-hide-arrows::-webkit-inner-spin-button {
+        margin: 0;
+        appearance: none;
+        -webkit-appearance: none;
+    }
+
+/* Input Checkbox */
+.input-checkbox{
+    width: 20px;
+    height: 20px;
+    outline: solid 2px;
+    outline-offset: -2px;
+    transition: var(--transition--01);
+    -webkit-transition: height 0.5s ease-in;
+    -moz-transition: height 0.5s ease-in;
+    -ms-transition: height 0.5s ease-in;
+    -o-transition: height 0.5s ease-in;
+    transition: height 0.5s ease-in;
+}
+
+.input-checkbox:checked{
+    accent-color: var(--primary-solid);
+    transition: var(--transition--01);
+    outline: none;
+    -webkit-transition: height 0.5s ease-in;
+    -moz-transition: height 0.5s ease-in;
+    -ms-transition: height 0.5s ease-in;
+    -o-transition: height 0.5s ease-in;
+    transition: height 0.5s ease-in;
+}
+
+/* Input Select */
+.input-select{
+    background-color: var(--bg-light-solid);
+    padding: var(--spacing-8);
+    padding-right: var(--spacing-32);
+    font-size: var(--font-medium-20);
+    font-weight: 500;
+    border-radius: 6px;
+    border: 2px solid #30343F;
+    outline: none;
+    transition: var(--transition--01);
+    /* Estilos flecha del dropdown */
+    appearance: none;
+    background-image: url('https://api.iconify.design/eva/arrow-up-fill.svg?flip=vertical');
+    background-repeat: no-repeat;
+    background-position: right 0.3rem top 50%;
+    background-size: 2.5rem auto;
+}
+    /* Cambia direccion flecha del dropdown */
+    .input-select:active{
+            background-image: url('https://api.iconify.design/eva/arrow-up-fill.svg');
+        }
+
+/* Textarea */
+.input-textarea{
+    width: 100%;
+    background-color: var(--bg-light-solid);
+    padding: var(--spacing-8);
+    font-size: var(--font-medium-20);
+    font-weight: 500;
+    border-radius: 6px;
+    border: 2px solid #30343F;
+    outline: none;
+    transition: var(--transition--01);
+}
+
+/* Inputs hovers */
+    .input-text--box:hover,
+    .input-number--box:hover,
+    .input-select:hover,
+    .input-textarea:hover
+    {
+        background-color: var(--row-odd);
+        background-color: var(--bg-light-soft);
+        border: 2px solid var(--primary-solid);
+    }
+
+    /* Inputs focus */
+    .input-text--box:focus,
+    .input-number--box:focus,
+    .input-select:focus,
+    .input-textarea:focus
+    {
+        border: 2px solid var(--primary-solid);
+    }
+
+/* Buttons */
+.btn{
+    padding: var(--spacing-8) var(--spacing-16);
+    background-color: var(--bg-dark-solid);
+    border: none;
+    color: var(--font-light-solid);
+    font-family: var(--font-base);
+    font-size: var(--font-small);
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition--01);
+}
+
+.btn:hover{
+    background-color: var(--primary-solid);
+}
+
+/* Buttons links */
+.btn-link{
+    display: inline-block;
+    padding: var(--spacing-8) var(--spacing-16);
+    background-color: var(--bg-dark-solid);
+    color: var(--font-light-solid);
+    font-family: var(--font-base);
+    font-size: var(--font-small);
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition--01);
+}
+
+    .btn-link:hover{
+        background-color: var(--primary-solid);
+    }
+
+.btn-link-rounded{
+    display: inline-block;
+    padding: var(--spacing-12) var(--spacing-68);
+    color: var(--font-light-solid);
+    font-size: var(--font-medium);
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color: var(--bg-dark-solid);
+    border-radius: 50px;
+    transition: var(--transition--01);
+}
+
+    .btn-link-rounded:hover{
+        background-color: var(--primary-solid);
+    }
+
+    .btn-link-rounded--hero{
+        margin-top: var(--spacing-48);
+        color: var(--bg-dark-solid);
+        background-color: var(--bg-light-solid);
+    }
+    
+    .btn-link-rounded--hero:hover{
+        background-color: var(--primary-solid);
+        color: var(--font-light-solid);
+    }

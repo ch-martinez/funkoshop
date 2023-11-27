@@ -1,0 +1,111 @@
+.container--admin{
+    width: 100%;
+    padding: var(--spacing-68) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-36);
+}
+
+/* Search bar */
+.admin-search__container{
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-20);
+}
+
+.admin-search__container picture{
+    display: inline-block;
+    width: 42px;
+}
+
+.admin-search__input{
+    min-width: 530px;
+}
+
+/* List head */
+.table-admin-head__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table-admin-head__title{
+    font-size: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 1.68px;
+}
+
+    /* Add button */
+    .table-admin-head__add{
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-20);
+        padding: var(--spacing-8);
+        font-size: var(--font-large);
+        font-weight: 700;
+        border-radius: 10px;
+        transition: var(--transition--01);
+    }
+
+    .table-admin-head__add picture{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3px;
+        width: 32px;
+        height: 32px;
+        background-color: var(--primary-solid);
+        border-radius: 5px;
+
+    }
+
+/* list items */
+.table-admin{
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table-admin__row{
+    padding: 5px;
+}
+
+.table-admin__data{
+    padding: 5px 20px;
+    font-size: var(--font-large);
+    font-weight: 500;
+}
+
+.table-admin__data--head{
+    text-align: left;
+    font-weight: 700;
+}
+
+    /* Iconos editar y borrar */
+    .table-admin__row .table-admin__data:last-child{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: var(--spacing-42);
+    }
+
+    .table-admin__btn{
+        font-size: 0rem;
+        border-radius: 5px;
+        transition: var(--transition--01);
+    }
+
+/* Colorear las filas impar */
+.table-admin__row:nth-child(odd){
+    background-color: var(--row-odd);
+}
+
+/* Hover */
+    .table-admin__row:hover,
+    .table-admin-head__add:hover
+    {
+        background-color: var(--secondary-300);
+    }
+
+    .table-admin__btn:hover{
+        background-color: var(--bg-light-solid);
+    }

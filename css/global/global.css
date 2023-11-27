@@ -1,94 +1,92 @@
-/* Container de main */
-.container{
+/* Los contenedores de todas las páginas tienen un ancho máximo de 1200px */
+.container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.container--main{
-    padding: var(--spacing-68) 0;
+/* Contenedor: Principal */
+.main-container {
+    padding: var(--spacing-36) var(--spacing-100);
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Container de header y footer */
-.container-menu{
-    padding: var(--spacing-36);
-    background-color: var(--bg-dark-solid);
+/* Clase para aquellos contenedores que tengan íconos */
+.with-icon {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
 }
 
-.container__title{
+.container__title {
     display: inline-block;
     width: fit-content;
     font-family: var(--font-alternative);
     font-size: var(--font-display);
     font-weight: 700;
     text-transform: uppercase;
-    border-bottom: 5px solid var(--primary-solid);
+    border-bottom: 4px solid var(--primary-solid);
 }
 
-/* Botones redondos */
-.btn-round{
-    display: inline-block;
-    padding: var(--spacing-12) var(--spacing-68);
-    color: var(--font-light-solid);
-    font-size: var(--font-medium);
-    font-weight: 500;
-    text-transform: uppercase;
-    background-color: var(--bg-dark-solid);
-    border-radius: 50px;
-    transition: var(--transition-links);
+/* Links */
+.link__blue {
+    font-size: var(--font-xsmall);
+    color: var(--secondary-900);
+    transition: var(--transition--01);
 }
 
-.btn-round:hover{
-    background-color: var(--primary-solid);
+.link__blue:hover {
+    color: var(--secondary-solid);
+    text-decoration-line: underline;
 }
 
-.btn-square{
-    display: inline-block;
-    padding: var(--spacing-8) var(--spacing-16);
-    background-color: var(--primary-solid);
-    color: var(--font-light-solid);
-    font-size: var(--font-small);
-    text-align: center;
+.link__blue--payment {
+    font-weight: 700;
 }
 
 /* Cantidad de items a cargar */
-
-.quantity__container{
+.amount {
     display: flex;
     gap: var(--spacing-8);
 }
 
-.quantity-btn__container{
+.amount__btn-container {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.quantity-btn{
+.amount__btn {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 18px;
     height: 18px;
     padding: 4px;
+    font-size: 0rem;
     background-color: var(--dark-500);
-    color: var(--font-light-solid);
-    font-weight: 700;
+    transition: var(--transition--01);
+    border: none;
+    cursor: pointer;
 }
 
-.quantity__input{
+.amount__btn:hover {
+    background-color: var(--primary-solid);
+}
+
+.amount__input {
     width: 100px;
     appearance: none;
     border: 2px solid var(--border-gray);
     font-size: var(--font-medium);
     font-weight: 700;
     text-align: center;
+    transition: var(--transition--01);
 }
 
-/* Hidde arrows of input number */
-.input-hide-arrows::-webkit-outer-spin-button,
-.input-hide-arrows::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+.amount__input:hover, .amount__input:focus {
+    border: 2px solid var(--primary-solid);
+    outline: none;
 }
