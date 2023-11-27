@@ -24,12 +24,13 @@
     margin-right: var(--spacing-8);
 }
 
-.form__label--terms > a {
+.form__blue-label {
+    font-size: var(--font-medium);
     margin-left: 4px;
     color: var(--secondary-solid);
 }
 
-.form__label--terms > a:hover {
+.form__blue-label:hover {
     text-decoration: underline;
     cursor: pointer;
 }
@@ -45,6 +46,7 @@
     font-size: var(--font-medium);
     font-weight: 400;
     caret-color: var(--primary-solid);
+    background-color: inherit;
 }
 
 .form__text::placeholder,
