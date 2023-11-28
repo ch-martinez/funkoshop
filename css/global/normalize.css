@@ -12,7 +12,6 @@ html {
     color: var(--dark-solid);
 }
 
-
 /* Con esto se evita que haya contenido vacío cuando se achica el zoom del 
    navegador */
 body {

@@ -58,8 +58,6 @@ header {
     display: block;
 }
 
-/* .submenu__item {} */
-
 .submenu__link {
     display: block;
     padding: var(--spacing-8) var(--spacing-16);
@@ -70,9 +68,6 @@ header {
 .submenu__link:hover {
     background-color: var(--primary-900);
 }
-
-
-/* .navbar__item {} */
 
 .navbar__link {
     display: block;
@@ -85,9 +80,6 @@ header {
 .navbar__link:hover {
     background-color: var(--primary-900);
 }
-
-/* .navbar__cart {} */
-
 
 /* --- FOOTER -- */
 footer {

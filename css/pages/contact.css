@@ -21,8 +21,6 @@
     max-width: 500px;
 }
 
-
-
 /* --- <Titulo> ---*/
 .contact__title {
     font-family: var(--font-alternative);
@@ -45,7 +43,6 @@
     border: 2px solid var(--primary-solid);
     outline: none;
 }
-
 
 .form__box {
     display: flex;
@@ -74,7 +71,6 @@
 font-size: var(--font-medium);
 font-weight: 500;
 }
-
 
 /* --- <textarea> --- */
 .form__consult {
