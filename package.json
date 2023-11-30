@@ -1,0 +1,19 @@
+{
+  "name": "funkoshop",
+  "version": "1.0.0",
+  "description": "Proyecto integrador tienda de funkos - Codo a Codo 4.0, Fullstack Node JS",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Team 7",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "ejs": "^3.1.9"
+  }
+}
