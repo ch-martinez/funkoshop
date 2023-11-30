@@ -4,8 +4,8 @@
   "description": "Proyecto integrador tienda de funkos - Codo a Codo 4.0, Fullstack Node JS",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js",
+    "dev": "nodemon ./src/app.js",
+    "start": "node ./src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Team 7",
@@ -14,6 +14,7 @@
     "nodemon": "^3.0.1"
   },
   "dependencies": {
+    "express": "^4.18.2",
     "ejs": "^3.1.9"
   }
 }
