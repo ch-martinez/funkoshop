@@ -5,7 +5,7 @@ const PORT = 3000
 const routes = require('./router/shopRouter.js');
 
 /* Define carpeta de archivos estáticos */
-app.use(express.static(path.resolve(__dirname,'public')))
+app.use(express.static(path.resolve(__dirname,'../public')))
 app.use (express.json())
 
 /* Configuración del Template Engine: EJS */
