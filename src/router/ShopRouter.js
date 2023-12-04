@@ -2,12 +2,12 @@
 const express = require('express');
 const router = express.Router();
 const mainController = require('../controllers/shopController.js');
-
+mainController.initialize();
 router.get('/shop', mainController.getShop);
 
 router.get('/shop/item/:id', mainController.getItem);
 
-router.post('/shop/item/:id/add', mainController.addItemToCart);
+router.post('/shop/item/:id/add', mainController.addItemToShop);
 
 router.get('/shop/cart', mainController.getShoppingCart);
 

@@ -12,7 +12,7 @@
         "img_back": "/img/star-wars/baby-yoda-box.webp",
         "new": true,
         "discount": 25,
-        "stock": 3,
+        "stock": 3
     },
     {
         "producto_id": 2,
@@ -27,7 +27,7 @@
         "img_back": "/img/star-wars/bobbafeth-box.webp",
         "new": true,
         "discount": 25,
-        "stock": 3,
+        "stock": 3
     },
     {
         "producto_id": 3,
@@ -42,7 +42,7 @@
         "img_back": "/img/star-wars/luke-box.webp",
         "new": true,
         "discount": 25,
-        "stock": 3,
+        "stock": 3
     },
     {
         "producto_id": 4,
@@ -57,7 +57,7 @@
         "img_back": "/img/star-wars/trooper-box.webp",
         "new": false,
         "discount": 25,
-        "stock": 3,
+        "stock": 3
     },
     {
         "producto_id": 5,
@@ -72,7 +72,7 @@
         "img_back": "/img/pokemon/charmander-box.webp",
         "new": true,
         "discount": 40,
-        "stock": 2,
+        "stock": 2
     },
     {
         "producto_id": 6,
@@ -87,7 +87,7 @@
         "img_back": "/img/pokemon/dragonite-box.webp",
         "new": true,
         "discount": 40,
-        "stock": 2,
+        "stock": 2
     },
     {
         "producto_id": 7,
@@ -102,7 +102,7 @@
         "img_back": "/img/pokemon/pidgeotto-box.webp",
         "new": true,
         "discount": 40,
-        "stock": 2,
+        "stock": 2
     },
     {
         "producto_id": 8,
@@ -117,7 +117,7 @@
         "img_back": "/img/pokemon/pikachu-box.webp",
         "new": false,
         "discount": 40,
-        "stock": 2,
+        "stock": 2
     },
     {
         "producto_id": 9,
@@ -132,7 +132,7 @@
         "img_back": "/img/pokemon/vulpix-box.webp",
         "new": false,
         "discount": 40,
-        "stock": 2,
+        "stock": 2
     },
     {
         "producto_id": 10,
@@ -147,7 +147,7 @@
         "img_back": "/img/harry-potter/harry-box.webp",
         "new": true,
         "discount": 10,
-        "stock": 5,
+        "stock": 5
     },
     {
         "producto_id": 11,
@@ -162,7 +162,7 @@
         "img_back": "/img/harry-potter/hermione-box.webp",
         "new": true,
         "discount": 10,
-        "stock": 5,
+        "stock": 5
     },
     {
         "producto_id": 12,
@@ -177,7 +177,7 @@
         "img_back": "/img/harry-potter/luna-box.webp",
         "new": false,
         "discount": 10,
-        "stock": 5,
+        "stock": 5
     },
     {
         "producto_id": 13,
@@ -192,6 +192,6 @@
         "img_back": "/img/harry-potter/snape-patronus-box.webp",
         "new": false,
         "discount": 10,
-        "stock": 5,
+        "stock": 5
     }
 ]
