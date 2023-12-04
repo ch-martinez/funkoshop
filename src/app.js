@@ -8,10 +8,10 @@ const routes = require('./router/shopRouter.js');
 app.use(express.static(path.resolve(__dirname,'public')))
 app.use (express.json())
 
-
 /* Configuración del Template Engine: EJS */
 app.set('view engine', 'ejs')
-app.set('views', path.resolve(__dirname, "./src/views"));
+app.set('views', path.resolve(__dirname, "views"));
+
 
 app.use ('/', routes)
 app.listen(PORT, () => {console.log(`Servidor corriendo en: http://localhost:${PORT}`)})
