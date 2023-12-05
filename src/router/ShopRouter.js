@@ -2,7 +2,8 @@
 const express = require('express');
 const router = express.Router();
 const mainController = require('../controllers/shopController.js');
-mainController.initialize();
+
+mainController.initializeShop();
 router.get('/shop', mainController.getShop);
 
 router.get('/shop/item/:id', mainController.getItem);
