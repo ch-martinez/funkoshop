@@ -58,8 +58,8 @@ const controller = {
       }
       else {
         shopItems.push(newItem);
-        // Retorna la pagina del nuevo item
-        res.render("shop/item", { newItem} );
+        // Retorna la pagina del shop luego de agregar el item
+        res.render("shop/shoo", shopItems );
       }
     },
   
