@@ -4,8 +4,8 @@ shopItems = [  ];
   let shoppingCart = [];
   
 
-  const controller = {
-    initialize: function() {
+const controller = {
+     initializeShop: async function() {
         console.log ("Cargando archivo")
         const fs = require('fs');
         const path = require('path');
@@ -23,15 +23,17 @@ shopItems = [  ];
         } catch (error) {
           console.error('Error al leer el archivo JSON: %s' , jsonFilePath, error.message);
         }        
-      },
-    getShop: (req, res) => {
-        console.log (this);
+    },
+
+     getShop: async function (req, res)  {
       console.log (shopItems)
-      res.json(shopItems);
+      // res.json(shopItems);
+      // Renderizar la vista ejs
+      res.render('shop/shop', shopItems);
       //res.json("Shop");
     },
   
-    getItem: (req, res) => {
+     getItem: async function (req, res)  {
       const itemId = parseInt(req.params.id);
       const item = shopItems.find((item) => item.producto_id === itemId);
   
@@ -39,10 +41,11 @@ shopItems = [  ];
         return res.status(404).json({ message: 'No se encontró el artículo' });
       }
   
-      res.json(item);
+      //res.json(item);
+      res.render('shop/item', { item } );
     },
   
-    addItemToShop: (req, res) => {
+    addItemToShop: async function (req, res)  {
       const itemId = parseInt(req.params.id);
       newItem = req.body;
       console.log ("body:  ", req.body)
@@ -55,16 +58,17 @@ shopItems = [  ];
       }
       else {
         shopItems.push(newItem);
-        res.json({ message: 'Se agregó el artículo al carrito', shopItems });
+        // Retorna la pagina del shop luego de agregar el item
+        res.render("shop/shoo", shopItems );
       }
     },
   
-    getShoppingCart: (req, res) => {
+      getShoppingCart: async function (req, res)  {
       res.json(shoppingCart);
     },
   
     // Modificamos la función para agregar elementos al carrito en lugar de limpiarlo
-    updateShoppingCart: (req, res) => {
+      updateShoppingCart: async function (req, res)  {
         console.log ("actualizar Carrito con: ", req.body)
         const updatedCart = req.body;
 
@@ -74,11 +78,10 @@ shopItems = [  ];
             res.json({ message: 'Se actualizó el carrito', cart: shoppingCart });
     },
 
-    clearShoppingCart: (req, res) => {
+     clearShoppingCart: async function (req, res) {
       shoppingCart = [];
       res.json({ message: 'Se eliminó el artículo del carrito', cart: shoppingCart });
-    },
-  };
+    }
   
-  module.exports = controller;
-  
+}
+module.exports = controller;
