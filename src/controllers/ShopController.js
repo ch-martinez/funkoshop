@@ -41,7 +41,8 @@ const controller = {
         return res.status(404).json({ message: 'No se encontró el artículo' });
       }
   
-      res.json(item);
+      //res.json(item);
+      res.render('shop/item', { item } );
     },
   
     addItemToShop: async function (req, res)  {
@@ -57,7 +58,8 @@ const controller = {
       }
       else {
         shopItems.push(newItem);
-        res.json({ message: 'Se agregó el artículo al carrito', shopItems });
+        // Retorna la pagina del nuevo item
+        res.render("shop/item", { newItem} );
       }
     },
   

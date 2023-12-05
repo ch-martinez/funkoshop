@@ -70,7 +70,7 @@
                     <% shopItems.forEach(item => { %>
                     <li>
                         <article class="card new-item">
-                            <a class="card__link" href="/pages/shop/item.html">
+                            <a class="card__link" href="/shop/item/<%= item.producto_id %>">
                                 <picture class="card__cover">
                                     <img class="card__img-front" src="<%= item.img_front %>" alt="">
                                     <img class="card__img-back" src="<%= item.img_back %>" alt="">
