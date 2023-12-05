@@ -2,7 +2,8 @@
 <html lang="es">
     <%- include ("../partials/head") %>
 
-
+<body>
+    <%- include ("../partials/navbar") %>
     <main class="container">
         <div class="container-shop">
             <div class="filters__container">
@@ -78,7 +79,7 @@
                                     <span class="card__collection"><%= item.category_name %></span>
                                     <h4 class="card__name"><%= item.product_name %></h4>
                                     <span class="card__price"><%= item.product_price %></span>
-                                    <span class="card__payments"> <%= item.discount %> cuotas sin interes  </span>
+                                    <span class="card__payments"> En 1 pago <%= item.discount %>% de descuento  </span>
                                 </section>
                             </a>
                         </article>
