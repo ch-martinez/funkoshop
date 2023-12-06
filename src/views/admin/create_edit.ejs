@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
+    <!-- CÓDIGO TEMPORAL HASTA QUE ESTÉ EL PARTIAL DEL HEAD -->
     <head>
-        <title>Crear nuevo item</title>
+        <title><%- product ? "Editar item" : "Crear nuevo item" %></title>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Ícono para la pestaña -->
-        <link rel="icon" type="image/jpg" href="/img/favicon.ico"/>
-        <!-- Estilos de la página -->
         <link rel="stylesheet" href="/css/imports.css">
         <link rel="stylesheet" href="/css/pages/create_edit.css">
+        <link rel="shortcut icon" href="/img/branding/isotype.svg" type="image/x-icon">
     </head>
 
     <body>
+        <!-- CÓDIGO TEMPORAL HASTA QUE ESTÉ EL PARTIAL DEL HEADER -->
         <!-- HEADER -->
         <header>
             <nav class="navbar container">
                 <figure class="navbar__logo--header">
-                    <a href="../../index.html">
+                    <a href="/">
                         <img src="../../img/branding/logo_light_horizontal.svg" 
                              alt="Isotipo de la tienda FunkoShop">
                     </a>
@@ -25,18 +26,16 @@
                 <!-- MENU -->
                 <ul class="navbar__menu--admin">
                     <li class="navbar__item">
-                        <a class="navbar__link"
-                           href="../shop/shop.html">VER TIENDA</a>
+                        <a class="navbar__link" 
+                            href="/shop">VER TIENDA</a>
                     </li>
-
                     <li class="navbar__item">
                         <a class="navbar__link"
-                           href="./admin.html">ADMIN</a>
+                            href="/admin">ADMIN</a>
                     </li>
-
                     <li class="navbar__item">
                         <a class="navbar__link"
-                           href="../../index.html">SALIR</a>
+                            href="/">SALIR</a>
                     </li>
                 </ul>
             </nav>
@@ -44,16 +43,16 @@
 
         <!-- MAIN -->
         <main class="main-container">
-            <section class="create__content container">
-                <h1 class="create__title">CREAR NUEVO ITEM</h1>
-                <form id="create-form"
+            <section class="content container">
+                <h1 class="title"><%- product ? "EDITAR ITEM" : "CREAR NUEVO ITEM" %></h1>
+                <form id="create-edit-form"
                       class="form__container"
-                      action="#" 
+                      action="<%- product ? '/admin/edit/' + product.product_id : '/admin/create' %>"
                       method="post">
 
-                    <div class="create-form__content">
+                    <div class="form__row-content">
                         <!-- Categoría del producto -->
-                        <div class="create-form__input">
+                        <div class="form__input-separator">
                             <label class="form__label"
                                    for="item-category">Categoría:</label>
                             <select id="item-category" 
@@ -62,23 +61,19 @@
                                     required>
 
                                 <option class="form__option--placeholder" 
-                                        value="" 
                                         disabled
-                                        selected>Seleccionar</option>
+                                        value="<%- product ? product.category_id : '' %>"
+                                        selected><%- product ? product.category_id : "Seleccionar" %></option>
 
+                                <% categories.forEach(category => { %>
                                 <option class="form__option"
-                                        value="Category-1">Categoria-1</option>
-
-                                <option class="form__option"
-                                        value="Category-2">Categoria-2</option>
-
-                                <option class="form__option"
-                                        value="Category-3">Categoria-3</option>
+                                        value="<%= category %>"><%= category %></option>
+                                <% }); %>
                             </select>
                         </div>
 
                         <!-- Licencia del producto -->
-                        <div class="create-form__input">
+                        <div class="form__input-separator">
                             <label class="form__label"
                                    for="item-license">Licencia:</label>
                             <select id="item-license"
@@ -86,124 +81,133 @@
                                     name="License"
                                     required>
 
-                                <option class="form__option--placeholder" 
-                                        value=""
-                                        disabled
-                                        selected>Seleccionar</option>
+                                <% if (product) { %>
+                                    <option class="form__option--placeholder" 
+                                            value="<%= product.licence_id %>" 
+                                            selected><%= product.licence_id %></option>
+                                <% } else { %>
+                                    <option class="form__option--placeholder" 
+                                            value="" 
+                                            disabled
+                                            selected>Seleccionar</option>
+                                <% } %>
 
+                                <% licences.forEach(licence => { %>
                                 <option class="form__option"
-                                        value="License-1">Licencia-1</option>
-
-                                <option class="form__option"
-                                        value="License-2">Licencia-2</option>
-
-                                <option class="form__option"
-                                        value="License-3">Licencia-3</option>
+                                        value="<%= licence %>"><%= licence %></option>
+                                <% }); %>
                             </select>
                         </div>
                     </div>
 
                     <!-- Nombre del producto -->
-                    <div class="create-form__input">
+                    <div class="form__input-separator">
                         <label class="form__label"
                                for="item-name">Nombre del producto:</label>
                         <input id="item-name"
                                class="form__text"
                                type="text"
                                name="Item-name"
+                               value="<%- product ? product.product_name : '' %>"
                                placeholder="Kakashi Hatake Shippuden Saga"
                                required>
                     </div>
 
                     <!-- Descripción del producto -->
-                    <div class="create-form__input">
+                    <div class="form__input-separator">
                         <textarea id="item-description"
                                   class="form__textarea"
                                   name="Item-description"
                                   rows="10"
                                   cols="70"
-                                  placeholder="Descripción del producto"></textarea>
+                                  placeholder="Descripción del producto"><%- product ? product.product_description : "" %></textarea>
                     </div>
 
-                    <div class="create-form__content">
+                    <div class="form__row-content">
                         <!-- SKU del producto -->
-                        <div class="create-form__input">
+                        <div class="form__input-separator">
                             <label class="form__label" 
                                    for="item-sku">SKU:</label>
                             <input id="item-sku"
-                                   class="form__text create-form__sku"
+                                   class="form__text form__sku-input"
                                    type="text"
                                    name="Item-sku"
+                                   value="<%- product ? product.sku : '' %>"
                                    placeholder="SSK11AB001"
                                    required>
                         </div>
 
                         <!-- Precio del producto -->
-                        <div class="create-form__input">
+                        <div class="form__input-separator">
                             <label class="form__label"
                                    for="item-price">Precio:</label>
                             <input id="item-price"
-                                   class="form__text create-form__price"
-                                   type="text"
+                                   class="form__text form__price-input"
+                                   type="number"
                                    name="Item-price"
+                                   value="<%- product ? product.price : '' %>"
                                    placeholder="$ 0.000,00"
                                    required>
                         </div>
 
                         <!-- Stock del producto -->
-                        <div class="create-form__input">
+                        <div class="form__input-separator">
                             <label class="form__label"
                                    for="item-stock">Stock:</label>
                             <input id="item-stock"
-                                   class="form__number create-form__stock"
+                                   class="form__number form__stock-input"
                                    type="number"
                                    name="Item-stock"
+                                   value="<%- product ? product.stock : '' %>"
                                    placeholder="0"
                                    required>
                         </div>
                     </div>
 
-                    <div class="create-form__content">
+                    <div class="form__row-content">
                         <!-- Descuento del producto -->
-                        <div class="create-form__input">
+                        <div class="form__input-separator">
                             <label class="form__label"
                                    for="item-discount">Descuento:</label>
                             <input id="item-discount"
-                                   class="form__number create-form__discount"
+                                   class="form__number form__discount-input"
                                    type="number"
                                    name="Item-discount"
+                                   value="<%- product ? product.discount : '' %>"
                                    placeholder="0%"
                                    required>
                         </div>
 
                         <!-- Cuotas del producto -->
-                        <div class="create-form__input">
+                        <div class="form__input-separator">
                             <label class="form__label"
-                                   for="item-fees">Cuotas:</label>
-                            <select id="item-fees"
+                                   for="item-dues">Cuotas:</label>
+                            <select id="item-dues"
                                     class="form__select"
-                                    name="Fees"
+                                    name="Dues"
                                     required>
 
-                                <option class="form__option--placeholder"
-                                        value=""
-                                        disabled
-                                        selected>3 Cuotas sin interés</option>
+                                <% if (product) { %>
+                                    <option class="form__option--placeholder" 
+                                            value="<%= product.dues %>" 
+                                            selected><%= product.dues %> cuotas sin interés</option>
+                                <% } else { %>
+                                    <option class="form__option--placeholder"
+                                            value=""
+                                            disabled
+                                            selected>3 Cuotas sin interés</option>
+                                <% } %>
 
+                                <% dues.forEach(due => { %>
                                 <option class="form__option"
-                                        value="Fees-1">Cuotas-1</option>
-
-                                <option class="form__option"
-                                        value="Fees-2">Cuotas-2</option>
-
-                                <option class="form__option"
-                                        value="Fees-3">Cuotas-3</option>
+                                        value="<%= due %>"><%= due %> cuotas sin interés</option>
+                                <% }); %>
                             </select>
                         </div>
                     </div>
 
                     <!-- Seleccionar imágenes del producto -->
-                    <div class="create-form__input">
+                    <div class="form__input-separator">
                         <label class="form__label"
                                for="item-img">Imágenes:</label>
                         <input id="item-img"
@@ -213,53 +217,65 @@
                     </div>
 
                     <!-- Imágenes del producto -->
-                    <div class="create-form__figure--content"> 
-                        <!-- TODO: entiendo que acá se agregarían las imágenes
-                             que se obtienen del <input type="file"> -->
+                    <div class="form__figure--content"> 
+                        <figure class="form__figure">
+                            <img id="item-front-img"
+                                 src="<%- product ? product.image_front : '/img/placeholder.webp' %>" 
+                                 alt="Funkopop de frente">
+                            <figcaption class="form__figcaption">Frente</figcaption>
+                        </figure>
+
+                        <figure class="form__figure">
+                            <img id="item-back-img"
+                                 src="<%- product ? product.image_back : '/img/placeholder.webp' %>" 
+                                 alt="Funkopop dentro de la caja">
+                            <figcaption class="form__figcaption">Dorso</figcaption>
+                        </figure>
                     </div>
 
                     <!-- Botones -->
-                    <div class="create-form__input--buttons"> 
+                    <div class="form__buttons-separator"> 
                         <button class="form__button"
-                                type="submit">Agregar Producto</button>
+                                type="submit"><%- product ? "Modificar Producto" : "Agregar Producto" %></button>
 
-                        <button class="form__button create-form__button"
-                                type="reset">Limpiar</button>
+                        <% if (!product) { %>
+                            <button id="clean-button"
+                                    class="form__button form__button-padding"
+                                    type="reset">Limpiar</button>
+                        <% } %>
                     </div>
                 </form>
             </section>
         </main>
 
 
+        <!-- CÓDIGO TEMPORAL HASTA QUE ESTÉ EL PARTIAL DEL FOOTER -->
         <!-- FOOTER -->
         <footer>
             <nav class="navbar container">
                 <ul>
                     <li>
+                        <a class="navbar__link"
+                            href="/shop">SHOP</a>
+                    </li>
+                    <li>
+                        <a class="navbar__link"
+                            href="/auth/register">REGISTRARSE</a>
+                    </li>
+                    <li>
+                        <a class="navbar__link"
+                            href="/auth/login">INGRESAR</a>
+                    </li>
+                    <li>
                         <a class="navbar__link" 
-                           href="../shop/shop.html">SHOP</a>
-                    </li>
-
-                    <li>
-                        <a class="navbar__link"
-                           href="./register.html">REGISTRARSE</a>
-                    </li>
-
-                    <li>
-                        <a class="navbar__link"
-                           href="./login.html">INGRESAR</a>
-                    </li>
-
-                    <li>
-                        <a class="navbar__link"
-                           href="../../pages/contact.html">CONTACTO</a>
+                            href="/contact">CONTACTO</a>
                     </li>
                 </ul>
 
                 <figure class="navbar__logo--footer">
-                    <a href="../../index.html">
+                    <a href="/">
                         <img src="../../img/branding/isotype.svg" 
-                             alt="Isotipo de la tienda FunkoShop">
+                                alt="Isotipo de la tienda FunkoShop">
                     </a>
                 </figure>
             </nav>

@@ -27,8 +27,29 @@ const getProducts = async (req, res) => {
 const getCreateForm = async (req, res) => {
     try {
         // TODO: mostrar la vista del formulario para la creación de productos.
-        const filePath = path.join(__dirname, "..", "..", "public/pages/admin/create.html");
-        res.sendFile(filePath);
+        const categories = [
+            "Figuras coleccionables",
+            "Categoria 2",
+            "Categoria 3",
+            "Categoria 4"
+        ];
+        const licences = [
+            "STAR WARS",
+            "POKEMON",
+            "HARRY POTTER"
+        ];
+        const dues = [
+            12,
+            6,
+            3
+        ];
+
+        res.render("admin/create_edit", {
+            product: null,
+            categories,
+            licences,
+            dues
+        });
     }
     catch (err) {
         console.error(`Error al obtener el formulario de creación de productos: ${err}`);
@@ -55,8 +76,44 @@ const createNewProduct = async (req, res) => {
 const getEditForm = async (req, res) => {
     try {
         // TODO: mostrar la vista del formulario para la edición de productos.
-        const filePath = path.join(__dirname, "..", "..", "public/pages/admin/edit.html");
-        res.sendFile(filePath);
+        const product = {
+            product_id: 12,
+            product_name: "Luna Lovegood Lion Mask",
+            product_description: "Figura coleccionable de Luna Lovegood Lion Mask - Harry Potter Saga, edición limitada.",
+            price: 1799.99,
+            stock: 5,
+            discount: 10,
+            sku: "HPT001003",
+            dues: 12,
+            image_front: "/img/harry-potter/luna-1.webp",
+            image_back: "/img/harry-potter/luna-box.webp",
+            create_time: false,
+            licence_id:"HARRY POTTER",
+            category_id:"Figuras coleccionables"
+        };
+        const categories = [
+            "Figuras coleccionables",
+            "Categoria 2",
+            "Categoria 3",
+            "Categoria 4"
+        ];
+        const licences = [
+            "STAR WARS",
+            "POKEMON",
+            "HARRY POTTER"
+        ];
+        const dues = [
+            12,
+            6,
+            3
+        ]
+
+        res.render("admin/create_edit", {
+            product,
+            categories,
+            licences,
+            dues
+        });
     }
     catch (err) {
         console.error(`Error al obtener el formulario de edición de productos: ${err}`);
