@@ -63,7 +63,7 @@ const createNewProduct = async (req, res) => {
     try {
         // TODO: validación de la información (Express-validator).
         // TODO: operación de creación en la base de datos.
-        res.send("Producto creado con éxito");
+        res.json(req.body);
     }
     catch (err) {
         res.status(422).send("No se ha podido crear el producto en la base de datos");
@@ -127,7 +127,7 @@ const editProduct = async (req, res) => {
     try {
         // TODO: validación de la información (Express-validator).
         // TODO: operación de edición en la base de datos.
-        res.send("Producto editado con éxito");
+        res.json(req.body);
     }
     catch (err) {
         res.status(422).send("No se ha podido modificar el producto seleccionado en la base de datos");

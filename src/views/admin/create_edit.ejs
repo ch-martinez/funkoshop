@@ -57,17 +57,24 @@
                                    for="item-category">Categoría:</label>
                             <select id="item-category" 
                                     class="form__select"
-                                    name="Category"
+                                    name="Item-category"
                                     required>
 
-                                <option class="form__option--placeholder" 
-                                        disabled
-                                        value="<%- product ? product.category_id : '' %>"
-                                        selected><%- product ? product.category_id : "Seleccionar" %></option>
+                                <% if (product) { %>
+                                    <option class="form__option--placeholder" 
+                                            value="<%= product.category_id %>" 
+                                            selected><%= product.category_id %></option>
+                                <% } else { %>
+                                    <option class="form__option--placeholder" 
+                                            value="" 
+                                            disabled
+                                            selected>Seleccionar</option>
+                                <% } %>
 
                                 <% categories.forEach(category => { %>
                                 <option class="form__option"
-                                        value="<%= category %>"><%= category %></option>
+                                        value="<%= category %>">
+                                        <%= category %></option>
                                 <% }); %>
                             </select>
                         </div>
@@ -78,7 +85,7 @@
                                    for="item-license">Licencia:</label>
                             <select id="item-license"
                                     class="form__select"
-                                    name="License"
+                                    name="Item-license"
                                     required>
 
                                 <% if (product) { %>
@@ -209,11 +216,20 @@
                     <!-- Seleccionar imágenes del producto -->
                     <div class="form__input-separator">
                         <label class="form__label"
-                               for="item-img">Imágenes:</label>
+                               for="item-img">Imagen frontal:</label>
+                        <input id="item-front-img"
+                               class="form__file"
+                               type="file"
+                               name="Item-front-img">
+                    </div>
+
+                    <div class="form__input-separator">
+                        <label class="form__label"
+                               for="item-back-img">Imagen dorsal:</label>
                         <input id="item-img"
                                class="form__file"
                                type="file"
-                               name="Item-img">
+                               name="Item-back-img">
                     </div>
 
                     <!-- Imágenes del producto -->
@@ -238,11 +254,9 @@
                         <button class="form__button"
                                 type="submit"><%- product ? "Modificar Producto" : "Agregar Producto" %></button>
 
-                        <% if (!product) { %>
-                            <button id="clean-button"
-                                    class="form__button form__button-padding"
-                                    type="reset">Limpiar</button>
-                        <% } %>
+                        <button id="clean-button"
+                                class="form__button form__button-padding"
+                                type="reset"><%- product ? "Deshacer cambios" : "Limpiar" %></button>
                     </div>
                 </form>
             </section>
