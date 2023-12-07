@@ -8,7 +8,7 @@ const PORT = 3000;
 /* --- ROUTES --- */
 const shopRoutes = require('./src/router/shopRouter.js');
 const adminRoutes = require("./src/router/adminRoutes.js");
-
+const mainRoutes = require("./src/router/mainRouter.js");
 
 /* --- MIDDLEWARES --- */
 // Definir la carpeta '/public' para los archivos estáticos..
@@ -24,6 +24,7 @@ app.set('view engine', 'ejs')
 app.set('views', path.resolve(__dirname, "./src/views"));
 
 // MAIN
+app.use("/", mainRoutes);
 
 // SHOP
 // app.use('/', shopRoutes);
