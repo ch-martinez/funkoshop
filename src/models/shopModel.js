@@ -37,6 +37,57 @@ async function getShopFromDB() {
         throw err;
     }
 }
+    // Función para realizar la inserción en la tabla productos
+    async function insertarProducto(producto) {
+   
+        try {
+        const sql = `
+            INSERT INTO productos (
+            product,
+            product_name,
+            product_description,
+            price,
+            stock,
+            discount,
+            sku,
+            dues,
+            image_front,
+            image_back,
+            licence_id,
+            category_id
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+        `;
+    
+        const values = [
+            producto.product,
+            producto.product_name,
+            producto.product_description,
+            producto.price,
+            producto.stock,
+            producto.discount,
+            producto.sku,
+            producto.dues,
+            producto.image_front,
+            producto.image_back,
+            producto.licence_id,
+            producto.category_id,
+        ];
+    
+            await pool.query(sql, values, (queryError, results) => {
+        
+                if (queryError) {
+                console.error('Error al ejecutar la consulta:', queryError);
+                } else {
+                console.log('Inserción exitosa. ID del nuevo producto:', results.insertId);
+                }
+            });
+        }
+        catch (err) {
+            console.error(`Error en la consulta a la base de datos: ${err}`);
+            throw err;
+        }
+    };
+
 
 
 
