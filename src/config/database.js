@@ -1,13 +1,12 @@
-import { config } from "dotenv";
-config();
+require("dotenv").config();
 
-import { createPool } from 'mysql2/promise';
+const { createPool } = require("mysql2/promise");
 
 const pool = createPool({
-    host: "localhost" || process.env.DB_HOST, 
-    user: "root" || process.env.DB_USER,
-    password: "" || process.env.DB_PASSWORD,
-    database: "workshop2023" || process.env.DB_DATABASE,
+    host: process.env.DB_HOST || "localhost",
+    user: process.env.DB_USER || "root",
+    password: process.env.DB_PASSWORD || "",
+    database: process.env.DB_DATABASE || "funkoshop_db",
     waitForConnections: true,
     connectionLimit: 5,
     queueLimit: 0,
@@ -17,11 +16,11 @@ const pool = createPool({
 // Prueba de conexión
 pool.getConnection()
     .then(connection => {
-        console.log('Connected to MySQL database');
+        console.log('Conectado con la base de datos');
         connection.release();
     })
     .catch(err => {
-        console.error('Error connecting to MySQL:', err);
+        console.error('Error al conectar con la base de datos:', err);
     });
 
-export default pool;
+module.exports = pool;

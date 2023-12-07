@@ -63,7 +63,7 @@
                                 <% if (product) { %>
                                     <option class="form__option--placeholder" 
                                             value="<%= product.category_id %>" 
-                                            selected><%= product.category_id %></option>
+                                            selected><%= product.category_name %></option>
                                 <% } else { %>
                                     <option class="form__option--placeholder" 
                                             value="" 
@@ -73,8 +73,8 @@
 
                                 <% categories.forEach(category => { %>
                                 <option class="form__option"
-                                        value="<%= category %>">
-                                        <%= category %></option>
+                                        value="<%= category.id %>">
+                                        <%= category.name %></option>
                                 <% }); %>
                             </select>
                         </div>
@@ -91,7 +91,7 @@
                                 <% if (product) { %>
                                     <option class="form__option--placeholder" 
                                             value="<%= product.licence_id %>" 
-                                            selected><%= product.licence_id %></option>
+                                            selected><%= product.licence_name %></option>
                                 <% } else { %>
                                     <option class="form__option--placeholder" 
                                             value="" 
@@ -101,7 +101,7 @@
 
                                 <% licences.forEach(licence => { %>
                                 <option class="form__option"
-                                        value="<%= licence %>"><%= licence %></option>
+                                        value="<%= licence.id %>"><%= licence.name %></option>
                                 <% }); %>
                             </select>
                         </div>

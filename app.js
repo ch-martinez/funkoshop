@@ -2,7 +2,8 @@
 const express = require('express');
 const app = express();
 const path = require("node:path");
-const PORT = 3000;
+require("dotenv").config();
+const PORT = process.env.SV_PORT || 8080;
 
 
 /* --- ROUTES --- */
