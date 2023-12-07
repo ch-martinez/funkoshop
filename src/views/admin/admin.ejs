@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!-- CÓDIGO TEMPORAL HASTA QUE ESTÉ EL PARTIAL DEL HEAD -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin</title>
+        <link rel="stylesheet" href="/css/imports.css">
+        <link rel="stylesheet" href="/css/pages/admin.css">
+        <link rel="stylesheet" href="/css/global/alert_delet.css">
+    </head>
+
+    <body>
+    <!-- HEADER -->
+        <!-- CÓDIGO TEMPORAL HASTA QUE ESTÉ EL PARTIAL DEL HEADER -->
+        <!-- HEADER -->
+        <header>
+            <nav class="navbar container">
+                <figure class="navbar__logo--header">
+                    <a href="/">
+                        <img src="../../img/branding/logo_light_horizontal.svg" 
+                             alt="Isotipo de la tienda FunkoShop">
+                    </a>
+                </figure>
+
+                <!-- MENU -->
+                <ul class="navbar__menu--admin">
+                    <li class="navbar__item">
+                        <a class="navbar__link" 
+                            href="/shop">VER TIENDA</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a class="navbar__link"
+                            href="/admin">ADMIN</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a class="navbar__link"
+                            href="/">SALIR</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="container container--admin">
+            <!-- Seccion de busqueda item -->
+            <section class="admin-search__container">
+                <picture>
+                    <img src="/img/icons/search_icon.svg" alt="Buscar item">
+                </picture>
+                <input class="input-text--box admin-search__input" type="text" placeholder="Código, nombre o categoria">
+            </section>
+
+            <!-- Cabecera de tabla para agregar item -->
+            <section class="table-admin-head__container">
+                <h1 class="table-admin-head__title">LISTADO DE PRODUCTOS</h1>
+                <div>
+                    <a class="table-admin-head__add" href="/admin/create">
+                        <span>AGREGAR</span>
+                        <picture>
+                            <img src="/img/icons/+.svg" alt="Agregar item">
+                        </picture>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Listado de items -->
+            <table class="table-admin">
+                <thead>
+                    <tr>
+                        <th class="table-admin__data--head table-admin__data">ID</t>
+                        <th class="table-admin__data--head table-admin__data">Código</th>
+                        <th class="table-admin__data--head table-admin__data">Nombre del producto</th>
+                        <th class="table-admin__data--head table-admin__data" colspan="2">Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Fila de tabla -->
+                    <% products.forEach(product => { %>
+                        <tr class="table-admin__row">
+                            <td class="table-admin__data"><%= product.product_id %></td>
+                            <td class="table-admin__data"><%= product.sku %></td>
+                            <td class="table-admin__data"><%= product.product_name %></td>
+                            <td class="table-admin__data"><%= product.licence_name %></td>
+                            <td class="table-admin__data">
+                                <a class="table-admin__btn" href="/admin/edit/<%= product.product_id %>">
+                                    <img src="/img/icons/edit_pencil.svg" alt="Icono para editar">
+                                </a>
+                                <a class="table-admin__btn" href="/admin/delete/<%= product.product_id %>">
+                                    <img class="alert-delet__btn" 
+                                         src="/img/icons/delete_trash.svg" 
+                                         alt="Icono para eliminar item">
+                                </a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <!-- Alerta al elminar item -->
+            <dialog class="alert-delet">
+                <p class="alert-delet__text">¿Eliminar el item <span></span>?</p>
+                <div class="alert-delet__buttons-container">
+                    <button class="btn btn--admin-confirm">Confirmar</button>
+                    <button class="btn btn--admin-delet">Cancelar</button>
+                </div>
+            </dialog>
+        </main>
+
+        <!-- CÓDIGO TEMPORAL HASTA QUE ESTÉ EL PARTIAL DEL FOOTER -->
+        <!-- FOOTER -->
+        <footer>
+            <nav class="navbar container">
+                <ul>
+                    <li>
+                        <a class="navbar__link"
+                            href="/shop">SHOP</a>
+                    </li>
+                    <li>
+                        <a class="navbar__link"
+                            href="/auth/register">REGISTRARSE</a>
+                    </li>
+                    <li>
+                        <a class="navbar__link"
+                            href="/auth/login">INGRESAR</a>
+                    </li>
+                    <li>
+                        <a class="navbar__link" 
+                            href="/contact">CONTACTO</a>
+                    </li>
+                </ul>
+
+                <figure class="navbar__logo--footer">
+                    <a href="/">
+                        <img src="../../img/branding/isotype.svg" 
+                                alt="Isotipo de la tienda FunkoShop">
+                    </a>
+                </figure>
+            </nav>
+            <p class="footer__copy">All rights reserved 2023 - Funkoshop&copy;</p>
+        </footer>
+    <script src="/scripts/adminDeletItem.js"></script>
+</body>
+
+</html>

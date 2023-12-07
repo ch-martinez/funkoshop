@@ -4,16 +4,20 @@ const path = require("node:path");
 
 
 /* --- MODEL --- */
+const { getProductsFromDB } = require("../models/productModel");
 
 
 /* --- READ --- */
 // Devolver la vista con el listado de productos.
 const getProducts = async (req, res) => {
     try {
-        // TODO: obtener los productos de la base de datos y mostrar la vista si
-        //       no hay problemas.
-        const filePath = path.join(__dirname, '..', '..', 'public/pages/admin/admin.html');
-        res.sendFile(filePath);
+        const products = await getProductsFromDB();
+        if (!products) { 
+            res.status(404).send("Productos no encontrados en la base de datos.");
+        }
+        res.render("admin/admin", {
+            products
+        })
     }
     catch (err) {
         console.error(`Error al obtener los productos: ${err}`);
@@ -26,9 +30,38 @@ const getProducts = async (req, res) => {
 // Devolver la vista con el formulario para la creación de un nuevo producto.
 const getCreateForm = async (req, res) => {
     try {
-        // TODO: mostrar la vista del formulario para la creación de productos.
-        const filePath = path.join(__dirname, "..", "..", "public/pages/admin/create.html");
-        res.sendFile(filePath);
+        // TODO: pedir a la DB las categorias para rellenar los select con este formato:
+        const categories = [
+            {
+                id: 1,
+                name: "Funkos"
+            },
+            "Categoria 2",
+            "Categoria 3",
+            "Categoria 4"
+        ];
+        // TODO: pedir a la DB las licencias para rellenar los select con este formato:
+        const licences = [
+            {
+                id: 1,
+                name: "Harry Potter"
+            },
+            "STAR WARS",
+            "POKEMON",
+            "HARRY POTTER"
+        ];
+        const dues = [
+            12,
+            6,
+            3
+        ];
+
+        res.render("admin/create_edit", {
+            product: null,
+            categories,
+            licences,
+            dues
+        });
     }
     catch (err) {
         console.error(`Error al obtener el formulario de creación de productos: ${err}`);
@@ -42,7 +75,7 @@ const createNewProduct = async (req, res) => {
     try {
         // TODO: validación de la información (Express-validator).
         // TODO: operación de creación en la base de datos.
-        res.send("Producto creado con éxito");
+        res.json(req.body);
     }
     catch (err) {
         res.status(422).send("No se ha podido crear el producto en la base de datos");
@@ -54,9 +87,46 @@ const createNewProduct = async (req, res) => {
 // Devolver la vista con el formulario para la edición de un producto seleccionado.
 const getEditForm = async (req, res) => {
     try {
-        // TODO: mostrar la vista del formulario para la edición de productos.
-        const filePath = path.join(__dirname, "..", "..", "public/pages/admin/edit.html");
-        res.sendFile(filePath);
+        // TODO: lógica de negocio para obtener el producto que se quiere editar.
+        /* CÓDIDO TEMPORAL DE PRUEBAS */
+        const product = {
+            product_id: 12,
+            product_name: "Luna Lovegood Lion Mask",
+            product_description: "Figura coleccionable de Luna Lovegood Lion Mask - Harry Potter Saga, edición limitada.",
+            price: 1799.99,
+            stock: 5,
+            discount: 10,
+            sku: "HPT001003",
+            dues: 12,
+            image_front: "/img/harry-potter/luna-1.webp",
+            image_back: "/img/harry-potter/luna-box.webp",
+            create_time: false,
+            licence_id:"HARRY POTTER",
+            category_id:"Figuras coleccionables"
+        };
+        const categories = [
+            "Figuras coleccionables",
+            "Categoria 2",
+            "Categoria 3",
+            "Categoria 4"
+        ];
+        const licences = [
+            "STAR WARS",
+            "POKEMON",
+            "HARRY POTTER"
+        ];
+        const dues = [
+            12,
+            6,
+            3
+        ]
+
+        res.render("admin/create_edit", {
+            product,
+            categories,
+            licences,
+            dues
+        });
     }
     catch (err) {
         console.error(`Error al obtener el formulario de edición de productos: ${err}`);
@@ -70,7 +140,7 @@ const editProduct = async (req, res) => {
     try {
         // TODO: validación de la información (Express-validator).
         // TODO: operación de edición en la base de datos.
-        res.send("Producto editado con éxito");
+        res.json(req.body);
     }
     catch (err) {
         res.status(422).send("No se ha podido modificar el producto seleccionado en la base de datos");

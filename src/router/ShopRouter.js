@@ -1,17 +1,17 @@
 // shopRoutes.js
 const express = require('express');
 const router = express.Router();
-const mainController = require('../controllers/shopController.js');
+const shopController = require('../controllers/shopController.js');
 
-mainController.initializeShop();
-router.get('/shop', mainController.getShop);
+shopController.initializeShop();
+router.get('/', shopController.getShop);
 
-router.get('/shop/item/:id', mainController.getItem);
+router.get('/item/:id', shopController.getItem);
 
-router.post('/shop/item/:id/add', mainController.addItemToShop);
+router.post('/item/:id/add', shopController.addItemToShop);
 
-router.get('/shop/cart', mainController.getShoppingCart);
+router.get('/cart', shopController.getShoppingCart);
 
-router.post('/shop/cart', mainController.updateShoppingCart);
+router.post('/cart', shopController.updateShoppingCart);
 
 module.exports = router;

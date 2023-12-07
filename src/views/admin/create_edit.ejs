@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!-- CÓDIGO TEMPORAL HASTA QUE ESTÉ EL PARTIAL DEL HEAD -->
+    <head>
+        <title><%- product ? "Editar item" : "Crear nuevo item" %></title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/imports.css">
+        <link rel="stylesheet" href="/css/pages/create_edit.css">
+        <link rel="shortcut icon" href="/img/branding/isotype.svg" type="image/x-icon">
+    </head>
+
+    <body>
+        <!-- CÓDIGO TEMPORAL HASTA QUE ESTÉ EL PARTIAL DEL HEADER -->
+        <!-- HEADER -->
+        <header>
+            <nav class="navbar container">
+                <figure class="navbar__logo--header">
+                    <a href="/">
+                        <img src="../../img/branding/logo_light_horizontal.svg" 
+                             alt="Isotipo de la tienda FunkoShop">
+                    </a>
+                </figure>
+
+                <!-- MENU -->
+                <ul class="navbar__menu--admin">
+                    <li class="navbar__item">
+                        <a class="navbar__link" 
+                            href="/shop">VER TIENDA</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a class="navbar__link"
+                            href="/admin">ADMIN</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a class="navbar__link"
+                            href="/">SALIR</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- MAIN -->
+        <main class="main-container">
+            <section class="content container">
+                <h1 class="title"><%- product ? "EDITAR ITEM" : "CREAR NUEVO ITEM" %></h1>
+                <form id="create-edit-form"
+                      class="form__container"
+                      action="<%- product ? '/admin/edit/' + product.product_id : '/admin/create' %>"
+                      method="post">
+
+                    <div class="form__row-content">
+                        <!-- Categoría del producto -->
+                        <div class="form__input-separator">
+                            <label class="form__label"
+                                   for="item-category">Categoría:</label>
+                            <select id="item-category" 
+                                    class="form__select"
+                                    name="Item-category"
+                                    required>
+
+                                <% if (product) { %>
+                                    <option class="form__option--placeholder" 
+                                            value="<%= product.category_id %>" 
+                                            selected><%= product.category_name %></option>
+                                <% } else { %>
+                                    <option class="form__option--placeholder" 
+                                            value="" 
+                                            disabled
+                                            selected>Seleccionar</option>
+                                <% } %>
+
+                                <% categories.forEach(category => { %>
+                                <option class="form__option"
+                                        value="<%= category.id %>">
+                                        <%= category.name %></option>
+                                <% }); %>
+                            </select>
+                        </div>
+
+                        <!-- Licencia del producto -->
+                        <div class="form__input-separator">
+                            <label class="form__label"
+                                   for="item-license">Licencia:</label>
+                            <select id="item-license"
+                                    class="form__select"
+                                    name="Item-license"
+                                    required>
+
+                                <% if (product) { %>
+                                    <option class="form__option--placeholder" 
+                                            value="<%= product.licence_id %>" 
+                                            selected><%= product.licence_name %></option>
+                                <% } else { %>
+                                    <option class="form__option--placeholder" 
+                                            value="" 
+                                            disabled
+                                            selected>Seleccionar</option>
+                                <% } %>
+
+                                <% licences.forEach(licence => { %>
+                                <option class="form__option"
+                                        value="<%= licence.id %>"><%= licence.name %></option>
+                                <% }); %>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Nombre del producto -->
+                    <div class="form__input-separator">
+                        <label class="form__label"
+                               for="item-name">Nombre del producto:</label>
+                        <input id="item-name"
+                               class="form__text"
+                               type="text"
+                               name="Item-name"
+                               value="<%- product ? product.product_name : '' %>"
+                               placeholder="Kakashi Hatake Shippuden Saga"
+                               required>
+                    </div>
+
+                    <!-- Descripción del producto -->
+                    <div class="form__input-separator">
+                        <textarea id="item-description"
+                                  class="form__textarea"
+                                  name="Item-description"
+                                  rows="10"
+                                  cols="70"
+                                  placeholder="Descripción del producto"><%- product ? product.product_description : "" %></textarea>
+                    </div>
+
+                    <div class="form__row-content">
+                        <!-- SKU del producto -->
+                        <div class="form__input-separator">
+                            <label class="form__label" 
+                                   for="item-sku">SKU:</label>
+                            <input id="item-sku"
+                                   class="form__text form__sku-input"
+                                   type="text"
+                                   name="Item-sku"
+                                   value="<%- product ? product.sku : '' %>"
+                                   placeholder="SSK11AB001"
+                                   required>
+                        </div>
+
+                        <!-- Precio del producto -->
+                        <div class="form__input-separator">
+                            <label class="form__label"
+                                   for="item-price">Precio:</label>
+                            <input id="item-price"
+                                   class="form__text form__price-input"
+                                   type="number"
+                                   name="Item-price"
+                                   value="<%- product ? product.price : '' %>"
+                                   placeholder="$ 0.000,00"
+                                   required>
+                        </div>
+
+                        <!-- Stock del producto -->
+                        <div class="form__input-separator">
+                            <label class="form__label"
+                                   for="item-stock">Stock:</label>
+                            <input id="item-stock"
+                                   class="form__number form__stock-input"
+                                   type="number"
+                                   name="Item-stock"
+                                   value="<%- product ? product.stock : '' %>"
+                                   placeholder="0"
+                                   required>
+                        </div>
+                    </div>
+
+                    <div class="form__row-content">
+                        <!-- Descuento del producto -->
+                        <div class="form__input-separator">
+                            <label class="form__label"
+                                   for="item-discount">Descuento:</label>
+                            <input id="item-discount"
+                                   class="form__number form__discount-input"
+                                   type="number"
+                                   name="Item-discount"
+                                   value="<%- product ? product.discount : '' %>"
+                                   placeholder="0%"
+                                   required>
+                        </div>
+
+                        <!-- Cuotas del producto -->
+                        <div class="form__input-separator">
+                            <label class="form__label"
+                                   for="item-dues">Cuotas:</label>
+                            <select id="item-dues"
+                                    class="form__select"
+                                    name="Dues"
+                                    required>
+
+                                <% if (product) { %>
+                                    <option class="form__option--placeholder" 
+                                            value="<%= product.dues %>" 
+                                            selected><%= product.dues %> cuotas sin interés</option>
+                                <% } else { %>
+                                    <option class="form__option--placeholder"
+                                            value=""
+                                            disabled
+                                            selected>3 Cuotas sin interés</option>
+                                <% } %>
+
+                                <% dues.forEach(due => { %>
+                                <option class="form__option"
+                                        value="<%= due %>"><%= due %> cuotas sin interés</option>
+                                <% }); %>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Seleccionar imágenes del producto -->
+                    <div class="form__input-separator">
+                        <!-- Imagen frontal -->
+                        <label class="form__label"
+                               for="item-front-img">Imagen frontal:</label>
+                        <input id="item-front-img"
+                               class="form__file"
+                               type="file"
+                               name="Item-front-img"
+                               accept=".jpg, .jpeg, .webp, .png">
+
+                        <figure class="form__figure">
+                            <img id="front-img"
+                                 src="<%- product ? product.image_front : '/img/placeholder.webp' %>" 
+                                 alt="Funkopop de frente">
+                            <figcaption class="form__figcaption">Frente</figcaption>
+                        </figure>
+
+                        <input id="item-front-img-nomod"
+                               type="hidden"
+                               name="Item-front-img-nomod"
+                               value="<%- product ? product.image_front : '' %>">
+                    </div>
+
+                    <div class="form__input-separator">
+                        <!-- Imagen dorso-->
+                        <label class="form__label"
+                               for="item-back-img">Imagen dorsal:</label>
+                        <input id="item-back-img"
+                               class="form__file"
+                               type="file"
+                               name="Item-back-img"
+                               accept=".jpg, .jpeg, .webp, .png">
+
+                        <figure class="form__figure">
+                            <img id="back-img"
+                                src="<%- product ? product.image_back : '/img/placeholder.webp' %>" 
+                                alt="Funkopop dentro de la caja">
+                            <figcaption class="form__figcaption">Dorso</figcaption>
+                        </figure>
+
+                        <input id="item-back-img-nomod"
+                               type="hidden"
+                               name="Item-back-img-nomod"
+                               value="<%- product ? product.image_back : '' %>">
+                    </div>
+
+                    <!-- Imágenes del producto -->
+                    <!-- <div class="form__figure--content"> 
+                        <figure class="form__figure">
+                            <img id="front-img"
+                                 src="<%- product ? product.image_front : '/img/placeholder.webp' %>" 
+                                 alt="Funkopop de frente">
+                            <figcaption class="form__figcaption">Frente</figcaption>
+                        </figure>
+
+                        <figure class="form__figure">
+                            <img id="back-img"
+                                 src="<%- product ? product.image_back : '/img/placeholder.webp' %>" 
+                                 alt="Funkopop dentro de la caja">
+                            <figcaption class="form__figcaption">Dorso</figcaption>
+                        </figure>
+                    </div> -->
+
+                    <!-- Botones -->
+                    <div class="form__buttons-separator"> 
+                        <button class="form__button"
+                                type="submit"><%- product ? "Modificar Producto" : "Agregar Producto" %></button>
+
+                        <button id="reset-button"
+                                class="form__button form__button-padding"
+                                type="reset"><%- product ? "Deshacer cambios" : "Limpiar" %></button>
+                    </div>
+                </form>
+            </section>
+        </main>
+
+        <!-- CÓDIGO TEMPORAL HASTA QUE ESTÉ EL PARTIAL DEL FOOTER -->
+        <!-- FOOTER -->
+        <footer>
+            <nav class="navbar container">
+                <ul>
+                    <li>
+                        <a class="navbar__link"
+                            href="/shop">SHOP</a>
+                    </li>
+                    <li>
+                        <a class="navbar__link"
+                            href="/auth/register">REGISTRARSE</a>
+                    </li>
+                    <li>
+                        <a class="navbar__link"
+                            href="/auth/login">INGRESAR</a>
+                    </li>
+                    <li>
+                        <a class="navbar__link" 
+                            href="/contact">CONTACTO</a>
+                    </li>
+                </ul>
+
+                <figure class="navbar__logo--footer">
+                    <a href="/">
+                        <img src="../../img/branding/isotype.svg" 
+                                alt="Isotipo de la tienda FunkoShop">
+                    </a>
+                </figure>
+            </nav>
+            <p class="footer__copy">All rights reserved 2023 - Funkoshop&copy;</p>
+        </footer>
+
+        <!-- Scripts propios de esta vista -->
+        <script type="module">
+            import changeImage from "/scripts/inputFile.mjs";
+            import resetButton from "/scripts/resetButton.mjs";
+
+            window.onload = () => {
+                changeImage("#item-front-img", "#front-img");
+                changeImage("#item-back-img", "#back-img");
+                resetButton("#reset-button", "#item-front-img-nomod", "#front-img");
+                resetButton("#reset-button", "#item-back-img-nomod", "#back-img");
+            }
+        </script>
+    </body>
+</html>

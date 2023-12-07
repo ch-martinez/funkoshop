@@ -1,6 +1,6 @@
 @import url('/css/global/form.css');
 
-/* --- ESTILOS PROPIOS DE EDIT.HTML --- */
+/* --- ESTILOS PROPIOS DE CREATE Y EDIT --- */
 
 /* --- MAIN --- */
 .main-container {
@@ -9,14 +9,14 @@
     align-items: center;
 }
 
-.edit__content {
+.content {
     width: 1200px;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-36);
 }
 
-.edit__title {
+.title {
     font-family: var(--font-alternative);
     font-size: var(--font-xjumbo);
     font-weight: 700;
@@ -24,33 +24,45 @@
 
 /* --- FORM --- */
 /* Contenedor de contenido por fila del formulario */
-.edit-form__content {
+.form__row-content {
     display: flex;
     gap: var(--spacing-48);
 }
 
 /* Separador entre etiqueta y elemento de formulario */
-.edit-form__input {
+.form__input-separator {
     display: flex;
     align-items: center;
     gap: var(--spacing-12);
 }
 
+/* Estilos de los inputs */
+.form__sku-input,
+.form__price-input {
+    width: var(--spacing-128);
+}
+
+.form__stock-input, 
+.form__discount-input {
+    text-align: center;
+    width: var(--spacing-36);
+}
+
 /* Estilos de las imágenes del producto */
-.edit-form__figure--content {
+.form__figure--content {
     display: flex;
     align-items: center;
     gap: var(--spacing-24);
 }
 
-.edit-form__figure {
+.form__figure {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-8);
     max-width: 170px;
 }
 
-.edit-form__figcaption {
+.form__figcaption {
     font-family: var(--font-alternative);
     font-size: var(--font-medium-20);
     font-weight: 500;
@@ -59,15 +71,13 @@
     border-top: 2px solid var(--primary-solid);
 }
 
-
-/* Estilos únicos del formulario de esta página */
-.edit-form__stock,
-.edit-form__discount {
-    text-align: center;
-    width: var(--spacing-36);
+/* Separador entre elementos buttons del formulario */
+.form__buttons-separator {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-36);
 }
 
-.edit-form__sku,
-.edit-form__price {
-    width: var(--spacing-128);
+.form__button-padding {
+    padding: var(--spacing-12) var(--spacing-48);
 }
