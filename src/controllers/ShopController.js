@@ -19,7 +19,7 @@ const controller = {
           shopItems = JSON.parse(jsonString);
         
           // Ahora, `items` contiene la lista de artículos
-          console.log(shopItems);
+          console.log("Productos cargados");
         } catch (error) {
           console.error('Error al leer el archivo JSON: %s' , jsonFilePath, error.message);
         }        

@@ -10,10 +10,59 @@ const path = require("node:path");
 // Devolver la vista con el listado de productos.
 const getProducts = async (req, res) => {
     try {
-        // TODO: obtener los productos de la base de datos y mostrar la vista si
-        //       no hay problemas.
-        const filePath = path.join(__dirname, '..', '..', 'public/pages/admin/admin.html');
-        res.sendFile(filePath);
+        // TODO: lógica de negocio para obtener todos los productos desde la DB.
+        /* CÓDIDO TEMPORAL DE PRUEBAS */
+        const products = [
+            {
+                product_id: 1,
+                product_name: "Baby Yoda Blueball",
+                product_description: "Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga, edición limitada.",
+                price: 1799.99,
+                stock: 3,
+                discount: 25,
+                sku: "STW001001",
+                dues: 6,
+                image_front: "/img/star-wars/baby-yoda-1.webp",
+                image_back: "/img/star-wars/baby-yoda-box.webp",
+                create_time: true,
+                licence_id: "STAR WARS",
+                category_id: "Figuras coleccionables"
+            },
+            {
+                product_id: 2,
+                product_name: "Boba Fett Fighter",
+                product_description: "Figura coleccionable de Boba Fett Fighter - The Mandalorian Saga, edición limitada.",
+                price: 1799.99,
+                stock: 3,
+                discount: 25,
+                sku: "STW001002",
+                dues: 6,
+                image_front: "/img/star-wars/bobbafeth-1.webp",
+                image_back: "/img/star-wars/bobbafeth-box.webp",
+                create_time: true,
+                licence_id: "STAR WARS",
+                category_id: "Figuras coleccionables"
+            },
+            {
+                product_id: 3,
+                product_name: "Luke Skylwalker & Grogu",
+                product_description: "Figura coleccionable de Luke Skylwalker & Grogu - The Mandalorian Saga, edición limitada.",
+                price: 1799.99,
+                stock: 3,
+                discount: 25,
+                sku: "STW001003",
+                dues: 6,
+                image_front: "/img/star-wars/luke-1.webp",
+                image_back: "/img/star-wars/luke-box.webp",
+                create_time: true,
+                licence_id: "STAR WARS",
+                category_id: "Figuras coleccionables"
+            }
+        ];
+
+        res.render("admin/admin", {
+            products
+        })
     }
     catch (err) {
         console.error(`Error al obtener los productos: ${err}`);
@@ -74,6 +123,8 @@ const createNewProduct = async (req, res) => {
 // Devolver la vista con el formulario para la edición de un producto seleccionado.
 const getEditForm = async (req, res) => {
     try {
+        // TODO: lógica de negocio para obtener el producto que se quiere editar.
+        /* CÓDIDO TEMPORAL DE PRUEBAS */
         const product = {
             product_id: 12,
             product_name: "Luna Lovegood Lion Mask",

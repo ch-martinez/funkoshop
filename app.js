@@ -6,7 +6,7 @@ const PORT = 3000;
 
 
 /* --- ROUTES --- */
-// const shopRoutes = require('./src/router/shopRouter.js');
+const shopRoutes = require('./src/router/shopRouter.js');
 const adminRoutes = require("./src/router/adminRoutes.js");
 
 
@@ -26,16 +26,18 @@ app.set('views', path.resolve(__dirname, "./src/views"));
 // MAIN
 
 // SHOP
-// app.use('/shop', shopRoutes);
+app.use('/shop', shopRoutes);
 
 // ADMIN
 app.use("/admin", adminRoutes);
 
 // AUTH
+/* CÓDIGO TEMPORAL PARA PROBAR ALGUNAS RUTAS DESDE ADMIN */
 app.get("/auth/login", (req, res) => {
     res.render("admin/login");
 })
 
+/* CÓDIGO TEMPORAL PARA PROBAR ALGUNAS RUTAS DESDE ADMIN */
 app.get("/auth/register", (req, res) => {
     res.render("admin/register");
 })
