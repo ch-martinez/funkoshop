@@ -215,46 +215,74 @@
 
                     <!-- Seleccionar imágenes del producto -->
                     <div class="form__input-separator">
+                        <!-- Imagen frontal -->
                         <label class="form__label"
-                               for="item-img">Imagen frontal:</label>
+                               for="item-front-img">Imagen frontal:</label>
                         <input id="item-front-img"
                                class="form__file"
                                type="file"
-                               name="Item-front-img">
+                               name="Item-front-img"
+                               accept=".jpg, .jpeg, .webp, .png">
+
+                        <figure class="form__figure">
+                            <img id="front-img"
+                                 src="<%- product ? product.image_front : '/img/placeholder.webp' %>" 
+                                 alt="Funkopop de frente">
+                            <figcaption class="form__figcaption">Frente</figcaption>
+                        </figure>
+
+                        <input id="item-front-img-nomod"
+                               type="hidden"
+                               name="Item-front-img-nomod"
+                               value="<%- product ? product.image_front : '' %>">
                     </div>
 
                     <div class="form__input-separator">
+                        <!-- Imagen dorso-->
                         <label class="form__label"
                                for="item-back-img">Imagen dorsal:</label>
-                        <input id="item-img"
+                        <input id="item-back-img"
                                class="form__file"
                                type="file"
-                               name="Item-back-img">
+                               name="Item-back-img"
+                               accept=".jpg, .jpeg, .webp, .png">
+
+                        <figure class="form__figure">
+                            <img id="back-img"
+                                src="<%- product ? product.image_back : '/img/placeholder.webp' %>" 
+                                alt="Funkopop dentro de la caja">
+                            <figcaption class="form__figcaption">Dorso</figcaption>
+                        </figure>
+
+                        <input id="item-back-img-nomod"
+                               type="hidden"
+                               name="Item-back-img-nomod"
+                               value="<%- product ? product.image_back : '' %>">
                     </div>
 
                     <!-- Imágenes del producto -->
-                    <div class="form__figure--content"> 
+                    <!-- <div class="form__figure--content"> 
                         <figure class="form__figure">
-                            <img id="item-front-img"
+                            <img id="front-img"
                                  src="<%- product ? product.image_front : '/img/placeholder.webp' %>" 
                                  alt="Funkopop de frente">
                             <figcaption class="form__figcaption">Frente</figcaption>
                         </figure>
 
                         <figure class="form__figure">
-                            <img id="item-back-img"
+                            <img id="back-img"
                                  src="<%- product ? product.image_back : '/img/placeholder.webp' %>" 
                                  alt="Funkopop dentro de la caja">
                             <figcaption class="form__figcaption">Dorso</figcaption>
                         </figure>
-                    </div>
+                    </div> -->
 
                     <!-- Botones -->
                     <div class="form__buttons-separator"> 
                         <button class="form__button"
                                 type="submit"><%- product ? "Modificar Producto" : "Agregar Producto" %></button>
 
-                        <button id="clean-button"
+                        <button id="reset-button"
                                 class="form__button form__button-padding"
                                 type="reset"><%- product ? "Deshacer cambios" : "Limpiar" %></button>
                     </div>
@@ -295,5 +323,18 @@
             </nav>
             <p class="footer__copy">All rights reserved 2023 - Funkoshop&copy;</p>
         </footer>
+
+        <!-- Scripts propios de esta vista -->
+        <script type="module">
+            import changeImage from "/scripts/inputFile.mjs";
+            import resetButton from "/scripts/resetButton.mjs";
+
+            window.onload = () => {
+                changeImage("#item-front-img", "#front-img");
+                changeImage("#item-back-img", "#back-img");
+                resetButton("#reset-button", "#item-front-img-nomod", "#front-img");
+                resetButton("#reset-button", "#item-back-img-nomod", "#back-img");
+            }
+        </script>
     </body>
 </html>

@@ -26,7 +26,6 @@ const getProducts = async (req, res) => {
 // Devolver la vista con el formulario para la creación de un nuevo producto.
 const getCreateForm = async (req, res) => {
     try {
-        // TODO: mostrar la vista del formulario para la creación de productos.
         const categories = [
             "Figuras coleccionables",
             "Categoria 2",
@@ -75,7 +74,6 @@ const createNewProduct = async (req, res) => {
 // Devolver la vista con el formulario para la edición de un producto seleccionado.
 const getEditForm = async (req, res) => {
     try {
-        // TODO: mostrar la vista del formulario para la edición de productos.
         const product = {
             product_id: 12,
             product_name: "Luna Lovegood Lion Mask",
