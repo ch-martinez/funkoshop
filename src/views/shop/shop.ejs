@@ -72,14 +72,14 @@
                         <article class="card new-item">
                             <a class="card__link" href="/shop/item/<%= item.producto_id %>">
                                 <picture class="card__cover">
-                                    <img class="card__img-front" src="<%= item.img_front %>" alt="">
-                                    <img class="card__img-back" src="<%= item.img_back %>" alt="">
+                                    <img class="card__img-front" src="img/<%= item.image_front %>" alt="">
+                                    <img class="card__img-back" src="img/<%= item.image_back %>" alt="">
                                 </picture>
                                 <section class="card__content">
                                     <span class="card__collection"><%= item.category_name %></span>
                                     <h4 class="card__name"><%= item.product_name %></h4>
-                                    <span class="card__price"><%= item.product_price %></span>
-                                    <span class="card__payments"> En 1 pago <%= item.discount %>% de descuento  </span>
+                                    <span class="card__price"><%= item.price %></span>
+                                    <span class="card__payments"><%= item.dues %> cuotas sin interés  </span>
                                 </section>
                             </a>
                         </article>

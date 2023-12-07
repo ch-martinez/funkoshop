@@ -5,7 +5,6 @@ const path = require("node:path");
 require("dotenv").config();
 const PORT = process.env.SV_PORT || 8080;
 
-
 /* --- ROUTES --- */
 const shopRoutes = require('./src/router/shopRouter.js');
 const adminRoutes = require("./src/router/adminRoutes.js");

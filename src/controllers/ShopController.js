@@ -1,4 +1,6 @@
 // mainController.js
+/* --- MODEL --- */
+const { getShopFromDB } = require("../models/shopModel");
 shopItems = [  ];
   
   let shoppingCart = [];
@@ -10,7 +12,6 @@ const controller = {
         const fs = require('fs');
         const path = require('path');
         
-        // Ruta al archivo JSON
         const jsonFilePath = path.join(__dirname + "/../models", 'db.json');
         
         // Lee el contenido del archivo JSON de forma sincrónica (puedes usar readFile para operación asíncrona)
@@ -26,10 +27,16 @@ const controller = {
     },
 
      getShop: async function (req, res)  {
-      console.log (shopItems)
+        const shopItems = await getShopFromDB();
+        if (!shopItems) { 
+            res.status(404).send("Productos no encontrados en la base de datos.");
+        }
+        // Ruta al archivo JSON
+
+        console.log (shopItems)
       // res.json(shopItems);
       // Renderizar la vista ejs
-      res.render('shop/shop', shopItems);
+        res.render('shop/shop', { shopItems } );
       //res.json("Shop");
     },
   
