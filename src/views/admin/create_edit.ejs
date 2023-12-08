@@ -57,7 +57,7 @@
                                    for="item-category">Categoría:</label>
                             <select id="item-category" 
                                     class="form__select"
-                                    name="Item-category"
+                                    name="itemCategory"
                                     required>
 
                                 <% if (product) { %>
@@ -73,8 +73,8 @@
 
                                 <% categories.forEach(category => { %>
                                 <option class="form__option"
-                                        value="<%= category.id %>">
-                                        <%= category.name %></option>
+                                        value="<%= category.category_id %>">
+                                        <%= category.category_name %></option>
                                 <% }); %>
                             </select>
                         </div>
@@ -85,7 +85,7 @@
                                    for="item-license">Licencia:</label>
                             <select id="item-license"
                                     class="form__select"
-                                    name="Item-license"
+                                    name="itemLicense"
                                     required>
 
                                 <% if (product) { %>
@@ -101,7 +101,8 @@
 
                                 <% licences.forEach(licence => { %>
                                 <option class="form__option"
-                                        value="<%= licence.id %>"><%= licence.name %></option>
+                                        value="<%= licence.licence_id %>">
+                                        <%= licence.licence_name %></option>
                                 <% }); %>
                             </select>
                         </div>
@@ -114,9 +115,10 @@
                         <input id="item-name"
                                class="form__text"
                                type="text"
-                               name="Item-name"
+                               name="itemName"
                                value="<%- product ? product.product_name : '' %>"
                                placeholder="Kakashi Hatake Shippuden Saga"
+                               maxlength="60"
                                required>
                     </div>
 
@@ -124,9 +126,10 @@
                     <div class="form__input-separator">
                         <textarea id="item-description"
                                   class="form__textarea"
-                                  name="Item-description"
+                                  name="itemDescription"
                                   rows="10"
                                   cols="70"
+                                  maxlength="255"
                                   placeholder="Descripción del producto"><%- product ? product.product_description : "" %></textarea>
                     </div>
 
@@ -138,9 +141,10 @@
                             <input id="item-sku"
                                    class="form__text form__sku-input"
                                    type="text"
-                                   name="Item-sku"
+                                   name="itemSku"
                                    value="<%- product ? product.sku : '' %>"
                                    placeholder="SSK11AB001"
+                                   maxlength="30"
                                    required>
                         </div>
 
@@ -151,9 +155,11 @@
                             <input id="item-price"
                                    class="form__text form__price-input"
                                    type="number"
-                                   name="Item-price"
+                                   name="itemPrice"
                                    value="<%- product ? product.price : '' %>"
                                    placeholder="$ 0.000,00"
+                                   min="0"
+                                   step="0.01"
                                    required>
                         </div>
 
@@ -164,9 +170,10 @@
                             <input id="item-stock"
                                    class="form__number form__stock-input"
                                    type="number"
-                                   name="Item-stock"
+                                   name="itemStock"
                                    value="<%- product ? product.stock : '' %>"
                                    placeholder="0"
+                                   min="0"
                                    required>
                         </div>
                     </div>
@@ -179,9 +186,11 @@
                             <input id="item-discount"
                                    class="form__number form__discount-input"
                                    type="number"
-                                   name="Item-discount"
+                                   name="itemDiscount"
                                    value="<%- product ? product.discount : '' %>"
                                    placeholder="0%"
+                                   min="0"
+                                   max="100"
                                    required>
                         </div>
 
@@ -191,7 +200,7 @@
                                    for="item-dues">Cuotas:</label>
                             <select id="item-dues"
                                     class="form__select"
-                                    name="Dues"
+                                    name="itemDues"
                                     required>
 
                                 <% if (product) { %>
@@ -221,19 +230,19 @@
                         <input id="item-front-img"
                                class="form__file"
                                type="file"
-                               name="Item-front-img"
+                               name="itemFrontImg"
                                accept=".jpg, .jpeg, .webp, .png">
 
                         <figure class="form__figure">
                             <img id="front-img"
-                                 src="<%- product ? product.image_front : '/img/placeholder.webp' %>" 
+                                 src="<%- product ? '/img' + product.image_front : '/img/placeholder.webp' %>" 
                                  alt="Funkopop de frente">
                             <figcaption class="form__figcaption">Frente</figcaption>
                         </figure>
 
                         <input id="item-front-img-nomod"
                                type="hidden"
-                               name="Item-front-img-nomod"
+                               name="itemFrontImgNoMod"
                                value="<%- product ? product.image_front : '' %>">
                     </div>
 
@@ -244,38 +253,21 @@
                         <input id="item-back-img"
                                class="form__file"
                                type="file"
-                               name="Item-back-img"
+                               name="itemBackImg"
                                accept=".jpg, .jpeg, .webp, .png">
 
                         <figure class="form__figure">
                             <img id="back-img"
-                                src="<%- product ? product.image_back : '/img/placeholder.webp' %>" 
+                                src="<%- product ? '/img' + product.image_back : '/img/placeholder.webp' %>" 
                                 alt="Funkopop dentro de la caja">
                             <figcaption class="form__figcaption">Dorso</figcaption>
                         </figure>
 
                         <input id="item-back-img-nomod"
                                type="hidden"
-                               name="Item-back-img-nomod"
+                               name="itemBackImgNoMod"
                                value="<%- product ? product.image_back : '' %>">
                     </div>
-
-                    <!-- Imágenes del producto -->
-                    <!-- <div class="form__figure--content"> 
-                        <figure class="form__figure">
-                            <img id="front-img"
-                                 src="<%- product ? product.image_front : '/img/placeholder.webp' %>" 
-                                 alt="Funkopop de frente">
-                            <figcaption class="form__figcaption">Frente</figcaption>
-                        </figure>
-
-                        <figure class="form__figure">
-                            <img id="back-img"
-                                 src="<%- product ? product.image_back : '/img/placeholder.webp' %>" 
-                                 alt="Funkopop dentro de la caja">
-                            <figcaption class="form__figcaption">Dorso</figcaption>
-                        </figure>
-                    </div> -->
 
                     <!-- Botones -->
                     <div class="form__buttons-separator"> 
@@ -315,7 +307,7 @@
 
                 <figure class="navbar__logo--footer">
                     <a href="/">
-                        <img src="../../img/branding/isotype.svg" 
+                        <img src="/img/branding/isotype.svg" 
                                 alt="Isotipo de la tienda FunkoShop">
                     </a>
                 </figure>

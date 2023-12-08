@@ -18,7 +18,7 @@
             <nav class="navbar container">
                 <figure class="navbar__logo--header">
                     <a href="/">
-                        <img src="../../img/branding/logo_light_horizontal.svg" 
+                        <img src="/img/branding/logo_light_horizontal.svg" 
                              alt="Isotipo de la tienda FunkoShop">
                     </a>
                 </figure>
@@ -42,6 +42,7 @@
         </header>
 
         <main class="container container--admin">
+
             <!-- Seccion de busqueda item -->
             <section class="admin-search__container">
                 <picture>
@@ -49,6 +50,19 @@
                 </picture>
                 <input class="input-text--box admin-search__input" type="text" placeholder="Código, nombre o categoria">
             </section>
+
+            <%# Alerta %>
+            <% if (alert) { %>
+                <% if (alert.success) { %>
+                    <div class="success-alert">
+                        <p><%= alert.message %></p>
+                    </div>
+                <% } else { %>
+                    <div class="error-alert">
+                        <p><%= alert.message %></p>
+                    </div>
+                <% } %>
+            <% } %>
 
             <!-- Cabecera de tabla para agregar item -->
             <section class="table-admin-head__container">

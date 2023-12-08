@@ -1,33 +1,13 @@
 // mainController.js
 /* --- MODEL --- */
-const { getShopFromDB } = require("../models/shopModel");
-shopItems = [  ];
+const { getProductsFromDB } = require("../models/productModel");
   
-  let shoppingCart = [];
+let shoppingCart = [];
   
 
 const controller = {
-     initializeShop: async function() {
-        console.log ("Cargando archivo")
-        const fs = require('fs');
-        const path = require('path');
-        
-        const jsonFilePath = path.join(__dirname + "/../models", 'db.json');
-        
-        // Lee el contenido del archivo JSON de forma sincrónica (puedes usar readFile para operación asíncrona)
-        try {
-          const jsonString = fs.readFileSync(jsonFilePath, 'utf-8');
-          shopItems = JSON.parse(jsonString);
-        
-          // Ahora, `items` contiene la lista de artículos
-          console.log("Productos cargados");
-        } catch (error) {
-          console.error('Error al leer el archivo JSON: %s' , jsonFilePath, error.message);
-        }        
-    },
-
      getShop: async function (req, res)  {
-        const shopItems = await getShopFromDB();
+        const shopItems = await getProductsFromDB();
         if (!shopItems) { 
             res.status(404).send("Productos no encontrados en la base de datos.");
         }
