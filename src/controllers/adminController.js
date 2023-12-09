@@ -1,10 +1,17 @@
-/* --- DEPENDENCIES --- */
-// Temporal hasta que haga las vistas!
-const path = require("node:path");
-
-
 /* --- MODEL --- */
-const { getProductsFromDB } = require("../models/productModel");
+const { 
+    getProductsFromDB,
+    getProductFromDB,
+    getLicencesFromDB,
+    getCategoriesFromDB,
+    createProductInDB,
+    editProductInDB,
+    deleteProductInDB
+} = require("../models/productModel");
+
+/* --- UTILITES --- */
+const imagePath = require("../utils/imagePath");
+const { unlink } = require("node:fs");
 
 
 /* --- READ --- */
@@ -16,7 +23,8 @@ const getProducts = async (req, res) => {
             res.status(404).send("Productos no encontrados en la base de datos.");
         }
         res.render("admin/admin", {
-            products
+            products,
+            alert: null
         })
     }
     catch (err) {
@@ -30,31 +38,10 @@ const getProducts = async (req, res) => {
 // Devolver la vista con el formulario para la creación de un nuevo producto.
 const getCreateForm = async (req, res) => {
     try {
-        // TODO: pedir a la DB las categorias para rellenar los select con este formato:
-        const categories = [
-            {
-                id: 1,
-                name: "Funkos"
-            },
-            "Categoria 2",
-            "Categoria 3",
-            "Categoria 4"
-        ];
-        // TODO: pedir a la DB las licencias para rellenar los select con este formato:
-        const licences = [
-            {
-                id: 1,
-                name: "Harry Potter"
-            },
-            "STAR WARS",
-            "POKEMON",
-            "HARRY POTTER"
-        ];
-        const dues = [
-            12,
-            6,
-            3
-        ];
+        const categories = await getCategoriesFromDB();
+        const licences = await getLicencesFromDB();
+        // TODO: pedir a la DB las cuotas.
+        const dues = [ 12, 9, 6, 3 ];
 
         res.render("admin/create_edit", {
             product: null,
@@ -73,13 +60,74 @@ const getCreateForm = async (req, res) => {
 // creación y enviarlo a la base de datos.
 const createNewProduct = async (req, res) => {
     try {
-        // TODO: validación de la información (Express-validator).
-        // TODO: operación de creación en la base de datos.
-        res.json(req.body);
+        let itemFrontImg = "/placeholder.webp";
+        let itemBackImg = "/placeholder.webp";
+        if (req.files["itemFrontImg"]) {
+            itemFrontImg = imagePath(req, "itemFrontImg", req.body.itemLicense);
+        }
+
+        if (req.files["itemBackImg"]) {
+            itemBackImg = imagePath(req, "itemBackImg", req.body.itemLicense);
+        }
+
+        const newProduct = {
+            product_name: req.body.itemName,
+            product_description: req.body.itemDescription,
+            price: req.body.itemPrice,
+            stock: req.body.itemStock,
+            discount: req.body.itemDiscount,
+            sku: req.body.itemSku,
+            dues: req.body.itemDues,
+            image_front: itemFrontImg,
+            image_back: itemBackImg,
+            licence_id: req.body.itemLicense,
+            category_id: req.body.itemCategory,
+        }
+
+        const success = await createProductInDB(newProduct);
+        if (success) {
+            res.redirect("/admin/create/success");
+        }
+        else {
+            res.redirect("/admin/create/error");
+        }
     }
     catch (err) {
         res.status(422).send("No se ha podido crear el producto en la base de datos");
+        throw err;
     }
+}
+
+// Renderizar la vista de administrador con una alerta de éxito en la creación
+// del nuevo producto.
+const successfulCreate = async (req, res) => {
+        const products = await getProductsFromDB();
+        if (!products) { 
+            res.status(404).send("Productos no encontrados en la base de datos.");
+        }
+        res.render("admin/admin", {
+            products,
+            alert: {
+                success: true,
+                message: "¡Producto agregado con éxito en la base de datos!"
+            }
+        });
+}
+
+// Renderizar la vista de administrador con una alerta de error en la creación
+// del nuevo producto.
+const errorCreate = async (req, res) => {
+        const products = await getProductsFromDB();
+        if (!products) { 
+            res.status(404).send("Productos no encontrados en la base de datos.");
+        }
+        res.render("admin/admin", {
+            products,
+            alert: {
+                success: false,
+                message: "El producto no se ha podido agregar en la base de datos :("
+            }
+        });
 }
 
 
@@ -87,39 +135,15 @@ const createNewProduct = async (req, res) => {
 // Devolver la vista con el formulario para la edición de un producto seleccionado.
 const getEditForm = async (req, res) => {
     try {
-        // TODO: lógica de negocio para obtener el producto que se quiere editar.
-        /* CÓDIDO TEMPORAL DE PRUEBAS */
-        const product = {
-            product_id: 12,
-            product_name: "Luna Lovegood Lion Mask",
-            product_description: "Figura coleccionable de Luna Lovegood Lion Mask - Harry Potter Saga, edición limitada.",
-            price: 1799.99,
-            stock: 5,
-            discount: 10,
-            sku: "HPT001003",
-            dues: 12,
-            image_front: "/img/harry-potter/luna-1.webp",
-            image_back: "/img/harry-potter/luna-box.webp",
-            create_time: false,
-            licence_id:"HARRY POTTER",
-            category_id:"Figuras coleccionables"
-        };
-        const categories = [
-            "Figuras coleccionables",
-            "Categoria 2",
-            "Categoria 3",
-            "Categoria 4"
-        ];
-        const licences = [
-            "STAR WARS",
-            "POKEMON",
-            "HARRY POTTER"
-        ];
-        const dues = [
-            12,
-            6,
-            3
-        ]
+        const [product] = await getProductFromDB(req.params.id);
+        if (!product) {
+            res.status(404).send("Producto no encontrado");
+        }
+
+        const categories = await getCategoriesFromDB();
+        const licences = await getLicencesFromDB();
+        // TODO: pedir a la DB las cuotas.
+        const dues = [ 12, 9, 6, 3 ];
 
         res.render("admin/create_edit", {
             product,
@@ -139,12 +163,112 @@ const getEditForm = async (req, res) => {
 const editProduct = async (req, res) => {
     try {
         // TODO: validación de la información (Express-validator).
+
+        /* Validación de si se modificaron las imágenes */ 
+        // Banderas necesarias para saber si se debe eliminar o no las
+        // imagenes anteriores del producto.
+        let frontImgModifed = false;
+        let backImgModifed = false;
+
+        // Valor predeterminado de los input files (sirve por si no se han
+        // seleccionado imágenes en los inputs).
+        let itemFrontImg = req.body.itemFrontImgNoMod;
+        let itemBackImg = req.body.itemBackImgNoMod;
+
+        // Verificar si se cambiaron las imágenes
+        if (req.files["itemFrontImg"]) {
+            itemFrontImg = imagePath(req, "itemFrontImg", req.body.itemLicense);
+            frontImgModifed = true;
+        }
+        if (req.files["itemBackImg"]) {
+            itemBackImg = imagePath(req, "itemBackImg", req.body.itemLicense);
+            backImgModifed = true;
+        }
+
         // TODO: operación de edición en la base de datos.
-        res.json(req.body);
+        const modifiedProduct = {
+            product_id: req.params.id,
+            product_name: req.body.itemName,
+            product_description: req.body.itemDescription,
+            price: req.body.itemPrice,
+            stock: req.body.itemStock,
+            discount: req.body.itemDiscount,
+            sku: req.body.itemSku,
+            dues: req.body.itemDues,
+            image_front: itemFrontImg,
+            image_back: itemBackImg,
+            licence_id: req.body.itemLicense,
+            category_id: req.body.itemCategory,
+        }
+
+        const editOperation = await editProductInDB(modifiedProduct);
+        if (editOperation.success) {
+            // Si se modificó la imagen frontal, se elimina la antigua.
+            if (frontImgModifed) {
+                unlink(`public/img/${editOperation.oldFrontImg}`, (err) => {
+                    if (err) {
+                        console.error(`Error al intentar eliminar la imagen frontal antigua: ${err}`);
+                    }
+                    else {
+                        console.log("--> Imagen frontal antigua eliminada con éxito");
+                    }
+                });
+            }
+
+            // Si se modificó la imagen dorsal, se elimina la antigua.
+            if (backImgModifed) {
+                unlink(`public/img/${editOperation.oldBackImg}`, (err) => {
+                    if (err) {
+                        console.error(`Error al intentar eliminar la imagen dorsal antigua: ${err}`);
+                    }
+                    else {
+                        console.log("--> Imagen dorsal antigua eliminada con éxito");
+                    }
+                });
+            }
+
+            res.redirect(`/admin/edit/${modifiedProduct.product_id}/success`);
+        }
+        else {
+            res.redirect(`/admin/edit/${modifiedProduct.product_id}/error`);
+        }
     }
     catch (err) {
         res.status(422).send("No se ha podido modificar el producto seleccionado en la base de datos");
+        throw err;
     }
+}
+
+// Renderizar la vista de administrador con una alerta de éxito en la edición
+// del producto seleccionado.
+const successfulEdit = async (req, res) => {
+        const products = await getProductsFromDB();
+        if (!products) { 
+            res.status(404).send("Productos no encontrados en la base de datos.");
+        }
+        res.render("admin/admin", {
+            products,
+            alert: {
+                success: true,
+                message: "¡Producto modificado con éxito en la base de datos!"
+            }
+        });
+}
+
+// Renderizar la vista de administrador con una alerta de error en la edición
+// del producto seleccionado.
+const errorEdit = async (req, res) => {
+        const products = await getProductsFromDB();
+        if (!products) { 
+            res.status(404).send("Productos no encontrados en la base de datos.");
+        }
+        res.render("admin/admin", {
+            products,
+            alert: {
+                success: false,
+                message: "El producto no se ha podido modificar en la base de datos :("
+            }
+        });
 }
 
 
@@ -152,21 +276,83 @@ const editProduct = async (req, res) => {
 // Eliminar el producto seleccionado en la base de datos.
 const deleteProduct = async (req, res) => {
     try {
-        // TODO: operación de eliminación en la base de datos.
-        res.send("Producto eliminado con éxito");
+        const deleteOperation = await deleteProductInDB(req.params.id);
+        if (deleteOperation.success) {
+            // Eliminar la imagen frontal antigua del producto.
+            unlink(`public/img/${deleteOperation.oldFrontImg}`, (err) => {
+                if (err) {
+                    console.error(`Error al intentar eliminar la imagen frontal antigua: ${err}`);
+                }
+                else {
+                    console.log("--> Imagen frontal antigua eliminada con éxito");
+                }
+            });
+
+            // Eliminar la imagen dorsal antigua del producto.
+            unlink(`public/img/${deleteOperation.oldBackImg}`, (err) => {
+                if (err) {
+                    console.error(`Error al intentar eliminar la imagen dorsal antigua: ${err}`);
+                }
+                else {
+                    console.log("--> Imagen dorsal antigua eliminada con éxito");
+                }
+            });
+
+            res.redirect(`/admin/delete/${req.params.id}/success`);
+        }
+        else {
+            res.redirect(`/admin/delete/${req.params.id}/error`);
+        }
     }
     catch (err) {
         res.status(422).send("No se ha podido eliminar el producto seleccionado en la base de datos");
     }
 }
 
+// Renderizar la vista de administrador con una alerta de éxito en la edición
+// del producto seleccionado.
+const successfulDelete = async (req, res) => {
+        const products = await getProductsFromDB();
+        if (!products) { 
+            res.status(404).send("Productos no encontrados en la base de datos.");
+        }
+        res.render("admin/admin", {
+            products,
+            alert: {
+                success: true,
+                message: "¡Producto eliminado con éxito en la base de datos!"
+            }
+        });
+}
+
+// Renderizar la vista de administrador con una alerta de error en la edición
+// del producto seleccionado.
+const errorDelete = async (req, res) => {
+        const products = await getProductsFromDB();
+        if (!products) { 
+            res.status(404).send("Productos no encontrados en la base de datos.");
+        }
+        res.render("admin/admin", {
+            products,
+            alert: {
+                success: false,
+                message: "El producto no se ha podido eliminar en la base de datos :("
+            }
+        });
+}
 
 /* --- EXPORT --- */
 module.exports = {
     getProducts,
     getCreateForm,
     createNewProduct,
+    successfulCreate,
+    errorCreate,
     getEditForm,
     editProduct,
-    deleteProduct
+    successfulEdit,
+    errorEdit,
+    deleteProduct,
+    successfulDelete,
+    errorDelete
 }

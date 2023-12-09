@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 
 const { createPool } = require("mysql2/promise");
 
@@ -16,7 +16,7 @@ const pool = createPool({
 // Prueba de conexión
 pool.getConnection()
     .then(connection => {
-        console.log('Conectado con la base de datos');
+        console.log('Conectado con la base de datos: ', connection.config.database);
         connection.release();
     })
     .catch(err => {

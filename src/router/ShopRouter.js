@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const shopController = require('../controllers/shopController.js');
 
-shopController.initializeShop();
+// shopController.initializeShop();
 router.get('/', shopController.getShop);
 
 router.get('/item/:id', shopController.getItem);

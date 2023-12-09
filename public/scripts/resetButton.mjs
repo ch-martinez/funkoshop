@@ -15,7 +15,7 @@ const resetButton = (resetButtonSelector, hiddenInputSelector, imgSelector) => {
         // estamos en la vista de edición, por lo que la imagen que se establece
         // es la que viene con el producto. 
         if (hiddenInput.value !== "") {
-            img.src = hiddenInput.value;
+            img.src = `/img${hiddenInput.value}`;
         }
         // Si no lo tiene, estamos en la vista de creación, por lo que la imagen
         // que se establece es el placeholder.

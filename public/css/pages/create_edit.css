@@ -81,3 +81,23 @@
 .form__button-padding {
     padding: var(--spacing-12) var(--spacing-48);
 }
+
+/* --- Alert --- */
+.error-alert {
+    display: none;
+    border: 2px solid var(--primary-solid);
+    color: var(--dark-solid);
+    font-size: var(--font-medium-20);
+    border-radius: 5px;
+    background-color: var(--primary-300);
+    padding: var(--spacing-36) var(--spacing-16);
+}
+
+.front-alert {
+    display: none;
+}
+
+.back-alert {
+    display: none;
+    margin-top: (var(--spacing-16));
+}
