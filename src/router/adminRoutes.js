@@ -3,8 +3,11 @@ const express = require("express");
 const router = express.Router();
 
 
-/* --- CONTROLLERS --- */
+/* --- CONTROLLER --- */
 const adminController = require("../controllers/adminController");
+
+/* --- MULTER --- */
+const upload = require("../utils/multer");
 
 
 /* --- READ --- */
@@ -17,7 +20,12 @@ router.get("/", adminController.getProducts);
 router.get("/create", adminController.getCreateForm);
 
 // Crear el nuevo producto y agregarlo a la base de datos.
-router.post("/create", adminController.createNewProduct);
+router.post("/create",
+            upload.fields([
+                {name: "itemFrontImg", maxCount: 1},
+                {name: "itemBackImg", maxCount: 1}
+            ]),
+            adminController.createNewProduct);
 
 // La creación del producto fue exitosa.
 router.get("/create/success", adminController.successfulCreate);
@@ -44,6 +52,12 @@ router.get("/edit/:id/error", adminController.errorEdit);
 // Eliminar un producto seleccionado en la base de datos (/admin/delete/:id).
 // Esto viene desde admin.html
 router.get("/delete/:id", adminController.deleteProduct);
+
+// La eliminación del producto fue exitosa.
+router.get("/delete/:id/success", adminController.successfulDelete);
+
+// La eliminación del producto fue errónea.
+router.get("/delete/:id/error", adminController.errorDelete);
 
 
 /* --- EXPORT --- */

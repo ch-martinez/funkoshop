@@ -58,7 +58,8 @@
                 <form id="create-edit-form"
                       class="form__container"
                       action="<%- product ? '/admin/edit/' + product.product_id : '/admin/create' %>"
-                      method="post">
+                      method="post"
+                      enctype="multipart/form-data">
 
                     <div class="form__row-content">
                         <!-- Categoría del producto -->
@@ -140,7 +141,8 @@
                                   rows="10"
                                   cols="70"
                                   maxlength="255"
-                                  placeholder="Descripción del producto"><%- product ? product.product_description : "" %></textarea>
+                                  placeholder="Descripción del producto"
+                                  required><%- product ? product.product_description : "" %></textarea>
                     </div>
 
                     <div class="form__row-content">

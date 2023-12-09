@@ -156,6 +156,16 @@ async function createProductInDB(newProduct) {
 };
 
 
+/**
+ * Actualizar la información de un producto específico en la base de datos.
+ * @param {Object} product Objeto con la información del producto
+ * @returns {Object} Objeto que contiene: una propiedad booleana (success) que
+ *                   indica si la operación fue exitosa; y dos propiedades 
+ *                   string (oldFrontImg y oldBackImg) que almacenan la rutas 
+ *                   de la imágenes frontal y dorsal anteriores del producto,
+ *                   que, si se modificaron, se deben eliminar del archivo de
+ *                   carpetas.
+ */
 async function editProductInDB(product) {
     const query = `
     UPDATE product
@@ -211,6 +221,45 @@ async function editProductInDB(product) {
     }
 }
 
+
+/**
+ * Eliminar un producto específico en la base de datos.
+ * @param {Number} id ID del producto que se quiere eliminar de la base de datos.
+ * @returns {Object} Objeto que contiene: una propiedad booleana (success) que
+ *                   indica si la operación fue exitosa; y dos propiedades 
+ *                   string (oldFrontImg y oldBackImg) que almacenan la rutas 
+ *                   de la imágenes frontal y dorsal anteriores del producto,
+ *                   que, si se modificaron, se deben eliminar del archivo de
+ *                   carpetas.
+ */
+async function deleteProductInDB(id) {
+    const query = `DELETE FROM product WHERE product_id = ?`;
+
+    try {
+        const [deletedProduct] = await getProductFromDB(id);
+        const [result] = await pool.query(query, [id]);
+        if (result.affectedRows > 0) {
+            console.log("--> Se eliminó el producto seleccionado en la base de datos");
+            return {
+                success: true,
+                oldFrontImg: deletedProduct.image_front,
+                oldBackImg: deletedProduct.image_back
+            };
+        }
+        else {
+            console.log("--> No se ha podido eliminar el producto seleccionado en la base de datos");
+            return {
+                success: false
+            };
+        }
+    }
+    catch (err) {
+        console.error(`Error en la consulta a la base de datos: ${err}`);
+        throw err;
+    }
+}
+
+
 /* --- EXPORTS --- */
 module.exports = {
     getProductsFromDB,
@@ -218,5 +267,6 @@ module.exports = {
     getLicencesFromDB,
     getCategoriesFromDB,
     createProductInDB,
-    editProductInDB
+    editProductInDB,
+    deleteProductInDB
 }

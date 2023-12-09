@@ -5,8 +5,13 @@ const {
     getLicencesFromDB,
     getCategoriesFromDB,
     createProductInDB,
-    editProductInDB
+    editProductInDB,
+    deleteProductInDB
 } = require("../models/productModel");
+
+/* --- UTILITES --- */
+const imagePath = require("../utils/imagePath");
+const { unlink } = require("node:fs");
 
 
 /* --- READ --- */
@@ -55,14 +60,15 @@ const getCreateForm = async (req, res) => {
 // creación y enviarlo a la base de datos.
 const createNewProduct = async (req, res) => {
     try {
-        // TODO: validación de la información (Express-validator).
-        // TODO: operación de creación en la base de datos.
-        // const itemFrontImg = `/img/${req.files[0]}`;
-        // const itemBackImg = `/img/${req.files[1]}`;
-        const itemFrontImg = "IMAGEN FRONTAL";
-        const itemBackImg = "IMAGEN DORSAL";
+        let itemFrontImg = "/placeholder.webp";
+        let itemBackImg = "/placeholder.webp";
+        if (req.files["itemFrontImg"]) {
+            itemFrontImg = imagePath(req, "itemFrontImg", req.body.itemLicense);
+        }
 
-        console.log(req.body);
+        if (req.files["itemBackImg"]) {
+            itemBackImg = imagePath(req, "itemBackImg", req.body.itemLicense);
+        }
 
         const newProduct = {
             product_name: req.body.itemName,
@@ -77,12 +83,8 @@ const createNewProduct = async (req, res) => {
             licence_id: req.body.itemLicense,
             category_id: req.body.itemCategory,
         }
-        
-        console.log(newProduct);
 
-        // const success = await createNewProduct(newProduct);
-        const success = true;
-        
+        const success = await createProductInDB(newProduct);
         if (success) {
             res.redirect("/admin/create/success");
         }
@@ -92,6 +94,7 @@ const createNewProduct = async (req, res) => {
     }
     catch (err) {
         res.status(422).send("No se ha podido crear el producto en la base de datos");
+        throw err;
     }
 }
 
@@ -273,14 +276,70 @@ const errorEdit = async (req, res) => {
 // Eliminar el producto seleccionado en la base de datos.
 const deleteProduct = async (req, res) => {
     try {
-        // TODO: operación de eliminación en la base de datos.
-        res.send("Producto eliminado con éxito");
+        const deleteOperation = await deleteProductInDB(req.params.id);
+        if (deleteOperation.success) {
+            // Eliminar la imagen frontal antigua del producto.
+            unlink(`public/img/${deleteOperation.oldFrontImg}`, (err) => {
+                if (err) {
+                    console.error(`Error al intentar eliminar la imagen frontal antigua: ${err}`);
+                }
+                else {
+                    console.log("--> Imagen frontal antigua eliminada con éxito");
+                }
+            });
+
+            // Eliminar la imagen dorsal antigua del producto.
+            unlink(`public/img/${deleteOperation.oldBackImg}`, (err) => {
+                if (err) {
+                    console.error(`Error al intentar eliminar la imagen dorsal antigua: ${err}`);
+                }
+                else {
+                    console.log("--> Imagen dorsal antigua eliminada con éxito");
+                }
+            });
+
+            res.redirect(`/admin/delete/${req.params.id}/success`);
+        }
+        else {
+            res.redirect(`/admin/delete/${req.params.id}/error`);
+        }
     }
     catch (err) {
         res.status(422).send("No se ha podido eliminar el producto seleccionado en la base de datos");
     }
 }
 
+// Renderizar la vista de administrador con una alerta de éxito en la edición
+// del producto seleccionado.
+const successfulDelete = async (req, res) => {
+        const products = await getProductsFromDB();
+        if (!products) { 
+            res.status(404).send("Productos no encontrados en la base de datos.");
+        }
+        res.render("admin/admin", {
+            products,
+            alert: {
+                success: true,
+                message: "¡Producto eliminado con éxito en la base de datos!"
+            }
+        });
+}
+
+// Renderizar la vista de administrador con una alerta de error en la edición
+// del producto seleccionado.
+const errorDelete = async (req, res) => {
+        const products = await getProductsFromDB();
+        if (!products) { 
+            res.status(404).send("Productos no encontrados en la base de datos.");
+        }
+        res.render("admin/admin", {
+            products,
+            alert: {
+                success: false,
+                message: "El producto no se ha podido eliminar en la base de datos :("
+            }
+        });
+}
 
 /* --- EXPORT --- */
 module.exports = {
@@ -293,5 +352,7 @@ module.exports = {
     editProduct,
     successfulEdit,
     errorEdit,
-    deleteProduct
+    deleteProduct,
+    successfulDelete,
+    errorDelete
 }
