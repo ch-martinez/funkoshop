@@ -57,11 +57,14 @@ const createNewProduct = async (req, res) => {
     try {
         // TODO: validación de la información (Express-validator).
         // TODO: operación de creación en la base de datos.
-        const itemFrontImg = `/img/${req.files[0]}`;
-        const itemBackImg = `/img/${req.files[1]}`;
+        // const itemFrontImg = `/img/${req.files[0]}`;
+        // const itemBackImg = `/img/${req.files[1]}`;
+        const itemFrontImg = "IMAGEN FRONTAL";
+        const itemBackImg = "IMAGEN DORSAL";
+
+        console.log(req.body);
 
         const newProduct = {
-            product_id: req.params.id,
             product_name: req.body.itemName,
             product_description: req.body.itemDescription,
             price: req.body.itemPrice,
@@ -75,9 +78,10 @@ const createNewProduct = async (req, res) => {
             category_id: req.body.itemCategory,
         }
         
+        console.log(newProduct);
 
         // const success = await createNewProduct(newProduct);
-        const success = false;
+        const success = true;
         
         if (success) {
             res.redirect("/admin/create/success");
@@ -217,7 +221,7 @@ const editProduct = async (req, res) => {
             // editOperation.oldBackImg...
         }
 
-        const success = false;
+        const success = true;
         // if (editOperation.success) {
         if (success) {
             res.redirect(`/admin/edit/${modifiedUser.product_id}/success`);

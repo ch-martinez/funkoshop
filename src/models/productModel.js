@@ -29,7 +29,6 @@ async function getProductsFromDB() {
         INNER JOIN category ON category.category_id = product.category_id
         ORDER BY product_id`;
         const [products] = await pool.query(query);
-        console.log(products[0]); // Para visualizar el objeto.
         return products;
     }
     catch (err) {

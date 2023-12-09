@@ -45,6 +45,16 @@
         <main class="main-container">
             <section class="content container">
                 <h1 class="title"><%- product ? "EDITAR ITEM" : "CREAR NUEVO ITEM" %></h1>
+
+                <% if (!product) { %>
+                    <div class="error-alert" tabindex="0">
+                        <ul>
+                            <li class="front-alert">Debe seleccionar una imagen frontal del producto.</li>
+                            <li class="back-alert">Debe seleccionar una imagen dorsal del producto.</li>
+                        </ul>
+                    </div>
+                <% } %>
+
                 <form id="create-edit-form"
                       class="form__container"
                       action="<%- product ? '/admin/edit/' + product.product_id : '/admin/create' %>"
@@ -258,8 +268,8 @@
 
                         <figure class="form__figure">
                             <img id="back-img"
-                                src="<%- product ? '/img' + product.image_back : '/img/placeholder.webp' %>" 
-                                alt="Funkopop dentro de la caja">
+                                 src="<%- product ? '/img' + product.image_back : '/img/placeholder.webp' %>" 
+                                 alt="Funkopop dentro de la caja">
                             <figcaption class="form__figcaption">Dorso</figcaption>
                         </figure>
 
@@ -271,7 +281,8 @@
 
                     <!-- Botones -->
                     <div class="form__buttons-separator"> 
-                        <button class="form__button"
+                        <button id="submit-button"
+                                class="form__button"
                                 type="submit"><%- product ? "Modificar Producto" : "Agregar Producto" %></button>
 
                         <button id="reset-button"
@@ -318,13 +329,19 @@
         <!-- Scripts propios de esta vista -->
         <script type="module">
             import changeImage from "/scripts/inputFile.mjs";
-            import resetButton from "/scripts/resetButton.mjs";
+            import reset from "/scripts/resetButton.mjs";
+            import submit from "/scripts/submitButton.mjs";
 
             window.onload = () => {
-                changeImage("#item-front-img", "#front-img");
-                changeImage("#item-back-img", "#back-img");
-                resetButton("#reset-button", "#item-front-img-nomod", "#front-img");
-                resetButton("#reset-button", "#item-back-img-nomod", "#back-img");
+                const frontImg = "#front-img";
+                const backImg = "#back-img";
+                const resetButton = "#reset-button";
+
+                changeImage("#item-front-img", frontImg);
+                changeImage("#item-back-img", backImg);
+                reset(resetButton, "#item-front-img-nomod", frontImg);
+                reset(resetButton, "#item-back-img-nomod", backImg);
+                submit(frontImg, backImg, "#create-edit-form");
             }
         </script>
     </body>
