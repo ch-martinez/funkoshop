@@ -21,17 +21,17 @@
                 <p class="register__text">Completa el formulario para ser parte del mundo de los Funkos</p>
                 <form id="register__form" 
                       class="form__container" 
-                      action="#" 
+                      action="/auth/register"
                       method="post">
 
                     <!-- Nombre del usuario-->
                     <div class="register__input">
                         <label class="form__label" 
-                               for="user-name">Nombre:</label>
-                        <input id="user-name"
+                               for="name">Nombre:</label>
+                        <input id="name"
                                class="form__text"
                                type="text" 
-                               name="user-name" 
+                               name="name" 
                                placeholder="John" 
                                required>
                     </div>
@@ -39,11 +39,11 @@
                     <!-- Apellido del usuario -->
                     <div class="register__input">
                         <label class="form__label"
-                               for="user-lastname">Apellido:</label>
-                        <input id="user-lastname"
+                               for="lastname">Apellido:</label>
+                        <input id="lastname"
                                class="form__text"
                                type="text"
-                               name="user-lastname"
+                               name="lastname"
                                placeholder="Doe"
                                required>
                     </div>
@@ -51,11 +51,11 @@
                     <!-- Email del usuario -->
                     <div class="register__input">
                         <label class="form__label" 
-                               for="user-email">Email:</label>
-                        <input id="user-email"
+                               for="email">Email:</label>
+                        <input id="email"
                                class="form__email" 
                                type="email"
-                               name="user-email"
+                               name="email"
                                placeholder="jhondoe@correo.com"
                                required>
                     </div>
@@ -63,11 +63,11 @@
                     <!-- Precontraseña del usuario -->
                     <div class="register__input">
                         <label class="form__label" 
-                               for="user-prepassword">Contraseña:</label>
-                        <input id="user-prepassword"
+                               for="password">Contraseña:</label>
+                        <input id="password"
                                class="form__password"
                                type="password"
-                               name="user-prepassword"
+                               name="password"
                                placeholder="••••••••••"
                                required>
                     </div>
@@ -75,11 +75,11 @@
                     <!-- Confirmación de contraseña -->
                     <div class="register__input">
                         <label class="form__label"
-                               for="user-password">Repita Contraseña:</label>
-                        <input id="user-password"
+                               for="passwordConfirm">Repita Contraseña:</label>
+                        <input id="passwordConfirm"
                                class="form__password"
                                type="password"
-                               name="user-password"
+                               name="passwordConfirm"
                                placeholder="••••••••••"
                                required>
                     </div>

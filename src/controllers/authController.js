@@ -1,25 +1,62 @@
-const loginView = (req,res) => {
-    const view = {
-        title: 'Login - FS'
+const { registerUser,
+    getUserByEmailFromDB
+} = require('../models/usersModels')
+
+const formatUser = (user) => {
+    const userSchema = {
+        name: user.name,
+        lastname: user.lastname,
+        email: user.email,
+        password: user.password
     }
-    res.render('auth/login', {view})
-}
-const loginRequest = (req,res) => res.send('Pagina SE LOGUEA')
-const registerView = (req,res) => {
-    const view = {
-        title: 'Registrarse - FS'
-    }
-    res.render('auth/register', {view})
-}
-const registerRequest = (req,res) => res.send('Pagina SE REGISTRA')
-const recoverPass = (req,res) => {
-    const view = {
-        title: 'Recuperar contraseña - FS'
-    }
-    res.render('auth/recoverPass', {view})
+    return [Object.values(userSchema)]
 }
 
-const logoutRequest = (req,res) => res.send('Pagina DESLOGUEO')
+const loginView = (req, res) => {
+    const view = {
+        title: 'Login - FS',
+        logged: req.session.isLog,
+    }
+    res.render('pages/auth/login', { view })
+}
+
+const loginRequest = async (req, res) => {
+    const { email, password } = req.body
+    const userData = await getUserByEmailFromDB(email)
+    if (userData && userData.password == password) {
+        req.session.isLog = true
+        res.redirect('/admin')
+    } else {
+        res.send('USUARIO O CONTRASEÑA INCORRECTA')
+    }
+}
+
+const registerView = (req, res) => {
+    const view = {
+        title: 'Registrarse - FS',
+        logged: req.session.isLog,
+    }
+    res.render('pages/auth/register', { view })
+}
+
+const registerRequest = async (req, res) => {
+    const userData = req.body
+    await registerUser(formatUser(userData))
+    res.redirect('/auth/login')
+}
+
+const recoverPass = (req, res) => {
+    const view = {
+        title: 'Recuperar contraseña - FS',
+        logged: req.session.isLog
+    }
+    res.render('pages/auth/recoverPass', { view })
+}
+
+const logoutRequest = (req, res) => {
+    req.session.isLog = false
+    res.redirect('/auth/login')
+}
 
 module.exports = {
     loginView,

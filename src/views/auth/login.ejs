@@ -17,12 +17,10 @@
         <main class="main-container">
             <section class="login__content container">
                 <h2 class="login__title">INGRESAR A MI CUENTA</h2>
-
                 <form id="login__form"
                       class="form__container" 
-                      action="#" 
-                      method="POST" 
-                      enctype="application/x-www-form-urlencoded">
+                      action="/auth/login" 
+                      method="POST">
                     
                     <!-- Email -->
                     <div class="login-form__input">
@@ -42,8 +40,8 @@
                                for="password">Contraseña:</label>
                         <input id="password"
                                class="form__password" 
-                               type="password" 
-                               name="password" 
+                               type="pass" 
+                               name="pass" 
                                placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required>
                     </div>
 
