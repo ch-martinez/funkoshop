@@ -13,7 +13,7 @@ const controller = {
         }
         // Ruta al archivo JSON
 
-        console.log (shopItems)
+      // console.log (shopItems)
       // res.json(shopItems);
       // Renderizar la vista ejs
         res.render('shop/shop', { shopItems } );

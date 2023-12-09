@@ -39,7 +39,12 @@ router.get("/create/error", adminController.errorCreate);
 router.get("/edit/:id", adminController.getEditForm);
 
 // Modificar el producto seleccionado y enviar la información a la base de datos.
-router.post("/edit/:id", adminController.editProduct);
+router.post("/edit/:id",
+            upload.fields([
+                {name: "itemFrontImg", maxCount: 1},
+                {name: "itemBackImg", maxCount: 1}
+            ]),
+            adminController.editProduct);
 
 // La modificación del producto fue exitosa.
 router.get("/edit/:id/success", adminController.successfulEdit);

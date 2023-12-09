@@ -165,8 +165,8 @@ const editProduct = async (req, res) => {
         // TODO: validación de la información (Express-validator).
 
         /* Validación de si se modificaron las imágenes */ 
-        // Banderas necesarias para saber si eliminar o no los archivos de
-        // imágenes en la carpeta 'public/img'.
+        // Banderas necesarias para saber si se debe eliminar o no las
+        // imagenes anteriores del producto.
         let frontImgModifed = false;
         let backImgModifed = false;
 
@@ -175,28 +175,18 @@ const editProduct = async (req, res) => {
         let itemFrontImg = req.body.itemFrontImgNoMod;
         let itemBackImg = req.body.itemBackImgNoMod;
 
-        // Si se seleccionaron imágenes en los files
-        if (req.files && req.files.length > 0) {
-            // Si se agregó la primera imagen en primer file
-            if (req.files[0] && req.files.fieldname === "itemFrontImg") {
-                itemFrontImg = `/img/${req.files[0].filename}`;
-                frontImgModifed = true;
-            }
-            // Si se agregó la primera imagen en el segundo file y no en el primero
-            else if (req.files[0] && req.files.fieldname === "itemBackImg") {
-                itemBackImg = `/img/${req.files[0].filename}`;
-                backImgModifed = true;
-            }
-
-            // Si se agregó la segunda imagen en el segundo file
-            if (req.files[1] && req.files.fieldname === "itemBackImg") {
-                itemBackImg = `/img/${req.files[1].filename}`;
-                backImgModifed = true;
-            }
+        // Verificar si se cambiaron las imágenes
+        if (req.files["itemFrontImg"]) {
+            itemFrontImg = imagePath(req, "itemFrontImg", req.body.itemLicense);
+            frontImgModifed = true;
+        }
+        if (req.files["itemBackImg"]) {
+            itemBackImg = imagePath(req, "itemBackImg", req.body.itemLicense);
+            backImgModifed = true;
         }
 
         // TODO: operación de edición en la base de datos.
-        const modifiedUser = {
+        const modifiedProduct = {
             product_id: req.params.id,
             product_name: req.body.itemName,
             product_description: req.body.itemDescription,
@@ -210,27 +200,37 @@ const editProduct = async (req, res) => {
             licence_id: req.body.itemLicense,
             category_id: req.body.itemCategory,
         }
-        console.log(modifiedUser);
 
-        /* const editOperation = await editProductInDB(modifiedUser); */ 
+        const editOperation = await editProductInDB(modifiedProduct);
+        if (editOperation.success) {
+            // Si se modificó la imagen frontal, se elimina la antigua.
+            if (frontImgModifed) {
+                unlink(`public/img/${editOperation.oldFrontImg}`, (err) => {
+                    if (err) {
+                        console.error(`Error al intentar eliminar la imagen frontal antigua: ${err}`);
+                    }
+                    else {
+                        console.log("--> Imagen frontal antigua eliminada con éxito");
+                    }
+                });
+            }
 
-        // TODO: validación de imagenes post-edición.
-        if (frontImgModifed) {
-            // Eliminar la imagen frontal del sistema de archivos.
-            // editOperation.oldFrontImg...
-        }
-        if (backImgModifed) {
-            // Eliminar la imagen frontal del sistema de archivos.
-            // editOperation.oldBackImg...
-        }
+            // Si se modificó la imagen dorsal, se elimina la antigua.
+            if (backImgModifed) {
+                unlink(`public/img/${editOperation.oldBackImg}`, (err) => {
+                    if (err) {
+                        console.error(`Error al intentar eliminar la imagen dorsal antigua: ${err}`);
+                    }
+                    else {
+                        console.log("--> Imagen dorsal antigua eliminada con éxito");
+                    }
+                });
+            }
 
-        const success = true;
-        // if (editOperation.success) {
-        if (success) {
-            res.redirect(`/admin/edit/${modifiedUser.product_id}/success`);
+            res.redirect(`/admin/edit/${modifiedProduct.product_id}/success`);
         }
         else {
-            res.redirect(`/admin/edit/${modifiedUser.product_id}/error`);
+            res.redirect(`/admin/edit/${modifiedProduct.product_id}/error`);
         }
     }
     catch (err) {
