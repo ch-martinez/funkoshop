@@ -1,14 +1,29 @@
 <!doctype html>
 <html lang="es">
-    <%- include ("../partials/head") %>
+    <!-- Código temporal hasta que estén los partials -->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/jpg" href="/img/favicon.ico"/>
+        <!-- CSS Libreria glide -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
+        <!-- Estilos propios -->
+        <link rel="stylesheet" href="/css/imports.css">
+        <link rel="stylesheet" href="/css/global/card.css">
+        <link rel="stylesheet" href="/css/global/glide.css">
+        <link rel="stylesheet" href="/css/pages/item.css">
+        <link rel="stylesheet" href="/css/global/modal.css">
+        <title>Item - FS</title>
+    </head>
 <body>
     <%- include ("../partials/navbar") %>
     <main class="main-container">
         <article class="item container">
             <!-- Imagen del Funko -->
             <picture class="item__cover">
-                <img class="item__cover-front" src="<%= item.img_front %>" alt="">
-                <img class="item__cover-back" src="<%= item.img_back %>" alt="">
+                <img class="item__cover-front" src="/img/<%= item.image_front %>" alt="">
+                <img class="item__cover-back" src="/img/<%= item.image_back %>" alt="">
             </picture>
 
             <!-- Descripcion del Funko -->
@@ -16,17 +31,21 @@
                 <span class="item__collection"><%= item.category_name %></span>
                 <span class="item__title"><%= item.product_name %></span>
                 <span class="item__description"><%= item.product_description %></span>
-                <span class="item__price"><%= item.product_price %></span>
+                <span class="item__price"><%= item.price %></span>
 
                 <!-- Contenedor para la cantidad a agregar de items al carrito -->
                 <div class="amount">
                     <input id="amount__input" class="amount__input input-hide-arrows" type="number" value="1" min="1">
                     <!-- Botones para incrementar y decrementar cantidad de items -->
                     <div class="amount__btn-container">
-                        <button id="btn__add" class="amount__btn" href="" onclick="btn__add(this)"><img src="/img/icons/+.svg" alt=""></button>
-                        <button id="btn__substract" class="amount__btn" href="" onclick="btn__substract(this)"><img src="/img/icons/-.svg" alt="" srcset=""></button>
+                        <button id="btn__add" class="amount__btn" href="" onclick="btn__add(this)">
+                            <img src="/img/icons/+.svg" alt="">
+                        </button>
+                        <button id="btn__substract" class="amount__btn" href="" onclick="btn__substract(this)">
+                            <img src="/img/icons/-.svg" alt="" srcset="">
+                        </button>
                     </div>
-                    <a class="btn-link" href="/pages/shop/cart.html">Agregar al carrito</a>
+                    <a class="btn-link" href="/shop/cart">Agregar al carrito</a>
                 </div>
 
                 <!-- Ver los metodos de pago -->
@@ -300,7 +319,7 @@
     
     <!------ Scripts PROPIOS ------>
     <script src="/scripts/glide-config.js"></script> <!-- Configuracion de libreria Glide -->
-    <script src="/scripts/cart-counter.js"></script>
+    <!-- <script src="/scripts/cart-counter.js"></script> -->
     <script src="/scripts/modal.js"></script>
     <script src="/scripts/item-quantity.js"></script>
 </body>
