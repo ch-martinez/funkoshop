@@ -93,8 +93,8 @@ const createNewProduct = async (req, res) => {
         }
     }
     catch (err) {
-        res.status(422).send("No se ha podido crear el producto en la base de datos");
-        throw err;
+        console.log(`* Error en la creación de un producto: ${err}`)
+        res.redirect("/admin/create/error");
     }
 }
 
@@ -162,8 +162,6 @@ const getEditForm = async (req, res) => {
 // formulario de edición y, luego, enviarlo a la base de datos.
 const editProduct = async (req, res) => {
     try {
-        // TODO: validación de la información (Express-validator).
-
         /* Validación de si se modificaron las imágenes */ 
         // Banderas necesarias para saber si se debe eliminar o no las
         // imagenes anteriores del producto.
@@ -234,8 +232,8 @@ const editProduct = async (req, res) => {
         }
     }
     catch (err) {
-        res.status(422).send("No se ha podido modificar el producto seleccionado en la base de datos");
-        throw err;
+        console.log(`* Error en la modificación de un producto: ${err}`);
+        res.redirect(`/admin/edit/${req.params.id}/error`);
     }
 }
 
@@ -305,7 +303,8 @@ const deleteProduct = async (req, res) => {
         }
     }
     catch (err) {
-        res.status(422).send("No se ha podido eliminar el producto seleccionado en la base de datos");
+        console.log(`* Error en la eliminación de un producto: ${err}`);
+        res.redirect(`/admin/delete/${req.params.id}/error`);
     }
 }
 

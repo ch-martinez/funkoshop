@@ -96,10 +96,14 @@
                             <td class="table-admin__data"><%= product.product_name %></td>
                             <td class="table-admin__data"><%= product.licence_name %></td>
                             <td class="table-admin__data">
-                                <a class="table-admin__btn" href="/admin/edit/<%= product.product_id %>">
+                                <a class="table-admin__btn" 
+                                   href="/admin/edit/<%= product.product_id %>">
                                     <img src="/img/icons/edit_pencil.svg" alt="Icono para editar">
+                                
                                 </a>
-                                <a class="table-admin__btn" href="/admin/delete/<%= product.product_id %>">
+                                <a class="table-admin__btn" 
+                                   href="/admin/delete/<%= product.product_id %>"
+                                   onclick="confirmDelete(event)">
                                     <img class="alert-delet__btn" 
                                          src="/img/icons/delete_trash.svg" 
                                          alt="Icono para eliminar item">
@@ -151,7 +155,8 @@
             </nav>
             <p class="footer__copy">All rights reserved 2023 - Funkoshop&copy;</p>
         </footer>
-    <script src="/scripts/adminDeletItem.js"></script>
+    <!-- <script src="/scripts/adminDeletItem.js"></script> -->
+    <script src="/scripts/adminDeleteProduct.js"></script>
 </body>
 
 </html>
