@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/imports.css">
+    <link rel="stylesheet" href="/css/pages/faqs.css">
     <title>FAQS</title>
 
 </head>
@@ -60,7 +61,57 @@
 
 
         <!-- MAIN -->
-        <main>
+        <main class="main-container">
+
+            <!-- INICIO FAQS -->
+            <div class="faqs__container">   
+            
+                <!-- PREGUNTA 1 -->
+                <div class="faqs__list">
+                    <div class="faqs__pregunta">¿Cómo puedo comprar FunkoPop! en su sitio web?</div>
+                    <div class="faqs__respuesta">Puedes comprar FunkoPop! directamente desde nuestro sitio web. 
+                        Navega por las categorías, selecciona los productos que te interesan y sigue el proceso de pago seguro.
+                         Asegúrate de revisar regularmente nuestro inventario, ya que añadimos nuevos lanzamientos con frecuencia.</div>
+                     <div class="linea-horizontal"></div>
+                  </div>
+
+                  <!-- PREGUNTA 2 -->
+                <div class="faqs__list">
+                    <div class="faqs__pregunta">¿Cómo puedo saber si un FunkoPop! es auténtico?</div>
+                    <div class="faqs__respuesta">Nuestros FunkoPop! son adquiridos desde tiendas oficiales.
+                         Verifica el logotipo de Funko en la caja y presta atención a los detalles de la figura.
+                          Los códigos en la base y las etiquetas de autenticidad son también indicadores importantes.</div>
+                     <div class="linea-horizontal"></div>
+                  </div>
+
+                  <!-- PREGUNTA 3 -->
+                  <div class="faqs__list">
+                    <div class="faqs__pregunta">¿Ofrecen ediciones limitadas o exclusivas en su tienda en línea?</div>
+                    <div class="faqs__respuesta">Sí, ocasionalmente ofrecemos ediciones limitadas o exclusivas en nuestra tienda en línea.
+                         Estas variantes pueden ser de personajes específicos o tener detalles exclusivos.
+                          Mantente informado sobre las novedades y eventos especiales para no perderte estas oportunidades.</div>
+                     <div class="linea-horizontal"></div>
+                  </div>
+
+                  <!-- PREGUNTA 4 -->
+                  <div class="faqs__list">
+                    <div class="faqs__pregunta">¿Cuándo se lanzan nuevos FunkoPop! y cómo puedo enterarme de las novedades?</div>
+                    <div class="faqs__respuesta">Los nuevos FunkoPop! se lanzan regularmente, y las fechas de lanzamiento pueden variar.
+                         Para mantenerte actualizado sobre las novedades, te recomendamos suscribirte a nuestro boletín informativo o seguirnos en nuestras redes sociales.
+                          Así recibirás notificaciones sobre lanzamientos, preventas y eventos especiales.</div>
+                     <div class="linea-horizontal" ></div>
+                  </div>
+
+                  <!-- PREGUNTA 5 -->
+                  <div class="faqs__list">
+                    <div class="faqs__pregunta">¿Cuál es la política de devoluciones y cambios?</div>
+                    <div class="faqs__respuesta">Si por alguna razón no estás satisfecho con tu compra,
+                         consulta nuestra política de devoluciones y cambios en la sección correspondiente.
+                          Normalmente, aceptamos devoluciones dentro de un período específico y proporcionamos opciones para cambios o reembolsos,
+                           según sea necesario.</div>
+                     <div class="linea-horizontal"></div>
+                  </div>
+            </div>
 
         </main>
 
@@ -95,5 +146,21 @@
             </nav>
             <p class="footer__copy">All rights reserved 2023 - Funkoshop&copy;</p>
         </footer>
+        <!-- SCRIPTS -->
+        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> <!-- Iconos -->
+       
+       <script>document.addEventListener('DOMContentLoaded', function () {
+        const faqItems = document.querySelectorAll('.faqs__list');
+      
+        faqItems.forEach(item => {
+          const faqs__pregunta = item.querySelector('.faqs__pregunta');
+          const faqs__respuesta = item.querySelector('.faqs__respuesta');
+      
+          faqs__pregunta.addEventListener('click', function () {
+            // Alternar la visibilidad de la respuesta al hacer clic en la pregunta
+            faqs__respuesta.style.display = faqs__respuesta.style.display === 'block' ? 'none' : 'block';
+          });
+        });
+      });</script>
 </body>
 </html>

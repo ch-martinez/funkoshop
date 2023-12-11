@@ -1,0 +1,47 @@
+/* --- <contenedor faqs> --- */
+.faqs__container{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-36);
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: var(--spacing-68) auto;
+    padding: var(--spacing-36);
+    background-color: #FFF;
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+/* --- <lista faqs> --- */
+.faqs__list{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: var(--spacing-12);
+}
+
+/* --- <preguntas faqs> --- */
+.faqs__pregunta{
+    cursor: pointer;
+    padding: 10px;
+    font-family: var(--font-base);
+    font-size: var(--font-xlarge);
+}
+
+/* --- <respuetas faqs> --- */
+.faqs__respuesta{
+    display: none;
+    padding: 10px;
+    font-family: var(--font-base);
+    font-size: var(--font-medium-20);
+}
+
+/* --- <separador faqs> --- */
+.linea-horizontal{
+    border: 1px solid; 
+    color: var(--bg-dark-solid); 
+    width: 500px; 
+    margin: 20px 0;
+    cursor: pointer;   
+  }
