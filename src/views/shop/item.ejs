@@ -1,128 +1,69 @@
-<!DOCTYPE html>
-<html lang="es"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FunkoShop</title>
-    <link rel="icon" type="image/jpg" href="/img/favicon.ico" />
-    <!-- CSS Libreria glide -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
-    <!-- Estilos propios -->
-    <link rel="stylesheet" href="/css/imports.css"> <!-- Import de archivos css globales -->
-    <link rel="stylesheet" href="/css/global/card.css"> <!-- Estilos cards de ultimos lanzamientos -->
-    <link rel="stylesheet" href="/css/global/glide.css"> <!-- Estilos del glide/slider -->
-    <link rel="stylesheet" href="/css/pages/index.css"> <!-- Estilos de pagina home -->
-</head>
-
+<!doctype html>
+<html lang="es">
+    <!-- Código temporal hasta que estén los partials -->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/jpg" href="/img/favicon.ico"/>
+        <!-- CSS Libreria glide -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
+        <!-- Estilos propios -->
+        <link rel="stylesheet" href="/css/imports.css">
+        <link rel="stylesheet" href="/css/global/card.css">
+        <link rel="stylesheet" href="/css/global/glide.css">
+        <link rel="stylesheet" href="/css/pages/item.css">
+        <link rel="stylesheet" href="/css/global/modal.css">
+        <title>Item - FS</title>
+    </head>
 <body>
-    <!-- Inicio header -->
-    <header>
-        <nav class="navbar container">
-            <figure class="navbar__logo--header">
-                <a href="./index.html">
-                    <img src="img/branding/logo_light_horizontal.svg" alt="Isotipo de la tienda FunkoShop">
-                </a>
-            </figure>
-
-            <!-- INICIO MENU -->
-            <ul class="navbar__menu--shop">
-                <li class="navbar__item with-submenu">
-                    <a class="navbar__link with-icon" href="/pages/shop/shop.html">SHOP<iconify-icon
-                            icon="tabler:chevron-down"></iconify-icon></a>
-                    <!-- INICIO SUBMENU -->
-                    <ul class="submenu">
-                        <li class="submenu__item">
-                            <a class="submenu__link" href="#">FUNKOS</a>
-                        </li>
-                        <li class="submenu__item">
-                            <a class="submenu__link" href="#">REMERAS</a>
-                        </li>
-                        <li class="submenu__item">
-                            <a class="submenu__link" href="#">LLAVEROS</a>
-                        </li>
-                    </ul>
-                    <!-- FIN SUBMENU -->
-                </li>
-
-                <!-- Login -->
-                <li class="navbar__item">
-                    <a class="navbar__link" href="/pages/admin/login.html">LOGIN</a>
-                </li>
-
-                <!-- Contacto -->
-                <li class="navbar__item">
-                    <a class="navbar__link" href="/pages/contact.html">CONTACTO</a>
-                </li>
-
-                <!-- Carrito -->
-                <li class="navbar__item">
-                    <a class="navbar__cart" href="/pages/shop/cart.html">
-                        <img src="/img/icons/cart-icon.svg" alt="Carrito de compras">
-                    </a>
-                </li>
-            </ul>
-            <!-- FIN MENU -->
-        </nav>
-    </header>
-
-    <!-- Inicio Hero (Banner) -->
-    <section class="hero">
-        <article class="hero__content container">
-            <h2 class="hero__title">Nuevos Ingresos</h2>
-            <p class="hero__description">Descubrí el próximo Funko Pop de tu colección.</p>
-            <a class="hero__link" href="/pages/shop/shop.html">SHOP</a>
-        </article>
-    </section>
-
-    <!-- Inicio main -->
+    <%- include ("../partials/navbar") %>
     <main class="main-container">
+        <article class="item container">
+            <!-- Imagen del Funko -->
+            <picture class="item__cover">
+                <img class="item__cover-front" src="/img/<%= item.image_front %>" alt="">
+                <img class="item__cover-back" src="/img/<%= item.image_back %>" alt="">
+            </picture>
 
-        <!-- Seccion de colecciones destacadas -->
-        <!-- Artículo 1 -->
-        <section class="collection container"> 
-            <article class="collection__content">
-                <h3 class="collection__title">STAR WARS & THE MANDALORIAN</h3>
-                <p class="collection__text">Disfruta de una saga que sigue agregando personajes a su colección.</p>
-                <hr class="collection__line">
-                <a class="collection__link" href="/pages/shop/item.html">VER COLECCIÓN</a>
-            </article>
-            <figure class="collection__cover">
-                <img src="/img/star-wars/baby-yoda-1.webp" 
-                        alt="Funkopop de Baby Yoda de The Mandalonian">
-            </figure>
-        </section>
+            <!-- Descripcion del Funko -->
+            <section class="item__content">
+                <span class="item__collection"><%= item.category_name %></span>
+                <span class="item__title"><%= item.product_name %></span>
+                <span class="item__description"><%= item.product_description %></span>
+                <span class="item__price"><%= item.price %></span>
 
-        <!-- Artículo 2 -->
-        <section class="collection container"> 
-            <article class="collection__content">
-                <h3 class="collection__title">POKEMON INDIGO</h3>
-                <p class="collection__text">Atrapa todos los que puedas y disfruta de una colección llena de amigos.</p>
-                <hr class="collection__line">
-                <a class="collection__link" href="">VER COLECCIÓN</a>
-            </article>
-            <figure class="collection__cover">
-                <img src="/img/pokemon/vulpix-1.webp" 
-                        alt="Funkopop de Vulpix de Pokemon">
-            </figure>
-        </section>
+                <!-- Contenedor para la cantidad a agregar de items al carrito -->
+                <div class="amount">
+                    <input id="amount__input" class="amount__input input-hide-arrows" type="number" value="1" min="1">
+                    <!-- Botones para incrementar y decrementar cantidad de items -->
+                    <div class="amount__btn-container">
+                        <button id="btn__add" class="amount__btn" href="" onclick="btn__add(this)">
+                            <img src="/img/icons/+.svg" alt="">
+                        </button>
+                        <button id="btn__substract" class="amount__btn" href="" onclick="btn__substract(this)">
+                            <img src="/img/icons/-.svg" alt="" srcset="">
+                        </button>
+                    </div>
+                    <a class="btn-link" href="/shop/cart">Agregar al carrito</a>
+                </div>
 
-        <!-- Artículo 3 -->
-        <section class="collection container"> 
-            <article class="collection__content">
-                <h3 class="collection__title">HARRY POTTER</h3>
-                <p class="collection__text">Revive los recuerdos de una saga llena de magia y encanto.</p>
-                <hr class="collection__line">
-                <a class="collection__link" href="">VER COLECCIÓN</a>
-            </article>
-            <figure class="collection__cover">
-                <img src="/img/harry-potter/snape-patronus-1.webp" 
-                alt="Funkopop de patronus de Severous Snape de Harry Potter">
-            </figure>
-        </section>
+                <!-- Ver los metodos de pago -->
+                <a id="modalOpen" class="link__blue link__blue--payment" href="#">Ver métodos de pago - 3 CUOTAS SIN INTERÉS</a>
+                <dialog id="modal" class="modal">
+                    <div id="modalClose" class="modal__close">
+                        <iconify-icon icon="icon-park-outline:close-one" width="28" height="28"></iconify-icon>
+                    </div>
+                    <picture>
+                        <img src="/img/medios_pagos.jpg" alt="Medios de pago">
+                    </picture>
+                </dialog>
+            </section>
+        </article>
 
-        <!-- Seccion de últimos lanzamientos -->
+        <!-- Seccion de relacionados -->
         <section class="glide glide--carousel container">
-            <h2 class="glide__title">ÚLTIMOS LANZAMIENTOS<h2>
+            <h2 class="glide__title">PRODUCTOS RELACIONADOS<h2>
             <!-- Slide de cards -->
             <section class="glide__track" data-glide-el="track">
                 <ul class="glide__slides">
@@ -147,8 +88,7 @@
                             <a class="card__link" href="/pages/shop/item.html">
                                 <picture class="card__cover">
                                     <img class="card__img-front" src="/img/harry-potter/hermione-1.webp" alt="">
-                                    <img class="card__img-back" src="/img/harry-potter/hermione-box.webp"
-                                        alt="">
+                                    <img class="card__img-back" src="/img/harry-potter/hermione-box.webp" alt="">
                                 </picture>
                                 <section class="card__content">
                                     <span class="card__collection">harry potter</span>
@@ -179,10 +119,8 @@
                         <article class="card new-item">
                             <a class="card__link" href="/pages/shop/item.html">
                                 <picture class="card__cover">
-                                    <img class="card__img-front" src="/img/harry-potter/snape-patronus-1.webp"
-                                        alt="">
-                                    <img class="card__img-back" src="/img/harry-potter/snape-patronus-box.webp"
-                                        alt="">
+                                    <img class="card__img-front" src="/img/harry-potter/snape-patronus-1.webp" alt="">
+                                    <img class="card__img-back" src="/img/harry-potter/snape-patronus-box.webp" alt="">
                                 </picture>
                                 <section class="card__content">
                                     <span class="card__collection">harry potter</span>
@@ -341,35 +279,34 @@
             </section>
             <!-- FLechas de contol slide -->
             <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><iconify-icon
-                        icon="octicon:chevron-up-12" rotate="270deg"></iconify-icon></button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><iconify-icon
-                        icon="octicon:chevron-up-12" rotate="90deg"></iconify-icon></button>
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><iconify-icon icon="octicon:chevron-up-12" rotate="270deg"></iconify-icon></button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><iconify-icon icon="octicon:chevron-up-12" rotate="90deg"></iconify-icon></button>
             </div>
         </section>
     </main>
 
     <!-- FOOTER -->
-    <footer>
+    <footer> 
         <nav class="navbar container">
             <ul>
                 <li>
-                    <a class="navbar__link" href="pages/shop/shop.html">SHOP</a>
+                    <a class="navbar__link" 
+                        href="./shop.html">SHOP</a>
                 </li>
                 <li>
-                    <a class="navbar__link" href="/pages/admin/login.html">INGRESAR</a>
+                    <a class="navbar__link"
+                        href="../admin/login.html">INGRESAR</a>
                 </li>
                 <li>
-                    <a class="navbar__link" href="/pages/contact.html">CONTACTO</a>
-                </li>
-                <li>
-                    <a class="navbar__link" href="/pages/shop/faqs.html">faqs</a>
+                    <a class="navbar__link"
+                        href="../contact.html">CONTACTO</a>
                 </li>
             </ul>
 
             <figure class="navbar__logo--footer">
-                <a href="./index.html">
-                    <img src="/img/branding/isotype.svg" alt="Isotipo de la tienda Funkoshop">
+                <a href="../../index.html">
+                    <img src="../../img/branding/isotype.svg" 
+                            alt="Isotipo de la tienda Funkoshop">
                 </a>
             </figure>
         </nav>
@@ -379,7 +316,11 @@
     <!------ Scripts EXTERNOS ------>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> <!-- Iconos -->
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script> <!-- Glide (Carrousel) -->
+    
     <!------ Scripts PROPIOS ------>
     <script src="/scripts/glide-config.js"></script> <!-- Configuracion de libreria Glide -->
+    <!-- <script src="/scripts/cart-counter.js"></script> -->
+    <script src="/scripts/modal.js"></script>
+    <script src="/scripts/item-quantity.js"></script>
 </body>
 </html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include ("../partials/head") %>
+
+<body>
+    <%- include ("../partials/navbar") %>
+    <main class="container">
+        <div class="container-shop">
+            <div class="filters__container">
+                <form class="filters__form" action="">
+
+                    <!-- Buscar por item o categoria -->
+                    <div class="filter">
+                        <label class="label label--filter" for="search">BUSCAR</label>
+                        <input class="input-text--box" id="search" type="text" placeholder="Item o categoria">
+                    </div>
+
+                    <!-- Ordenar items -->
+                    <div class="filter">
+                        <label class="label label--filter" for="short">ORDENAR POR</label>
+                        <select class="input-select" name="short" id="short">
+                            <option value="precio_mayor">Mayor precio</option>
+                            <option value="precio_menor">Menor precio</option>
+                            <option value="nombre_az">Nombre A-Z</option>
+                            <option value="nombre_za">Nombre Z-A</option>
+                            <option value="destacado">Destacados</option>
+                        </select>
+                    </div>
+
+                    <!-- Filtrar items por precio -->
+                    <div class="filter">
+                        <label class="label label--filter">PRECIO</label>
+                        <div class="filter--price">
+                            <label class="label--filter-price" for="min_price">MIN<input
+                                    class="input-number--box input-hide-arrows" type="number" placeholder="0"
+                                    min="0">-</label>
+                            <label class="label--filter-price" for="max_price">MAX<input
+                                    class="input-number--box input-hide-arrows" type="number" placeholder="0"
+                                    min="0"></label>
+                        </div>
+                    </div>
+
+                    <!-- Filtrar items segun caracteristicas -->
+                    <div class="filter">
+                        <label class="label label--filter">FILTRAR</label>
+                        <ul>
+                            <li class="filter__li">
+                                <input class="input-checkbox" type="checkbox" name="check_new" id="check_new">
+                                <label class="label--checkbox" for="check_new">NUEVOS</label>
+                            </li>
+                            <li class="filter__li">
+                                <input class="input-checkbox" type="checkbox" name="check_offer" id="check_offer">
+                                <label class="label--checkbox" for="check_offer">OFERTAS</label>
+                            </li>
+                            <li class="filter__li">
+                                <input class="input-checkbox" type="checkbox" name="check_special" id="check_special">
+                                <label class="label--checkbox" for="check_special">EDICIÓN ESPECIAL</label>
+                            </li>
+                            <li class="filter__li">
+                                <input class="input-checkbox" type="checkbox" name="check_fav" id="check_fav">
+                                <label class="label--checkbox" for="check_fav">FAVORITOS</label>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="caja2">
+                <ul class="items__list">
+                    <% shopItems.forEach(item => { %>
+                    <li>
+                        <article class="card new-item">
+                            <a class="card__link" href="/shop/item/<%= item.product_id %>">
+                                <picture class="card__cover">
+                                    <img class="card__img-front" src="img/<%= item.image_front %>" alt="">
+                                    <img class="card__img-back" src="img/<%= item.image_back %>" alt="">
+                                </picture>
+                                <section class="card__content">
+                                    <span class="card__collection"><%= item.category_name %></span>
+                                    <h4 class="card__name"><%= item.product_name %></h4>
+                                    <span class="card__price"><%= item.price %></span>
+                                    <span class="card__payments"><%= item.dues %> cuotas sin interés  </span>
+                                </section>
+                            </a>
+                        </article>
+                    </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>
+        <div class="pagination-bar">
+            <div class="pagination-container">
+                <button class="prev"><</button>
+                <button class="first">1</button>
+                <button>2</button>
+                <button>...</button>
+                <button>9</button>
+                <button>10</button>
+                <button>></button>
+            </div>
+        </div>
+    </main>
+    <%- include("../partials/footer") %>
+</body>
+
+</html>
