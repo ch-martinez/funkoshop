@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const path = require("node:path");
+const session = require("express-session");
 require("dotenv").config();
 const PORT = process.env.DB_PORT || 3306;
 
@@ -32,6 +33,14 @@ app.use(express.json());
 // Configuración del Template Engine: EJS
 app.set('view engine', 'ejs')
 app.set('views', path.resolve(__dirname, "./src/views"));
+
+// Middleware: express-session
+app.use(session({
+    secret: "prueba",
+    name: "session",
+    resave: false,
+    saveUninitialized: false,
+}))
 
 // MAIN
 app.use("/", mainRoutes);
