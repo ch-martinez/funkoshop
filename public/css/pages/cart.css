@@ -65,6 +65,14 @@
     text-align: start;
 }
 
+/* --- Precio total del item */
+.item-total-price {
+    border: none;
+    font-size: var(--font-medium);
+    font-weight: 500;
+    text-align: center;
+}
+
 /* Fix center amount in table */
 .amount--table{
     width: fit-content;

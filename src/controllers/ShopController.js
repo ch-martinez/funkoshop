@@ -37,6 +37,7 @@ const getItem = async (req, res) => {
     }
 }
 
+// Agregar un producto al carrito del cliente
 const addProductToCart = async (req, res) => {
     // Lógica para agregar un producto al carrito
     try {
@@ -64,6 +65,14 @@ const addProductToCart = async (req, res) => {
 }
 
 
+// Eliminar un producto específico del carrito del cliente.
+const removeProductInCart = async (req, res) => {
+    req.session.cart = req.session.cart.filter(product => product.product_id != req.params.id);
+    res.redirect("/shop/cart");
+}
+
+
+// Mostrar la vista del carrito con los productos seleccionados por el cliente.
 const getShoppingCart = (req, res) => {
     res.render("shop/cart", {
         products: req.session.cart
@@ -82,6 +91,7 @@ module.exports = {
     getShop,
     getItem,
     addProductToCart,
+    removeProductInCart,
     getShoppingCart,
     purchase
 }

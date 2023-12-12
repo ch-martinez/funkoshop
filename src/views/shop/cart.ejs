@@ -106,7 +106,7 @@
                                 <section class="card__content card__content--table">
                                     <h4 class="card__name"><%= product.product_name %></h4>
                                     <span class="card__collection"><%= product.licence_name %></span>
-                                    <span class="card__price">Precio unitario: $<%= product.price %></span>
+                                    <p class="card__price">Precio unitario: $<span><%= product.price %></span></p>
                                 </section>
                             </td>
 
@@ -117,7 +117,8 @@
                                            type="number" 
                                            value="<%= product.quantity %>" 
                                            min="1"
-                                           readonly>
+                                           readonly
+                                           oninput="upgradeItemTotal(this)">
                                     <div class="amount__btn-container">
                                         <button class="amount__btn" onclick="btn__add(this)">
                                             <img src="/img/icons/+.svg">
@@ -130,11 +131,18 @@
                             </td>
                             <!------ Precio total ------>
                             <td class="table-cart__data">
-                                <span class="card__price card__price--table">$ <%= (product.price * product.quantity).toFixed(2) %></span>
+                                <input type="text" 
+                                       class="item-total-price card__price--table"
+                                       value="$ <%= (product.price * product.quantity).toFixed(2) %>"
+                                       oninput="upgradeTotalPrice(this)"
+                                       tabindex="-1"
+                                       readonly> 
+
                             </td>
                             <!------ Eliminar item ------>
                             <td class="table-cart__data">
-                                <a href="" class="table-cart__delet">
+                                <a href="/shop/cart/<%= product.product_id %>/delete" 
+                                   class="table-cart__delet">
                                     <iconify-icon icon="icon-park-outline:close-one" 
                                                   width="28" 
                                                   height="28"></iconify-icon>
@@ -156,7 +164,7 @@
                         <% products.forEach(product => { %>
                         <%    elements += product.quantity %>
                         <% }) %>
-                        <span><%= elements %></span>
+                        <span id="total-quantity"><%= elements %></span>
                     </div>
                     <div class="resumen__div">
                         <span>SUBTOTAL</span>
@@ -164,7 +172,7 @@
                         <% products.forEach(product => { %>
                         <%    subtotal += parseFloat((product.price * product.quantity).toFixed(2)) %>
                         <% }) %>
-                        <span>$<%= subtotal %></span>
+                        <span id="subtotal-price">$<%= subtotal %></span>
                     </div>
                     <div class="resumen__div">
                         <span>ENVIO</span>
@@ -172,7 +180,7 @@
                     </div>
                     <div class="resumen__div">
                         <span>TOTAL</span>
-                        <span>$<%= subtotal %></span>
+                        <span id="total-price">$<%= subtotal %></span>
                     </div>
             </section>
             <form action="/shop/cart" method="post">
@@ -216,6 +224,6 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> <!-- Iconos -->
     <!------ Scripts PROPIOS ------>
     <!-- <script src="/scripts/cart-counter.js"></script> -->
-    <script src="/scripts/item-quantity.js"></script>
+    <script src="/scripts/cart.js"></script>
 </body>
 </html>
