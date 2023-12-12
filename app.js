@@ -43,6 +43,7 @@ app.get("/auth/register", (req, res) => {
     res.render("admin/register");
 })
 
+/* CÓDIGO PÁGINA ERROR 404 */
 app.use('', (req,res,next)=>{
     res.render("shop/error404");
 })
