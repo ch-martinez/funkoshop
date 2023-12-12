@@ -37,6 +37,10 @@ async function getProductsFromDB() {
     }
 };
 
+const getAllProductsFilterFromDB = async (id) => {
+    const [rows] = await pool.query(`SELECT product.*, category.category_name, licence.licence_name FROM (product LEFT JOIN category ON product.category_id = category.category_id) LEFT JOIN licence ON product.licence_id = licence.licence_id WHERE product.licence_id = ${id}`)
+    return rows
+}
 
 /**
  * Obtener la información de un producto específico desde la base de datos.
@@ -268,5 +272,6 @@ module.exports = {
     getCategoriesFromDB,
     createProductInDB,
     editProductInDB,
+    getAllProductsFilterFromDB,
     deleteProductInDB
 }

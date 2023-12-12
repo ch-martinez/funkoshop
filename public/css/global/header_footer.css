@@ -78,6 +78,15 @@ header {
     text-transform: uppercase;
 }
 
+.navbar__link strong{
+    transition: var(--transition-links);
+    color: var(--secondary-solid);
+}
+
+.navbar__link:hover strong{
+    color: inherit;
+}
+
 .navbar__link:hover {
     background-color: var(--primary-900);
 }
