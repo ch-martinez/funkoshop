@@ -43,6 +43,9 @@ app.get("/auth/register", (req, res) => {
     res.render("admin/register");
 })
 
+app.use('', (req,res,next)=>{
+    res.render("shop/error404");
+})
 
 /* --- SERVER --- */
 app.listen(PORT, () => {
