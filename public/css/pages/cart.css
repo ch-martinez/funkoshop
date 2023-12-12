@@ -114,4 +114,5 @@
 .btn-link--resumen{
     font-size: var(--font-xlarge);
     font-weight: 700;
+    width: 100%;
 }

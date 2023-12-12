@@ -11,6 +11,7 @@ function btn__add(elemento) {
     return false;
 
 }
+
 function btn__substract(elemento) {
     // Obtenemos el div padre del elemento (el elemento "padre")
     const padre = elemento.parentElement;
@@ -25,3 +26,4 @@ function btn__substract(elemento) {
     }
     return false;
 }
+

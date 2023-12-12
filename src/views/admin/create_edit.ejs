@@ -290,6 +290,12 @@
                         <button id="reset-button"
                                 class="form__button form__button-padding"
                                 type="reset"><%- product ? "Deshacer cambios" : "Limpiar" %></button>
+
+                        <% if (product) { %>
+                            <button id="cancel-button"
+                                    class="form__button form__button-padding"
+                                    type="button">Cancelar</button>
+                        <% } %>
                     </div>
                 </form>
             </section>
@@ -333,6 +339,7 @@
             import changeImage from "/scripts/inputFile.mjs";
             import reset from "/scripts/resetButton.mjs";
             import submit from "/scripts/submitButton.mjs";
+            import cancel from "/scripts/cancelButton.mjs"
 
             window.onload = () => {
                 const frontImg = "#front-img";
@@ -344,6 +351,7 @@
                 reset(resetButton, "#item-front-img-nomod", frontImg);
                 reset(resetButton, "#item-back-img-nomod", backImg);
                 submit(frontImg, backImg, "#create-edit-form");
+                cancel("#cancel-button");
             }
         </script>
     </body>

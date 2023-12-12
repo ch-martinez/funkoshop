@@ -46,6 +46,16 @@
             <section class="login__content container">
                 <h2 class="login__title">INGRESAR A MI CUENTA</h2>
 
+                <% if (error) { %>
+                    <div class="">
+                        <ul class="">
+                            <li class="">
+                                <%= message %>
+                            </li>
+                        </ul>
+                    </div>
+                <% } %>
+
                 <form id="login__form"
                       class="form__container" 
                       action="/auth/login" 

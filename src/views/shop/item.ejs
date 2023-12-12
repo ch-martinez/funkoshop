@@ -28,24 +28,39 @@
 
             <!-- Descripcion del Funko -->
             <section class="item__content">
-                <span class="item__collection"><%= item.category_name %></span>
+                <span class="item__collection"><%= item.license_name %></span>
                 <span class="item__title"><%= item.product_name %></span>
                 <span class="item__description"><%= item.product_description %></span>
-                <span class="item__price"><%= item.price %></span>
+                <span class="item__price">$ <%= item.price %></span>
 
                 <!-- Contenedor para la cantidad a agregar de items al carrito -->
-                <div class="amount">
-                    <input id="amount__input" class="amount__input input-hide-arrows" type="number" value="1" min="1">
-                    <!-- Botones para incrementar y decrementar cantidad de items -->
-                    <div class="amount__btn-container">
-                        <button id="btn__add" class="amount__btn" href="" onclick="btn__add(this)">
-                            <img src="/img/icons/+.svg" alt="">
-                        </button>
-                        <button id="btn__substract" class="amount__btn" href="" onclick="btn__substract(this)">
-                            <img src="/img/icons/-.svg" alt="" srcset="">
-                        </button>
-                    </div>
-                    <a class="btn-link" href="/shop/cart">Agregar al carrito</a>
+                <div>
+                    <form action="/shop/item/<%= item.product_id %>/add"
+                          class="amount"
+                          method="post">
+                        <input id="item-quantity" 
+                            class="amount__input input-hide-arrows" 
+                            type="number"
+                            name="quantity"
+                            value="1" 
+                            min="1"
+                            readonly>
+                        <!-- Botones para incrementar y decrementar cantidad de items -->
+                        <div class="amount__btn-container">
+                            <button id="btn-add" 
+                                    class="amount__btn" 
+                                    type="button">
+                                <img src="/img/icons/+.svg" alt="">
+                            </button>
+                            <button id="btn-substract" 
+                                    class="amount__btn"
+                                    type="button">
+                                <img src="/img/icons/-.svg" alt="">
+                            </button>
+                        </div>
+                        <button class="btn-link" type="submit">Agregar al carrito</button>
+                        <!-- <a class="btn-link" href="/shop/item/<%= item.product_id %>/add">Agregar al carrito</a> -->
+                    </form>
                 </div>
 
                 <!-- Ver los metodos de pago -->
@@ -319,8 +334,8 @@
     
     <!------ Scripts PROPIOS ------>
     <script src="/scripts/glide-config.js"></script> <!-- Configuracion de libreria Glide -->
-    <!-- <script src="/scripts/cart-counter.js"></script> -->
     <script src="/scripts/modal.js"></script>
-    <script src="/scripts/item-quantity.js"></script>
+    <script src="/scripts/inputQuantity.mjs" type="module">
+    </script>
 </body>
 </html>

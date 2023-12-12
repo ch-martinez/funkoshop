@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpg" href="/img/favicon.ico"/>
+    <link rel="stylesheet" href="/css/imports.css">
+    <link rel="stylesheet" href="/css/pages/cart.css">
+    <link rel="stylesheet" href="/css/global/card.css">
+    <title>FS - Carrito de compras</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar container">
+            <figure class="navbar__logo--header">
+                <a href="/">
+                    <img src="/img/branding/logo_light_horizontal.svg" 
+                         alt="Isotipo de la tienda FunkoShop">
+                </a>
+            </figure>
+
+            <!-- INICIO MENU -->
+            <ul class="navbar__menu--shop">
+                <li class="navbar__item with-submenu">
+                    <a class="navbar__link with-icon" 
+                        href="/shop">SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
+                    <!-- INICIO SUBMENU -->
+                    <ul class="submenu">
+                        <li class="submenu__item">
+                            <a class="submenu__link"
+                                href="/shop">FUNKOS</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a class="submenu__link" 
+                                href="/shop">REMERAS</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a class="submenu__link" 
+                                href="/shop">LLAVEROS</a>
+                        </li>
+                    </ul>
+                    <!-- FIN SUBMENU -->
+                </li>
+
+                <li class="navbar__item">
+                    <a class="navbar__link" 
+                        href="/auth/login">LOGIN</a>
+                </li>
+
+                <li class="navbar__item">
+                    <a class="navbar__link"
+                        href="/contact">CONTACTO</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__cart"
+                        href="/shop/cart">
+                        <img src="/img/icons/cart-icon.svg" 
+                             alt="Carrito de compras">
+                    </a>
+                </li>
+            </ul>
+            <!-- FIN MENU -->
+        </nav>
+    </header> 
+
+    <main class="container-cart">
+        <!------ Seccion carrito de compra ------>
+        <section class="container--cartlist">
+
+            <h2 class="container__title">CARRITO DE COMPRAS</h2>
+            <table class="table-cart">
+
+                <!------ Cabecera de listado items en carrito ------>
+                <thead class="table-cart__head">
+                    <tr class="table-cart__row">
+                        <td class="table-cart__data table-cart__data--head" colspan="2">
+                            <span>DETALLE DEL PRODUCTO</span>
+                        </td>
+                        <td class="table-cart__data table-cart__data--head">
+                            <span>CANTIDAD</span>
+                        </td>
+                        <td class="table-cart__data table-cart__data--head">
+                            <span>TOTAL</span>
+                        </td>
+                        <td class="table-cart__data table-cart__data--head">
+                        </td>
+                    </tr>
+                </thead>
+
+                <!------ Listado de items en carrito ------>
+                <tbody class="table-cart__body">
+
+                    <% products.forEach(product => { %>
+                        <tr class="table-cart__row">
+                            <!------ Imagen del item ------>
+                            <td class="table-cart__data">
+                                <figure class="card__picture--cart">
+                                    <img src="/img/<%= product.image_front %>" 
+                                         alt="Imagen frontal del Funkopop">
+                                </figure>
+                            </td>
+                            <!------ Descripcion del item ------>
+                            <td class="table-cart__data">
+                                <section class="card__content card__content--table">
+                                    <h4 class="card__name"><%= product.product_name %></h4>
+                                    <span class="card__collection"><%= product.licence_name %></span>
+                                    <span class="card__price">Precio unitario: $<%= product.price %></span>
+                                </section>
+                            </td>
+
+                            <!------ Cantidad item ------>
+                            <td class="table-cart__data">
+                                <div class="amount amount--table">
+                                    <input class="amount__input input-hide-arrows" 
+                                           type="number" 
+                                           value="<%= product.quantity %>" 
+                                           min="1"
+                                           readonly>
+                                    <div class="amount__btn-container">
+                                        <button class="amount__btn" onclick="btn__add(this)">
+                                            <img src="/img/icons/+.svg">
+                                        </button>
+                                        <button class="amount__btn" onclick="btn__substract(this)">
+                                            <img src="/img/icons/-.svg">
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                            <!------ Precio total ------>
+                            <td class="table-cart__data">
+                                <span class="card__price card__price--table">$ <%= (product.price * product.quantity).toFixed(2) %></span>
+                            </td>
+                            <!------ Eliminar item ------>
+                            <td class="table-cart__data">
+                                <a href="" class="table-cart__delet">
+                                    <iconify-icon icon="icon-park-outline:close-one" 
+                                                  width="28" 
+                                                  height="28"></iconify-icon>
+                                </a>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </section>
+
+        <!------ Seccion resumen de compra ------>
+        <section class="container--resumen">
+            <h2 class="container__title">RESUMEN</h2>
+            <section class="resumen__content table-cart__row">
+                    <div class="resumen__div">
+                        <span>CANTIDAD DE ELEMENTOS</span>
+                        <% let elements = 0 %>
+                        <% products.forEach(product => { %>
+                        <%    elements += product.quantity %>
+                        <% }) %>
+                        <span><%= elements %></span>
+                    </div>
+                    <div class="resumen__div">
+                        <span>SUBTOTAL</span>
+                        <% let subtotal = 0 %>
+                        <% products.forEach(product => { %>
+                        <%    subtotal += parseFloat((product.price * product.quantity).toFixed(2)) %>
+                        <% }) %>
+                        <span>$<%= subtotal %></span>
+                    </div>
+                    <div class="resumen__div">
+                        <span>ENVIO</span>
+                        <span>$0,00</span>
+                    </div>
+                    <div class="resumen__div">
+                        <span>TOTAL</span>
+                        <span>$<%= subtotal %></span>
+                    </div>
+            </section>
+            <form action="/shop/cart" method="post">
+                <button class="btn-link btn-link--resumen" 
+                type="submit">IR A PAGAR</button>
+            <!-- <a class="btn-link btn-link--resumen" 
+            href="/shop/cart">IR A PAGAR</a> -->
+            </form>
+        </section>
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer> 
+        <nav class="navbar container">
+            <ul>
+                <li>
+                    <a class="navbar__link" 
+                        href="/shop">SHOP</a>
+                </li>
+                <li>
+                    <a class="navbar__link"
+                        href="/auth/login">INGRESAR</a>
+                </li>
+                <li>
+                    <a class="navbar__link"
+                        href="/contact">CONTACTO</a>
+                </li>
+            </ul>
+
+            <figure class="navbar__logo--footer">
+                <a href="/">
+                    <img src="/img/branding/isotype.svg" 
+                         alt="Isotipo de la tienda Funkoshop">
+                </a>
+            </figure>
+        </nav>
+        <p class="footer__copy">All rights reserved 2023 - Funkoshop&copy;</p>
+    </footer>
+    <!------ Scripts EXTERNOS ------>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> <!-- Iconos -->
+    <!------ Scripts PROPIOS ------>
+    <!-- <script src="/scripts/cart-counter.js"></script> -->
+    <script src="/scripts/item-quantity.js"></script>
+</body>
+</html>
