@@ -75,6 +75,7 @@ header {
     font-weight: 400;
     padding: var(--spacing-8) var(--spacing-16);
     transition: var(--transition-links);
+    text-transform: uppercase;
 }
 
 .navbar__link:hover {

@@ -1,0 +1,16 @@
+<li <%if (glide) {%>class="glide__slide"<%}%>>
+    <article class="card">
+        <a class="card__link new-item " href="/shop/item/<%= item.product_id %>">
+            <picture class="card__cover">
+                <img class="card__img-front" src="/img/<%= item.image_front %>" alt="">
+                <img class="card__img-back" src="/img/<%= item.image_back %>" alt="">
+            </picture>
+            <section class="card__content">
+                <span class="card__collection"><%= item.licence_name %></span>
+                <h4 class="card__name"><%= item.product_name %></h4>
+                <span class="card__price">$<%= item.price %></span>
+                <span class="card__payments"><%= item.dues %> Cuotas sin interés</span>
+            </section>
+        </a>
+    </article>
+</li>

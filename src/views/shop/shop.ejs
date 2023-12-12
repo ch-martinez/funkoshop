@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
     <%- include ("../partials/head") %>
-
+    <link rel="stylesheet" href="/css/pages/shop.css">
+    <link rel="stylesheet" href="/css/global/card.css">
 <body>
     <%- include ("../partials/navbar") %>
     <main class="container">
@@ -67,24 +66,9 @@
             
             <div class="caja2">
                 <ul class="items__list">
-                    <% shopItems.forEach(item => { %>
-                    <li>
-                        <article class="card new-item">
-                            <a class="card__link" href="/shop/item/<%= item.product_id %>">
-                                <picture class="card__cover">
-                                    <img class="card__img-front" src="img/<%= item.image_front %>" alt="">
-                                    <img class="card__img-back" src="img/<%= item.image_back %>" alt="">
-                                </picture>
-                                <section class="card__content">
-                                    <span class="card__collection"><%= item.category_name %></span>
-                                    <h4 class="card__name"><%= item.product_name %></h4>
-                                    <span class="card__price"><%= item.price %></span>
-                                    <span class="card__payments"><%= item.dues %> cuotas sin interés  </span>
-                                </section>
-                            </a>
-                        </article>
-                    </li>
-                    <% }); %>
+                    <% shopItems.forEach((item) => {%>
+                        <%- include('../components/card.ejs', {item: item, glide: false}) %>
+                    <%}) %>
                 </ul>
             </div>
         </div>

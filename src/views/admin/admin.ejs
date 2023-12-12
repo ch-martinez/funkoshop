@@ -1,45 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-    <!-- CÓDIGO TEMPORAL HASTA QUE ESTÉ EL PARTIAL DEL HEAD -->
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin</title>
-        <link rel="stylesheet" href="/css/imports.css">
-        <link rel="stylesheet" href="/css/pages/admin.css">
-        <link rel="stylesheet" href="/css/global/alert_delet.css">
-    </head>
-
-    <body>
-    <!-- HEADER -->
-        <!-- CÓDIGO TEMPORAL HASTA QUE ESTÉ EL PARTIAL DEL HEADER -->
-        <!-- HEADER -->
-        <header>
-            <nav class="navbar container">
-                <figure class="navbar__logo--header">
-                    <a href="/">
-                        <img src="/img/branding/logo_light_horizontal.svg" 
-                             alt="Isotipo de la tienda FunkoShop">
-                    </a>
-                </figure>
-
-                <!-- MENU -->
-                <ul class="navbar__menu--admin">
-                    <li class="navbar__item">
-                        <a class="navbar__link" 
-                            href="/shop">VER TIENDA</a>
-                    </li>
-                    <li class="navbar__item">
-                        <a class="navbar__link"
-                            href="/admin">ADMIN</a>
-                    </li>
-                    <li class="navbar__item">
-                        <a class="navbar__link"
-                            href="/">SALIR</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+    <%- include('../partials/head.ejs',{view}) %>
+    <link rel="stylesheet" href="/css/pages/admin.css">
+    <link rel="stylesheet" href="/css/global/alerts.css">
+</head>
+<body>
+    <%- include('../partials/navbar.ejs',{view}) %>
 
         <main class="container container--admin">
 
@@ -50,20 +14,16 @@
                 </picture>
                 <input class="input-text--box admin-search__input" type="text" placeholder="Código, nombre o categoria">
             </section>
-
-            <%# Alerta %>
             <% if (alert) { %>
+                <div class="
                 <% if (alert.success) { %>
-                    <div class="success-alert">
-                        <p><%= alert.message %></p>
-                    </div>
+                    success-alert
                 <% } else { %>
-                    <div class="error-alert">
+                    error-alert
+                <% } %> ">
                         <p><%= alert.message %></p>
-                    </div>
-                <% } %>
+                </div>
             <% } %>
-
             <!-- Cabecera de tabla para agregar item -->
             <section class="table-admin-head__container">
                 <h1 class="table-admin-head__title">LISTADO DE PRODUCTOS</h1>
@@ -123,38 +83,7 @@
             </dialog>
         </main>
 
-        <!-- CÓDIGO TEMPORAL HASTA QUE ESTÉ EL PARTIAL DEL FOOTER -->
-        <!-- FOOTER -->
-        <footer>
-            <nav class="navbar container">
-                <ul>
-                    <li>
-                        <a class="navbar__link"
-                            href="/shop">SHOP</a>
-                    </li>
-                    <li>
-                        <a class="navbar__link"
-                            href="/auth/register">REGISTRARSE</a>
-                    </li>
-                    <li>
-                        <a class="navbar__link"
-                            href="/auth/login">INGRESAR</a>
-                    </li>
-                    <li>
-                        <a class="navbar__link" 
-                            href="/contact">CONTACTO</a>
-                    </li>
-                </ul>
-
-                <figure class="navbar__logo--footer">
-                    <a href="/">
-                        <img src="/img/branding/isotype.svg" 
-                                alt="Isotipo de la tienda FunkoShop">
-                    </a>
-                </figure>
-            </nav>
-            <p class="footer__copy">All rights reserved 2023 - Funkoshop&copy;</p>
-        </footer>
+        <%- include('../partials/footer.ejs',{view}) %>
     <!-- <script src="/scripts/adminDeletItem.js"></script> -->
     <script src="/scripts/adminDeleteProduct.js"></script>
 </body>
