@@ -1,0 +1,12 @@
+<section class="glide__track" data-glide-el="track">
+    <ul class="glide__slides">
+        <% products.forEach((item) => {%>
+            <%- include('card.ejs', {item: item, glide: true}) %>
+        <%}) %>
+    </ul>
+</section>
+<!-- FLechas de contol slide -->
+<div class="glide__arrows" data-glide-el="controls">
+    <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><iconify-icon icon="octicon:chevron-up-12" rotate="270deg"></iconify-icon></button>
+    <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><iconify-icon icon="octicon:chevron-up-12" rotate="90deg"></iconify-icon></button>
+</div>

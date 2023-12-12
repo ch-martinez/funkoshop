@@ -1,36 +1,74 @@
 @import url('/css/global/form.css');
 
-/* --- ESTILOS PROPIOS DE LOGIN.HTML */
-/* --- MAIN --- */
-.login__content {
+.container--main {
+    padding: var(--spacing-68) 0;
     display: flex;
     flex-direction: column;
+}
+
+.container--login{
     align-items: center;
-    gap: var(--spacing-28);
 }
 
-.login__title {
-    font-family: var(--font-alternative);
-    font-size: var(--font-xjumbo);
-    font-weight: 700;
+.container--login span{
+    margin-top: var(--spacing-12);
+    font-size: var(--font-xsmall);
+    text-align: center;
 }
 
-/* --- FORM --- */
-.login-form__input {
+.login__form{
+    width: 50rem;
+    margin: var(--spacing-48) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-20);
+}
+
+.form__box{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.form__box--footer{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    font-size: var(--font-xsmall);
+}
+
+.form__submit{
+    margin-top: var(--spacing-28);
+}
+
+/* -------------------- */
+.login-options{
+    margin-top: var(--spacing-8);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--spacing-12);
 }
 
-.login-form__content {
+.login-options__remember{
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: var(--spacing-42);
 }
 
-.login-form__input--remember {
-    display: flex;
-    justify-content: center;
+    .input-checkbox--login{
+        width: 16px;
+        height: 16px;
+        margin-right: var(--spacing-8);
+    }
+
+    .label--login-sublabel{
+        display: inline-block;
+        font-size: var(--font-small);
+    }
+
+@media (max-width: 767.98px){
+    .login__form{
+        width: 100%;
+    }
 }

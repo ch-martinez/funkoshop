@@ -14,15 +14,28 @@ const controller = {
         if (!shopItems) { 
             res.status(404).send("Productos no encontrados en la base de datos.");
         }
-        res.render('shop/shop', { shopItems } );
+        const view = {
+            title: 'FunkoShop',
+            logged: req.session.isLog,
+            userName: req.session.userName,
+            glide: true
+        }
+        res.render('shop/shop', { shopItems, view } );
     },
   
      getItem: async function (req, res)  {
       const [item] = await getProductFromDB(req.params.id);
+      const products = await getProductsFromDB();
       if (!item) {
         return res.status(404).json({ message: 'No se encontró el artículo' });
       }
-      res.render('shop/item', { item } );
+      const view = await {
+        title: `${item.product_name} - FS`,
+        logged: req.session.isLog,
+        userName: req.session.userName,
+        glide: true
+    }
+      res.render('shop/item', { item, view, products } );
     },
   
     addItemToShop: async function (req, res)  {
@@ -39,7 +52,7 @@ const controller = {
       else {
         shopItems.push(newItem);
         // Retorna la pagina del shop luego de agregar el item
-        res.render("shop/shoo", shopItems );
+        res.render("shop", shopItems );
       }
     },
   

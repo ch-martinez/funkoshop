@@ -17,12 +17,18 @@ const { unlink } = require("node:fs");
 /* --- READ --- */
 // Devolver la vista con el listado de productos.
 const getProducts = async (req, res) => {
+    const view = {
+        title: 'Administracion - FS',
+        logged: req.session.isLog,
+        userName: req.session.userName,
+    }
     try {
         const products = await getProductsFromDB();
         if (!products) { 
             res.status(404).send("Productos no encontrados en la base de datos.");
         }
         res.render("admin/admin", {
+            view,
             products,
             alert: null
         })
@@ -42,8 +48,13 @@ const getCreateForm = async (req, res) => {
         const licences = await getLicencesFromDB();
         // TODO: pedir a la DB las cuotas.
         const dues = [ 12, 9, 6, 3 ];
-
+        const view = {
+            title: 'Crear - FS',
+            logged: req.session.isLog,
+            userName: req.session.userName,
+        }
         res.render("admin/create_edit", {
+            view,
             product: null,
             categories,
             licences,
@@ -105,7 +116,13 @@ const successfulCreate = async (req, res) => {
         if (!products) { 
             res.status(404).send("Productos no encontrados en la base de datos.");
         }
+        const view = {
+            title: 'Administracion - FS',
+            logged: req.session.isLog,
+            userName: req.session.userName,
+        }
         res.render("admin/admin", {
+            view,
             products,
             alert: {
                 success: true,
@@ -121,7 +138,13 @@ const errorCreate = async (req, res) => {
         if (!products) { 
             res.status(404).send("Productos no encontrados en la base de datos.");
         }
+        const view = {
+            title: 'Administracion - FS',
+            logged: req.session.isLog,
+            userName: req.session.userName,
+        }
         res.render("admin/admin", {
+            view,
             products,
             alert: {
                 success: false,
@@ -144,8 +167,13 @@ const getEditForm = async (req, res) => {
         const licences = await getLicencesFromDB();
         // TODO: pedir a la DB las cuotas.
         const dues = [ 12, 9, 6, 3 ];
-
+        const view = {
+            title: 'Administracion - FS',
+            logged: req.session.isLog,
+            userName: req.session.userName,
+        }
         res.render("admin/create_edit", {
+            view,
             product,
             categories,
             licences,
@@ -244,7 +272,13 @@ const successfulEdit = async (req, res) => {
         if (!products) { 
             res.status(404).send("Productos no encontrados en la base de datos.");
         }
+        const view = {
+            title: 'Administracion - FS',
+            logged: req.session.isLog,
+            userName: req.session.userName,
+        }
         res.render("admin/admin", {
+            view,
             products,
             alert: {
                 success: true,
@@ -260,7 +294,13 @@ const errorEdit = async (req, res) => {
         if (!products) { 
             res.status(404).send("Productos no encontrados en la base de datos.");
         }
+        const view = {
+            title: 'Administracion - FS',
+            logged: req.session.isLog,
+            userName: req.session.userName,
+        }
         res.render("admin/admin", {
+            view,
             products,
             alert: {
                 success: false,
@@ -315,7 +355,13 @@ const successfulDelete = async (req, res) => {
         if (!products) { 
             res.status(404).send("Productos no encontrados en la base de datos.");
         }
+        const view = {
+            title: 'Administracion - FS',
+            logged: req.session.isLog,
+            userName: req.session.userName,
+        }
         res.render("admin/admin", {
+            view,
             products,
             alert: {
                 success: true,
@@ -331,7 +377,13 @@ const errorDelete = async (req, res) => {
         if (!products) { 
             res.status(404).send("Productos no encontrados en la base de datos.");
         }
+        const view = {
+            title: 'Administracion - FS',
+            logged: req.session.isLog,
+            userName: req.session.userName,
+        }
         res.render("admin/admin", {
+            view,
             products,
             alert: {
                 success: false,

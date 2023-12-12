@@ -3,12 +3,22 @@ const express = require('express');
 const app = express();
 const path = require("node:path");
 require("dotenv").config();
-const PORT = process.env.SV_PORT || 8080;
+const PORT = process.env.DB_PORT || 3306;
+
+/* Configuracion express-session */
+const session = require('express-session')
+app.use(session({
+    secret: 'funko',
+    resave: false,
+    saveUninitialized: true,
+    isLog: false
+}))
 
 /* --- ROUTES --- */
-const shopRoutes = require("./src/router/shopRouter.js");
-const adminRoutes = require("./src/router/adminRoutes.js");
-const mainRoutes = require("./src/router/mainRouter.js");
+const mainRoutes = require("./src/router/mainRouter.js")
+const shopRoutes = require("./src/router/shopRouter.js")
+const adminRoutes = require("./src/router/adminRoutes.js")
+const authRoutes = require("./src/router/authRoutes.js")
 
 /* --- MIDDLEWARES --- */
 // Definir la carpeta '/public' para los archivos estáticos..
@@ -33,16 +43,7 @@ app.use('/shop', shopRoutes);
 app.use("/admin", adminRoutes);
 
 // AUTH
-/* CÓDIGO TEMPORAL PARA PROBAR ALGUNAS RUTAS DESDE ADMIN */
-app.get("/auth/login", (req, res) => {
-    res.render("admin/login");
-})
-
-/* CÓDIGO TEMPORAL PARA PROBAR ALGUNAS RUTAS DESDE ADMIN */
-app.get("/auth/register", (req, res) => {
-    res.render("admin/register");
-})
-
+app.use('/auth', authRoutes)
 
 /* --- SERVER --- */
 app.listen(PORT, () => {

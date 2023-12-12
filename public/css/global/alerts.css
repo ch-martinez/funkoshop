@@ -45,3 +45,24 @@
 .btn--admin-delet{
     background-color: var(--secondary-900);
 }
+
+/* --- Alert --- */
+.success-alert {
+    border: 2px solid var(--secondary-solid);
+    color: var(--secondary-solid);
+    border-radius: 5px;
+    background-color: var(--secondary-300);
+    padding: var(--spacing-16) var(--spacing-12);
+    text-align: center;
+    font-weight: 600;
+}
+
+.error-alert {
+    border: 2px solid var(--primary-solid);
+    color: var(--dark-900);
+    border-radius: 5px;
+    background-color: var(--primary-300);
+    padding: var(--spacing-16) var(--spacing-12);
+    text-align: center;
+    font-weight: 600;
+}
