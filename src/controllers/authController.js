@@ -24,7 +24,6 @@ const loginView = (req, res) => {
 const loginRequest = async (req,res) => {
     const {email, password} = req.body
     const userData = await getPassByEmailFromDB(email)
-    console.log(userData)
     if(userData && userData.password == password){
         req.session.isLog = true
         req.session.userName = userData.name

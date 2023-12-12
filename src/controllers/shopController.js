@@ -2,7 +2,8 @@
 /* --- MODEL --- */
 const { 
   getProductsFromDB,
-  getProductFromDB
+  getProductFromDB,
+  getAllProductsFilterFromDB
  } = require("../models/productModel");
   
 let shoppingCart = [];
@@ -10,17 +11,24 @@ let shoppingCart = [];
 
 const controller = {
      getShop: async function (req, res)  {
-        const shopItems = await getProductsFromDB();
-        if (!shopItems) { 
-            res.status(404).send("Productos no encontrados en la base de datos.");
-        }
         const view = {
             title: 'FunkoShop',
             logged: req.session.isLog,
             userName: req.session.userName,
             glide: true
         }
-        res.render('shop/shop', { shopItems, view } );
+        try {
+            if (req.query.licence){
+                const shopItems = await getAllProductsFilterFromDB(req.query.licence)
+                res.render('shop/shop', { shopItems, view } );
+            }else{
+                const shopItems = await getProductsFromDB();
+                res.render('shop/shop', { shopItems, view } );
+            }
+        } catch (error) {
+            console.log(`Error getting products: ${error}`)
+            res.status(500).res(`Internal server error ${error}`)
+        }
     },
   
      getItem: async function (req, res)  {

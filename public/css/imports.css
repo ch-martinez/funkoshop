@@ -15,3 +15,6 @@
 
 /* Estilos para los inputs, buttons y labels */
 @import url('/css/global/inputs.css');
+
+/* Animaciones */
+@import url('/css/global/animations.css');
