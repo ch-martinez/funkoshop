@@ -14,13 +14,13 @@ const pool = createPool({
 });
 
 // Prueba de conexión
-pool.getConnection()
+/* pool.getConnection()
     .then(connection => {
         console.log('Conectado con la base de datos: ', connection.config.database);
         connection.release();
     })
     .catch(err => {
         console.error('Error al conectar con la base de datos:', err);
-    });
+    }); */
 
 module.exports = pool;
