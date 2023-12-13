@@ -32,7 +32,7 @@
 
 /* Links */
 .link__blue {
-    font-size: var(--font-xsmall);
+    font-size: var(--font-small);
     color: var(--secondary-900);
     transition: var(--transition--01);
 }
