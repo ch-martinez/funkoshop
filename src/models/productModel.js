@@ -34,12 +34,22 @@ async function getProductsFromDB() {
     catch (err) {
         console.error(`Error en la consulta a la base de datos: ${err}`);
         throw err;
+    }finally{
+        pool.releaseConnection()
     }
 };
 
 const getAllProductsFilterFromDB = async (id) => {
-    const [rows] = await pool.query(`SELECT product.*, category.category_name, licence.licence_name FROM (product LEFT JOIN category ON product.category_id = category.category_id) LEFT JOIN licence ON product.licence_id = licence.licence_id WHERE product.licence_id = ${id}`)
-    return rows
+    try {
+        const [rows] = await pool.query(`SELECT product.*, category.category_name, licence.licence_name FROM (product LEFT JOIN category ON product.category_id = category.category_id) LEFT JOIN licence ON product.licence_id = licence.licence_id WHERE product.licence_id = ${id}`)
+        return rows
+        
+    } catch (error) {
+        console.error(`Error en la consulta a la base de datos: ${error}`);
+        throw err;
+    }finally{
+        pool.releaseConnection()
+    }
 }
 
 /**
@@ -76,6 +86,8 @@ async function getProductFromDB(id) {
     catch (err) {
         console.error(`Error en la consulta a la base de datos: ${err}`);
         throw err;
+    }finally{
+        pool.releaseConnection()
     }
 };
 
@@ -94,6 +106,8 @@ async function getLicencesFromDB() {
     catch (err) {
         console.error(`Error en la consulta a la base de datos: ${err}`);
         throw err;
+    }finally{
+        pool.releaseConnection()
     }
 };
 
@@ -112,6 +126,8 @@ async function getCategoriesFromDB() {
     catch (err) {
         console.error(`Error en la consulta a la base de datos: ${err}`);
         throw err;
+    }finally{
+        pool.releaseConnection()
     }
 };
 
@@ -156,6 +172,8 @@ async function createProductInDB(newProduct) {
     catch (err) {
         console.error(`Error en la consulta a la base de datos: ${err}`);
         throw err;
+    }finally{
+        pool.releaseConnection()
     }
 };
 
@@ -222,6 +240,8 @@ async function editProductInDB(product) {
     catch (err) {
         console.error(`Error en la consulta a la base de datos: ${err}`);
         throw err;
+    }finally{
+        pool.releaseConnection()
     }
 }
 
@@ -260,6 +280,8 @@ async function deleteProductInDB(id) {
     catch (err) {
         console.error(`Error en la consulta a la base de datos: ${err}`);
         throw err;
+    }finally{
+        pool.releaseConnection()
     }
 }
 

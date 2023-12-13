@@ -5,12 +5,13 @@ const { body } = require('express-validator')
 
 const loginValidation = [
     body('email')
-    .isEmail()
-    .withMessage('Ingrese una dirección de correo electrónico válido'),
+        .isEmail()
+        .withMessage('Ingrese una dirección de correo electrónico válido'),
     body('password')
-     .isLength({ min: 6})
-     .isAlphanumeric()
-     .withMessage('La contraseña debe tener al menos 6 caracteres y contener letras y números.')
+        .optional()
+        .isLength({ min: 6})
+        .isAlphanumeric()
+        .withMessage('La contraseña debe tener al menos 6 caracteres y contener letras y números.')
 ]
 
 const registerValidation = [
@@ -31,7 +32,7 @@ const registerValidation = [
 ]
 
 router.get('/login', authController.loginView)
-router.post('/login', authController.loginRequest)
+router.post('/login', loginValidation, authController.loginRequest)
 router.get('/register', authController.registerView)
 router.post('/register', registerValidation, authController.registerRequest)
 router.get('/recoverPass', authController.recoverPass)

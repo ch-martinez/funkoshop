@@ -1,6 +1,7 @@
 <%- include('../partials/head.ejs',{view}) %>
 <link rel="stylesheet" href="/css/pages/login.css">
 <link rel="stylesheet" href="/css/global/modal.css">
+<link rel="stylesheet" href="/css/global/alerts.css">
 </head>
 
 <body>
@@ -9,6 +10,17 @@
             <h2 class="container__title">INGRESAR A MI CUENTA</h2>
             <span>Completa el formulario para ser parte del mundo de los Funkos</span>
             <form action="/auth/register" method="POST" class="login__form">
+                <%# ALERTA%>
+                <% if (alert) { %>
+                    <div class="
+                    <% if (alert.success) { %>
+                        success-alert
+                    <% } else { %>
+                        error-alert
+                    <% } %> ">
+                            <p><%= alert.message %></p>
+                    </div>
+                <% } %>
                 <div class="form__box">
                     <label class="label" for="name">Nombre</label>
                     <input class="input-text--box" type="text" name="name" id="name" required>
