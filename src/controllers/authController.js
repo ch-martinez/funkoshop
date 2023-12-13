@@ -24,16 +24,29 @@ const loginView = (req, res) => {
     res.render('auth/login', { view, alert })
 }
 
-const loginRequest = async (req,res) => {
-    const {email, password} = req.body
+const loginRequest = async (req, res) => {
+    const { email, password } = req.body
     const userData = await getPassByEmailFromDB(email)
-    if(userData && userData.password == password){
-        req.session.userName = userData.name
-        req.session.isLog = true
-        req.session.isAdmin = userData.role == 1
-        req.session.cart = []
-        req.session.isAdmin ? res.redirect('/admin') : res.redirect('/shop')
-    }else{
+    if (userData) {
+        if (userData.password == password) {
+            req.session.userName = userData.name
+            req.session.isLog = true
+            req.session.isAdmin = userData.role == 1
+            req.session.cart = []
+            req.session.isAdmin ? res.redirect('/admin') : res.redirect('/shop')
+        } else {
+            const view = {
+                title: 'Login - FS',
+                logged: req.session.isLog,
+                admin: req.session.isAdmin
+            }
+            const alert = {
+                success: false,
+                message: "¡Contraseña incorrecta!"
+            }
+            res.render('auth/login', { view, alert })
+        }
+    }else {
         const view = {
             title: 'Login - FS',
             logged: req.session.isLog,
@@ -41,9 +54,9 @@ const loginRequest = async (req,res) => {
         }
         const alert = {
             success: false,
-            message: "¡Usuario o contraseña incorrectos!"
+            message: "¡Usuario incorrecto!"
         }
-        res.render('auth/login',{view, alert})
+        res.render('auth/login', { view, alert })
     }
 }
 
@@ -103,6 +116,8 @@ const logoutRequest = (req, res) => {
         success: false,
         message: `Se cerró la sesión de ${req.session.userName}`
     }
+    req.session.destroy
+    req.session.regenerate
     res.render('auth/login', {view, alert})
 }
 

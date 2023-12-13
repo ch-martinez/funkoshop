@@ -35,10 +35,11 @@ app.set('views', path.resolve(__dirname, "./src/views"));
 
 // Middleware: express-session
 app.use(session({
-    secret: "prueba",
+    secret: "funkoshop",
     name: "session",
     resave: false,
     saveUninitialized: false,
+    maxAge: 10000 * 10
 }))
 
 // MAIN
