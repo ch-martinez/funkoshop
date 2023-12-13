@@ -1,0 +1,86 @@
+        <%- include ("../partials/head") %>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
+        <!-- Estilos propios -->
+        <link rel="stylesheet" href="/css/pages/item.css">
+        <link rel="stylesheet" href="/css/global/card.css">
+        <link rel="stylesheet" href="/css/global/glide.css">
+        <link rel="stylesheet" href="/css/global/modal.css">
+    </head>
+<body>
+    <%- include ("../partials/navbar") %>
+    <main class="main-container">
+        <article class="item container">
+            <!-- Imagen del Funko -->
+            <picture class="item__cover">
+                <img class="item__cover-front" src="/img/<%= item.image_front %>" alt="">
+                <img class="item__cover-back" src="/img/<%= item.image_back %>" alt="">
+            </picture>
+
+            <!-- Descripcion del Funko -->
+            <section class="item__content">
+                <span class="item__collection"><%= item.license_name %></span>
+                <span class="item__title"><%= item.product_name %></span>
+                <span class="item__description"><%= item.product_description %></span>
+                <span class="item__price">$ <%= item.price %></span>
+
+                <!-- Contenedor para la cantidad a agregar de items al carrito -->
+                <div>
+                    <form action="/shop/item/<%= item.product_id %>/add"
+                          class="amount"
+                          method="post">
+                        <input id="item-quantity" 
+                            class="amount__input input-hide-arrows" 
+                            type="number"
+                            name="quantity"
+                            value="1" 
+                            min="1"
+                            readonly>
+                        <!-- Botones para incrementar y decrementar cantidad de items -->
+                        <div class="amount__btn-container">
+                            <button id="btn-add" 
+                                    class="amount__btn" 
+                                    type="button">
+                                <img src="/img/icons/+.svg" alt="">
+                            </button>
+                            <button id="btn-substract" 
+                                    class="amount__btn"
+                                    type="button">
+                                <img src="/img/icons/-.svg" alt="">
+                            </button>
+                        </div>
+                        <button class="btn-link" type="submit">Agregar al carrito</button>
+                    </form>
+                </div>
+
+                <!-- Ver los metodos de pago -->
+                <a id="modalOpen" class="link__blue link__blue--payment" href="#">Ver métodos de pago - 3 CUOTAS SIN INTERÉS</a>
+                <dialog id="modal" class="modal">
+                    <div id="modalClose" class="modal__close">
+                        <iconify-icon icon="icon-park-outline:close-one" width="28" height="28"></iconify-icon>
+                    </div>
+                    <picture>
+                        <img src="/img/medios_pagos.jpg" alt="Medios de pago">
+                    </picture>
+                </dialog>
+            </section>
+        </article>
+
+        <!-- Seccion de relacionados -->
+        <section class="glide glide--carousel">
+            <h2 class="glid__title">PRODUCTOS RELACIONADOS<h2>
+            <!-- Slide de cards -->
+            <%- include('../components/glide.ejs', {products} )%>
+        </section>
+    </main>
+
+    <%- include('../partials/footer.ejs',{view}) %>
+    <!------ Scripts EXTERNOS ------>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script> <!-- Glide (Carrousel) -->
+    <!------ Scripts PROPIOS ------>
+    <script src="/scripts/glide-config.js"></script> <!-- Configuracion de libreria Glide -->
+    <script src="/scripts/modal.js"></script>
+    <script src="/scripts/inputQuantity.mjs" type="module">
+    </script>
+</body>
+</html>

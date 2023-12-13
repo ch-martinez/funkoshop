@@ -1,0 +1,91 @@
+    <%- include('../partials/head.ejs',{view}) %>
+    <link rel="stylesheet" href="/css/pages/admin.css">
+    <link rel="stylesheet" href="/css/global/alerts.css">
+</head>
+<body>
+    <%- include('../partials/navbar.ejs',{view}) %>
+
+        <main class="container container--admin">
+
+            <!-- Seccion de busqueda item -->
+            <section class="admin-search__container">
+                <picture>
+                    <img src="/img/icons/search_icon.svg" alt="Buscar item">
+                </picture>
+                <input class="input-text--box admin-search__input" type="text" placeholder="Código, nombre o categoria">
+            </section>
+            <% if (alert) { %>
+                <div class="
+                <% if (alert.success) { %>
+                    success-alert
+                <% } else { %>
+                    error-alert
+                <% } %> ">
+                        <p><%= alert.message %></p>
+                </div>
+            <% } %>
+            <!-- Cabecera de tabla para agregar item -->
+            <section class="table-admin-head__container">
+                <h1 class="table-admin-head__title">LISTADO DE PRODUCTOS</h1>
+                <div>
+                    <a class="table-admin-head__add" href="/admin/create">
+                        <span>AGREGAR</span>
+                        <picture>
+                            <img src="/img/icons/+.svg" alt="Agregar item">
+                        </picture>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Listado de items -->
+            <table class="table-admin">
+                <thead>
+                    <tr>
+                        <th class="table-admin__data--head table-admin__data">ID</t>
+                        <th class="table-admin__data--head table-admin__data">Código</th>
+                        <th class="table-admin__data--head table-admin__data">Nombre del producto</th>
+                        <th class="table-admin__data--head table-admin__data" colspan="2">Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Fila de tabla -->
+                    <% products.forEach(product => { %>
+                        <tr class="table-admin__row">
+                            <td class="table-admin__data"><%= product.product_id %></td>
+                            <td class="table-admin__data"><%= product.sku %></td>
+                            <td class="table-admin__data"><%= product.product_name %></td>
+                            <td class="table-admin__data"><%= product.licence_name %></td>
+                            <td class="table-admin__data">
+                                <a class="table-admin__btn" 
+                                   href="/admin/edit/<%= product.product_id %>">
+                                    <img src="/img/icons/edit_pencil.svg" alt="Icono para editar">
+                                
+                                </a>
+                                <a class="table-admin__btn" 
+                                   href="/admin/delete/<%= product.product_id %>"
+                                   onclick="confirmDelete(event)">
+                                    <img class="alert-delet__btn" 
+                                         src="/img/icons/delete_trash.svg" 
+                                         alt="Icono para eliminar item">
+                                </a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <!-- Alerta al elminar item -->
+            <dialog class="alert-delet">
+                <p class="alert-delet__text">¿Eliminar el item <span></span>?</p>
+                <div class="alert-delet__buttons-container">
+                    <button class="btn btn--admin-confirm">Confirmar</button>
+                    <button class="btn btn--admin-delet">Cancelar</button>
+                </div>
+            </dialog>
+        </main>
+
+        <%- include('../partials/footer.ejs',{view}) %>
+    <!-- <script src="/scripts/adminDeletItem.js"></script> -->
+    <script src="/scripts/adminDeleteProduct.js"></script>
+</body>
+
+</html>

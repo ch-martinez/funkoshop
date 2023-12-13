@@ -1,0 +1,35 @@
+<%- include('../partials/head.ejs',{view}) %>
+<link rel="stylesheet" href="/css/pages/login.css">
+<link rel="stylesheet" href="/css/global/alerts.css">
+</head>
+
+<body>
+    <%- include('../partials/navbar.ejs',{view}) %>
+        <main class="container container--main container--login">
+            <h2 class="container__title">RECUPERAR CONTRASEÑA</h2>
+            <span>Ingrese su correo con el que se ha registrado, se enviara un link para recuperar su
+                contraseña</span>
+            <form action="/auth/recoverPass" class="login__form" method="post">
+                <%# ALERTA%>
+                <% if (alert) { %>
+                    <div class="
+                    <% if (alert.success) { %>
+                        success-alert
+                    <% } else { %>
+                        error-alert
+                    <% } %> ">
+                            <p><%= alert.message %></p>
+                    </div>
+                <% } %>
+                <div class="form__box">
+                    <label class="label" for="email">Correo electronico</label>
+                    <input class="input-text--box" type="email" id="email" name="email" required>
+                </div>
+
+                <input class="btn form__submit" type="submit" value="Recuperar">
+            </form>
+        </main>
+
+        <%- include('../partials/footer.ejs',{view}) %>
+</body>
+</html>

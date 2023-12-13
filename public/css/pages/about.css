@@ -1,0 +1,61 @@
+/* --- <contenedor aboutUs> ---*/
+.about__container{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-28);
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: var(--spacing-68) auto;
+    padding: var(--spacing-36);
+    background-color: #FFF;
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+  /* --- <titulo aboutUs> ---*/
+.about__tittle{
+    font-family: var(--font-base);
+    font-size: var(--font-xlarge);
+    font-weight: 700;
+}
+
+/* --- <texto aboutUs> ---*/
+.about__text{
+    font-family: var(--font-alternative);
+    font-size: var(--font-large);
+    text-align: center;
+}
+
+/* --- <lista aboutUs> ---*/
+.about__list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- <item aboutUs> ---*/
+.about__item{
+    font: var(--font-base);
+    font-size: var(--font-large);
+}
+
+/* --- <detalle aboutUs> ---*/
+.about__detail{
+    font: var(--font-alternative);
+    font-size: var(--font-small);
+    color: var(--dark-700);
+}
+
+/* --- <links aboutUs> ---*/
+.about__link:link{
+    color: blue;
+}
+
+.about__link:visited{
+    color: var(--primary-500);
+}
+
+.about__link:hover{
+    text-decoration: underline;
+}

@@ -1,0 +1,139 @@
+    <%- include ("../partials/head") %>
+    <link rel="stylesheet" href="/css/pages/cart.css">
+    <link rel="stylesheet" href="/css/global/card.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <%- include ("../partials/navbar") %>
+    <main class="container-cart">
+        <!------ Seccion carrito de compra ------>
+        <section class="container--cartlist">
+
+            <h2 class="container__title">CARRITO DE COMPRAS</h2>
+            <table class="table-cart">
+
+                <!------ Cabecera de listado items en carrito ------>
+                <thead class="table-cart__head">
+                    <tr class="table-cart__row">
+                        <td class="table-cart__data table-cart__data--head" colspan="2">
+                            <span>DETALLE DEL PRODUCTO</span>
+                        </td>
+                        <td class="table-cart__data table-cart__data--head">
+                            <span>CANTIDAD</span>
+                        </td>
+                        <td class="table-cart__data table-cart__data--head">
+                            <span>TOTAL</span>
+                        </td>
+                        <td class="table-cart__data table-cart__data--head">
+                        </td>
+                    </tr>
+                </thead>
+
+                <!------ Listado de items en carrito ------>
+                <tbody class="table-cart__body">
+
+                    <% products.forEach(product => { %>
+                        <tr class="table-cart__row">
+                            <!------ Imagen del item ------>
+                            <td class="table-cart__data">
+                                <figure class="card__picture--cart">
+                                    <img src="/img/<%= product.image_front %>" 
+                                         alt="Imagen frontal del Funkopop">
+                                </figure>
+                            </td>
+                            <!------ Descripcion del item ------>
+                            <td class="table-cart__data">
+                                <section class="card__content card__content--table">
+                                    <h4 class="card__name"><%= product.product_name %></h4>
+                                    <span class="card__collection"><%= product.licence_name %></span>
+                                    <p class="card__price">Precio unitario: $<span><%= product.price %></span></p>
+                                </section>
+                            </td>
+
+                            <!------ Cantidad item ------>
+                            <td class="table-cart__data">
+                                <div class="amount amount--table">
+                                    <input class="amount__input input-hide-arrows" 
+                                           type="number" 
+                                           value="<%= product.quantity %>" 
+                                           min="1"
+                                           readonly
+                                           oninput="upgradeItemTotal(this)">
+                                    <div class="amount__btn-container">
+                                        <button class="amount__btn" onclick="btn__add(this)">
+                                            <img src="/img/icons/+.svg">
+                                        </button>
+                                        <button class="amount__btn" onclick="btn__substract(this)">
+                                            <img src="/img/icons/-.svg">
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                            <!------ Precio total ------>
+                            <td class="table-cart__data">
+                                <input type="text" 
+                                       class="item-total-price card__price--table"
+                                       value="$ <%= (product.price * product.quantity).toFixed(2) %>"
+                                       oninput="upgradeTotalPrice(this)"
+                                       tabindex="-1"
+                                       readonly> 
+
+                            </td>
+                            <!------ Eliminar item ------>
+                            <td class="table-cart__data">
+                                <a href="/shop/cart/<%= product.product_id %>/delete" 
+                                   class="table-cart__delet">
+                                    <iconify-icon icon="icon-park-outline:close-one" 
+                                                  width="28" 
+                                                  height="28"></iconify-icon>
+                                </a>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </section>
+
+        <!------ Seccion resumen de compra ------>
+        <section class="container--resumen">
+            <h2 class="container__title">RESUMEN</h2>
+            <section class="resumen__content table-cart__row">
+                    <div class="resumen__div">
+                        <span>CANTIDAD DE ELEMENTOS</span>
+                        <% let elements = 0 %>
+                        <% products.forEach(product => { %>
+                        <%    elements += product.quantity %>
+                        <% }) %>
+                        <span id="total-quantity"><%= elements %></span>
+                    </div>
+                    <div class="resumen__div">
+                        <span>SUBTOTAL</span>
+                        <% let subtotal = 0 %>
+                        <% products.forEach(product => { %>
+                        <%    subtotal += parseFloat((product.price * product.quantity).toFixed(2)) %>
+                        <% }) %>
+                        <span id="subtotal-price">$<%= subtotal %></span>
+                    </div>
+                    <div class="resumen__div">
+                        <span>ENVIO</span>
+                        <span>$0,00</span>
+                    </div>
+                    <div class="resumen__div">
+                        <span>TOTAL</span>
+                        <span id="total-price">$<%= subtotal %></span>
+                    </div>
+            </section>
+            <form action="/shop/cart" method="post">
+                <button class="btn-link btn-link--resumen" 
+                type="submit">IR A PAGAR</button>
+            </form>
+        </section>
+    </main>
+    <%- include('../partials/footer.ejs',{view}) %>
+    <!------ Scripts EXTERNOS ------>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> <!-- Iconos -->
+    <!------ Scripts PROPIOS ------>
+    <script src="/scripts/cart.js"></script>
+</body>
+</html>

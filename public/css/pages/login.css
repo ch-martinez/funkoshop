@@ -1,0 +1,74 @@
+@import url('/css/global/form.css');
+
+.container--main {
+    padding: var(--spacing-68) 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container--login{
+    align-items: center;
+}
+
+.container--login span{
+    margin-top: var(--spacing-12);
+    font-size: var(--font-xsmall);
+    text-align: center;
+}
+
+.login__form{
+    width: 50rem;
+    margin: var(--spacing-48) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-20);
+}
+
+.form__box{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.form__box--footer{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    font-size: var(--font-xsmall);
+}
+
+.form__submit{
+    margin-top: var(--spacing-28);
+}
+
+/* -------------------- */
+.login-options{
+    margin-top: var(--spacing-8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-options__remember{
+    display: flex;
+    align-items: center;
+}
+
+    .input-checkbox--login{
+        width: 16px;
+        height: 16px;
+        margin-right: var(--spacing-8);
+    }
+
+    .label--login-sublabel{
+        display: inline-block;
+        font-size: var(--font-small);
+    }
+
+@media (max-width: 767.98px){
+    .login__form{
+        width: 100%;
+    }
+}

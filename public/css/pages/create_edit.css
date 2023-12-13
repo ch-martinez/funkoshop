@@ -1,0 +1,103 @@
+@import url('/css/global/form.css');
+
+/* --- ESTILOS PROPIOS DE CREATE Y EDIT --- */
+
+/* --- MAIN --- */
+.main-container {
+    padding: var(--spacing-36) var(--spacing-100);
+    display: flex;
+    align-items: center;
+}
+
+.content {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-36);
+}
+
+.title {
+    font-family: var(--font-alternative);
+    font-size: var(--font-xjumbo);
+    font-weight: 700;
+}
+
+/* --- FORM --- */
+/* Contenedor de contenido por fila del formulario */
+.form__row-content {
+    display: flex;
+    gap: var(--spacing-48);
+}
+
+/* Separador entre etiqueta y elemento de formulario */
+.form__input-separator {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+}
+
+/* Estilos de los inputs */
+.form__sku-input,
+.form__price-input {
+    width: var(--spacing-128);
+}
+
+.form__stock-input, 
+.form__discount-input {
+    text-align: center;
+    width: var(--spacing-36);
+}
+
+/* Estilos de las imágenes del producto */
+.form__figure--content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-24);
+}
+
+.form__figure {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+    max-width: 170px;
+}
+
+.form__figcaption {
+    font-family: var(--font-alternative);
+    font-size: var(--font-medium-20);
+    font-weight: 500;
+    text-align: center;
+    padding-top: var(--spacing-8);
+    border-top: 2px solid var(--primary-solid);
+}
+
+/* Separador entre elementos buttons del formulario */
+.form__buttons-separator {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-36);
+}
+
+.form__button-padding {
+    padding: var(--spacing-12) var(--spacing-48);
+}
+
+/* --- Alert --- */
+.error-alert {
+    display: none;
+    border: 2px solid var(--primary-solid);
+    color: var(--dark-solid);
+    font-size: var(--font-medium-20);
+    border-radius: 5px;
+    background-color: var(--primary-300);
+    padding: var(--spacing-36) var(--spacing-16);
+}
+
+.front-alert {
+    display: none;
+}
+
+.back-alert {
+    display: none;
+    margin-top: (var(--spacing-16));
+}

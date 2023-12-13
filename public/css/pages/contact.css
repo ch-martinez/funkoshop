@@ -1,0 +1,127 @@
+/* --- <contenedor contacto> --- */
+.contact__container {
+    display: flex;
+    gap: var(--spacing-36);
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: var(--spacing-68) auto;
+    padding: var(--spacing-36);
+    background-color: #FFF;
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+/* --- <formulario contacto> ---*/
+.contact__form {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    gap: var(--spacing-12);
+    max-width: 500px;
+}
+
+/* --- <Titulo> ---*/
+.contact__title {
+    font-family: var(--font-alternative);
+    font-size: var(--font-xxlarge);
+    font-weight: 700;
+    text-align: center;
+}
+
+/* --- <Inputs> ---*/
+.form__input {
+    border-radius: 5px;
+    padding: var(--spacing-8);
+    border: 2px solid var(--bg-dark-solid);
+    font-size: var(--font-medium);
+    font-weight: 400;
+    background-color: var(--bg-light-soft);
+}
+
+.form__input:focus {
+    border: 2px solid var(--primary-solid);
+    outline: none;
+}
+
+.form__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* --- <contact us> --- */
+.contact__us{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/* --- <contact links> --- */
+.contact__link{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-20);
+    font-size: var(--font-medium);
+}
+
+/* --- <contact label> --- */
+.contact__label{
+font-size: var(--font-medium);
+font-weight: 500;
+}
+
+/* --- <textarea> --- */
+.form__consult {
+    max-height: 100%;
+    max-width: 100%;
+    border: 2px solid var(--bg-dark-solid);
+    border-radius: 5px;
+    padding: var(--spacing-12);
+    font-family: var(--font-base);
+    font-size: var(--font-medium);
+    font-weight: 400;
+    background-color: var(--bg-light-soft);
+}
+
+.form__consult::placeholder {
+    color: var(--font-light-placeholder);
+}
+
+.form__consult:focus {
+    border: 2px solid var(--primary-solid);
+    outline: none;
+}
+
+/* --- <separator> ---*/
+.separator{
+    width: 2px;
+    background-color: black;
+    height: 70vh; 
+    margin: 0 -15px; 
+  }
+
+/* --- <contact icons> --- */
+
+.contact__icon{
+    font-size: var(--font-xjumbo);
+    color: var(--primary-900);
+}
+
+/* --- <boton enviar> --- */
+.contact__button {
+    border: none;
+    padding: var(--spacing-12) var(--spacing-24);
+    background-color: var(--bg-dark-solid);
+    transition: var(--transition-links);
+    font-family: var(--font-base);
+    font-size: var(--font-xsmall);
+    color: var(--font-light-solid);
+    font-weight: 400;
+}
+
+.contact__button:hover {
+    background-color: var(--primary-solid);
+    cursor: pointer;
+}

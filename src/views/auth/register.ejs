@@ -1,0 +1,105 @@
+<%- include('../partials/head.ejs',{view}) %>
+<link rel="stylesheet" href="/css/pages/login.css">
+<link rel="stylesheet" href="/css/global/modal.css">
+</head>
+
+<body>
+    <%- include('../partials/navbar.ejs',{view}) %>
+        <main class="container container--main container--login">
+            <h2 class="container__title">INGRESAR A MI CUENTA</h2>
+            <span>Completa el formulario para ser parte del mundo de los Funkos</span>
+            <form action="/auth/register" method="POST" class="login__form">
+                <div class="form__box">
+                    <label class="label" for="name">Nombre</label>
+                    <input class="input-text--box" type="text" name="name" id="name" required>
+                </div>
+                <div class="form__box">
+                    <label class="label" for="lastname">Apellido</label>
+                    <input class="input-text--box" type="text" name="lastname" id="lastname" required>
+                </div>
+                <div class="form__box">
+                    <label class="label" for="email">Email</label>
+                    <input class="input-text--box" type="email" name="email" id="email" required>
+                </div>
+                <div class="form__box">
+                    <label class="label" for="password">Contraseña</label>
+                    <input class="input-text--box" type="password" name="password" id="password" required>
+                </div>
+                <div class="form__box">
+                    <label class="label" for="passwordConfirm">Repetir Contraseña</label>
+                    <input class="input-text--box" type="password" name="passwordConfirm" id="passwordConfirm"
+                        required>
+                </div>
+
+                <!-- Términos y condiciones -->
+                <div class="form__box form__box--footer">
+                    <input class="input-checkbox input-checkbox--login" type="checkbox" id="terms__check" required>
+                    <label class="label label--login-sublabel" for="terms__check">Acepto <a id="modalOpen" href="#"
+                            class="link__blue">términos y condiciones</a></label>
+                    <dialog id="modal" class="modal">
+                        <div id="modalClose" class="modal__close">
+                            <iconify-icon icon="icon-park-outline:close-one" width="28" height="28"></iconify-icon>
+                        </div>
+                        <h2 class="modal__title">Términos y condiciones</h2>
+                        <p class="modal__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta
+                            deleniti quidem asperiores minus, eum soluta! Sit reiciendis quia suscipit nemo
+                            doloribus minus consequatur adipisci et accusantium, quisquam, quos maxime pariatur quod
+                            tempora natus magnam cupiditate id explicabo at numquam minima facilis autem voluptas?
+                            Dolore autem perspiciatis veritatis alias voluptate. Accusantium.</p>
+                        <p class="modal__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis
+                            accusamus labore eius hic possimus dolor tenetur velit quae asperiores voluptates autem
+                            temporibus, quaerat illum repudiandae quisquam, eaque atque? Sit, quaerat atque. Cumque,
+                            mollitia doloribus hic sint illum non in perferendis autem ipsum repellendus alias
+                            voluptas veniam? Architecto at voluptatibus maiores, debitis quia adipisci esse odit
+                            facilis, quae iure possimus excepturi optio eum nisi nulla aut alias. Sit esse expedita
+                            commodi tempora ipsam? Culpa quae earum nesciunt blanditiis autem suscipit, consequuntur
+                            numquam tenetur corporis laboriosam officiis asperiores vel aliquam explicabo? Quibusdam
+                            aperiam ducimus mollitia similique. Rem consequuntur exercitationem beatae ratione
+                            eveniet magni, maiores quasi inventore suscipit explicabo illo fuga nam, veniam
+                            molestiae id, deserunt iste dicta. Odit recusandae impedit, unde nulla omnis pariatur
+                            rerum architecto sunt distinctio fugit accusamus voluptates, dolor velit vitae
+                            blanditiis commodi cum. Rem suscipit nobis pariatur officia eos aperiam natus nisi animi
+                            quo tempora. Hic earum tempora, ipsam libero nihil recusandae mollitia voluptatibus
+                            veritatis corrupti unde vero voluptatem dolorum aspernatur culpa animi error maiores
+                            consequuntur soluta iure deleniti, cumque sequi! Sed dolore sapiente eum, iusto a
+                            assumenda rem mollitia officia culpa est corrupti perferendis ducimus animi consequuntur
+                            minima nam voluptates repellat cum asperiores exercitationem architecto perspiciatis
+                            esse quisquam magnam? Voluptatibus illo necessitatibus deleniti aut cupiditate
+                            voluptates, odit iure qui eos consequatur veritatis ducimus laborum porro eum ipsa
+                            commodi voluptas consequuntur. Possimus sapiente dolorum temporibus in! Cumque
+                            consequatur eius quaerat ipsum ipsam enim! Debitis ducimus nobis nesciunt vero iste
+                            aspernatur nemo rem sint tempora distinctio quam hic, sit dicta corporis id a
+                            repudiandae excepturi dolor earum ipsam natus? Maxime in expedita at tenetur ea impedit
+                            ipsa aliquam deleniti delectus. Adipisci, quae eligendi. Commodi assumenda fuga libero
+                            dolorum nisi. Tempora libero ipsum illo quibusdam perspiciatis. Modi adipisci qui earum,
+                            non facere architecto eaque pariatur minima doloribus aut quam obcaecati officia
+                            temporibus a laudantium ullam itaque soluta? Voluptates nihil doloribus quia at nostrum,
+                            quis veritatis optio excepturi possimus, dolore nam similique architecto labore delectus
+                            quae ratione cumque cum quos sunt sed repellendus iusto hic. Perferendis, aperiam iusto.
+                            Ipsam itaque cum alias! Iusto quasi enim laboriosam magni! Ducimus voluptatem ipsam sunt
+                            accusantium molestias assumenda eum at aliquid illum ad facere voluptatibus quae unde
+                            iure excepturi, placeat laudantium? Enim totam numquam vel fugit qui ullam praesentium,
+                            assumenda nihil dicta eveniet exercitationem doloremque eius aut distinctio maxime eum
+                            facilis tempore. Animi ipsam nulla minima aliquid fugiat eligendi eos nisi optio
+                            distinctio, ducimus repudiandae, sit blanditiis assumenda placeat praesentium rem eaque
+                            nam sed? Pariatur nemo quis doloremque, earum quisquam mollitia quod dolor perspiciatis
+                            consectetur error voluptates nisi, possimus aspernatur unde quia repellat doloribus
+                            commodi, ratione reiciendis adipisci. Iste voluptatem totam, nam quibusdam minima
+                            inventore voluptates debitis voluptatum! Nihil voluptatum illum labore, ipsam, minus
+                            excepturi optio doloremque sit quae ratione vero harum hic nulla incidunt corrupti
+                            tempora voluptates perferendis neque iste quas, adipisci eligendi quod itaque? Fugit
+                            aperiam temporibus odit ipsum, vitae maxime unde alias magnam, voluptate cum commodi
+                            accusantium praesentium laborum, perferendis autem eius nesciunt sapiente nobis. Quo,
+                            doloribus quae? Sint eaque porro quod!</p>
+                    </dialog>
+                </div>
+
+                <input class="btn form__submit" type="submit" value="Registrar">
+            </form>
+        </main>
+        <%- include('../partials/footer.ejs',{view}) %>
+            <script src="/scripts/modal.js"></script>
+
+</body>
+
+</html>

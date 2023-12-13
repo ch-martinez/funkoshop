@@ -1,0 +1,80 @@
+    <%- include('partials/head.ejs',{view}) %>
+    <!-- CSS Libreria glide -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
+    <link rel="stylesheet" href="/css/global/card.css"> <!-- Estilos cards de ultimos lanzamientos -->
+    <link rel="stylesheet" href="/css/global/glide.css"> <!-- Estilos del glide/slider -->
+    <link rel="stylesheet" href="/css/pages/index.css"> <!-- Estilos del glide/slider -->
+</head>
+<body>
+    <%- include('partials/navbar.ejs',{view}) %>
+    <!-- Inicio Hero (Banner) -->
+    <section class="hero">
+        <article class="hero__content container">
+            <h2 class="hero__title">Nuevos Ingresos</h2>
+            <p class="hero__description">Descubrí el próximo Funko Pop de tu colección.</p>
+            <a class="hero__link" href="/shop">SHOP</a>
+        </article>
+    </section>
+
+    <!-- Inicio main -->
+    <main class="main-container">
+
+        <!-- Seccion de colecciones destacadas -->
+        <!-- Artículo 1 -->
+        <section class="collection container"> 
+            <article class="collection__content">
+                <h3 class="collection__title">STAR WARS & THE MANDALORIAN</h3>
+                <p class="collection__text">Disfruta de una saga que sigue agregando personajes a su colección.</p>
+                <hr class="collection__line">
+                <a class="collection__link" href="/shop/?licence=2">VER COLECCIÓN</a>
+            </article>
+            <figure class="collection__cover">
+                <img src="/img/star-wars/baby-yoda-1.webp" 
+                        alt="Funkopop de Baby Yoda de The Mandalonian">
+            </figure>
+        </section>
+
+        <!-- Artículo 2 -->
+        <section class="collection container"> 
+            <article class="collection__content">
+                <h3 class="collection__title">POKEMON INDIGO</h3>
+                <p class="collection__text">Atrapa todos los que puedas y disfruta de una colección llena de amigos.</p>
+                <hr class="collection__line">
+                <a class="collection__link" href="/shop/?licence=1">VER COLECCIÓN</a>
+            </article>
+            <figure class="collection__cover">
+                <img src="/img/pokemon/vulpix-1.webp" 
+                        alt="Funkopop de Vulpix de Pokemon">
+            </figure>
+        </section>
+
+        <!-- Artículo 3 -->
+        <section class="collection container"> 
+            <article class="collection__content">
+                <h3 class="collection__title">HARRY POTTER</h3>
+                <p class="collection__text">Revive los recuerdos de una saga llena de magia y encanto.</p>
+                <hr class="collection__line">
+                <a class="collection__link" href="/shop/?licence=3">VER COLECCIÓN</a>
+            </article>
+            <figure class="collection__cover">
+                <img src="/img/harry-potter/snape-patronus-1.webp" 
+                alt="Funkopop de patronus de Severous Snape de Harry Potter">
+            </figure>
+        </section>
+
+        <!-- Seccion de últimos lanzamientos -->
+        <section class="glide glide--carousel container">
+            <h2 class="glide__title">ÚLTIMOS LANZAMIENTOS<h2>
+            <!-- Slide de cards -->
+            <%- include('components/glide.ejs')%>
+        </section>
+    </main>
+
+    <%- include('partials/footer.ejs',{view}) %>
+    <!------ Scripts EXTERNOS ------>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script> <!-- Glide (Carrousel) -->
+    <!------ Scripts PROPIOS ------>
+    <script src="/scripts/glide-config.js"></script> <!-- Configuracion de libreria Glide -->
+</body>
+</html>

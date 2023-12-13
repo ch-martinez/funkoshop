@@ -1,0 +1,20 @@
+/* Fuentes externas */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&family=Raleway:wght@100;300;400;500;600;700&display=swap');
+
+/* Variables */
+@import url('/css/global/variables.css');
+
+/* Normalización */
+@import url('/css/global/normalize.css');
+
+/* Estilos del header y footer */
+@import url('/css/global/header_footer.css');
+
+/* Estilos generales reutilizables en todas las páginas */
+@import url('/css/global/global.css');
+
+/* Estilos para los inputs, buttons y labels */
+@import url('/css/global/inputs.css');
+
+/* Animaciones */
+@import url('/css/global/animations.css');

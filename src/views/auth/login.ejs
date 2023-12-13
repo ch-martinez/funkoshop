@@ -1,0 +1,59 @@
+<%- include('../partials/head.ejs',{view}) %>
+<link rel="stylesheet" href="/css/pages/login.css">
+<link rel="stylesheet" href="/css/global/alerts.css">
+</head>
+
+<body>
+    <%- include('../partials/navbar.ejs',{view}) %>
+        <!-- MAIN -->
+        <main class="container container--main container--login">
+            <h2 class="container__title">INGRESAR A MI CUENTA</h2>
+            <!--  -->
+
+            <form action="/auth/login" method="POST" class="login__form">
+                <%# ALERTA%>
+                <% if (alert) { %>
+                    <div class="
+                    <% if (alert.success) { %>
+                        success-alert
+                    <% } else { %>
+                        error-alert
+                    <% } %> ">
+                            <p><%= alert.message %></p>
+                    </div>
+                <% } %>
+                <!-- CORREO ELECTRONICO -->
+                <div class="form__box">
+                    <label class="label" for="email">Correo electronico</label>
+                    <input class="input-text--box" type="email" name="email" required>
+                </div>
+                <!-- CONTRASEÑA -->
+                <div class="form__box">
+                    <label class="label" for="password">Contraseña</label>
+                    <input class="input-text--box" type="password" name="password" required>
+
+                    <!-- OPCIONES DE LOGEO -->
+                    <div class="login-options">
+                        <div class="login-options__remember">
+                            <input class="input-checkbox input-checkbox--login" type="checkbox" id="remember">
+                            <label class="label--checkbox" for="remember">Recordarme</label>
+                        </div>
+                        <a href="/auth/recoverPass" class="link__blue link__blue--lost-pass">Olvidé mi
+                            contraseña</a>
+                    </div>
+                </div>
+
+                <input class="btn form__submit" type="submit" value="INGRESAR">
+
+                <!-- REGISTRAR UNA NUEVA CUENTA -->
+                <div class="form__box form__box--footer">
+                    <label class="label label--login-sublabel">¿No tienes cuenta?
+                        <a href="/auth/register" class="link__blue">crea una ahora</a>
+                    </label>
+                </div>
+            </form>
+        </main>
+
+        <%- include('../partials/footer.ejs',{view}) %>
+</body>
+</html>
