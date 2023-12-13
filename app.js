@@ -32,6 +32,7 @@ app.use(session({
     name: "session",
     resave: false,
     saveUninitialized: false,
+    maxAge: 10000 * 10
 }))
 
 // MAIN
