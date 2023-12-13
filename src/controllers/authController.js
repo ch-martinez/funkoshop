@@ -103,6 +103,8 @@ const logoutRequest = (req, res) => {
         success: false,
         message: `Se cerró la sesión de ${req.session.userName}`
     }
+    req.session.destroy
+    req.session.regenerate
     res.render('auth/login', {view, alert})
 }
 
