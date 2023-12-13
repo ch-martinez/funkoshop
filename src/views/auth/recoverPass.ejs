@@ -1,5 +1,6 @@
 <%- include('../partials/head.ejs',{view}) %>
 <link rel="stylesheet" href="/css/pages/login.css">
+<link rel="stylesheet" href="/css/global/alerts.css">
 </head>
 
 <body>
@@ -8,7 +9,18 @@
             <h2 class="container__title">RECUPERAR CONTRASEÑA</h2>
             <span>Ingrese su correo con el que se ha registrado, se enviara un link para recuperar su
                 contraseña</span>
-            <form action="" class="login__form">
+            <form action="/auth/recoverPass" class="login__form" method="post">
+                <%# ALERTA%>
+                <% if (alert) { %>
+                    <div class="
+                    <% if (alert.success) { %>
+                        success-alert
+                    <% } else { %>
+                        error-alert
+                    <% } %> ">
+                            <p><%= alert.message %></p>
+                    </div>
+                <% } %>
                 <div class="form__box">
                     <label class="label" for="email">Correo electronico</label>
                     <input class="input-text--box" type="email" id="email" name="email" required>

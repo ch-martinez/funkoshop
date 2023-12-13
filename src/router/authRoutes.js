@@ -35,6 +35,7 @@ router.post('/login', authController.loginRequest)
 router.get('/register', authController.registerView)
 router.post('/register', registerValidation, authController.registerRequest)
 router.get('/recoverPass', authController.recoverPass)
+router.post('/recoverPass', authController.recoverRequest)
 router.get('/logout', authController.logoutRequest)
 
 module.exports = router

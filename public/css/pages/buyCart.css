@@ -1,0 +1,22 @@
+.compra__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.compra__imagen{
+    font-size: 0rem;
+    max-width: 250px;
+}
+
+.compra__text{
+    font: var(--font-base);
+    font-size: var(--font-display);
+    color: var(--dark-solid);
+}
+
+.compra__subtext{
+    font: var(--font-alternative);
+    font-size: var(--font-large);
+    color: var(--dark-700);
+}

@@ -50,7 +50,6 @@
                             </button>
                         </div>
                         <button class="btn-link" type="submit">Agregar al carrito</button>
-                        <!-- <a class="btn-link" href="/shop/item/<%= item.product_id %>/add">Agregar al carrito</a> -->
                     </form>
                 </div>
 
@@ -68,15 +67,15 @@
         </article>
 
         <!-- Seccion de relacionados -->
-        <section class="glide glide--carousel container">
-            <h2 class="glide__title">PRODUCTOS RELACIONADOS<h2>
-            <%- include('../components/glide.ejs')%>
+        <section class="glide glide--carousel">
+            <h2 class="glid__title">PRODUCTOS RELACIONADOS<h2>
+            <!-- Slide de cards -->
+            <%- include('../components/glide.ejs', {products} )%>
         </section>
     </main>
 
     <%- include('../partials/footer.ejs',{view}) %>
     <!------ Scripts EXTERNOS ------>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> <!-- Iconos -->
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script> <!-- Glide (Carrousel) -->
     <!------ Scripts PROPIOS ------>
     <script src="/scripts/glide-config.js"></script> <!-- Configuracion de libreria Glide -->

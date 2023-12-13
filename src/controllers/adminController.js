@@ -19,8 +19,9 @@ const { unlink } = require("node:fs");
 const getProducts = async (req, res) => {
     const view = {
         title: 'Administracion - FS',
-        logged: req.session.isLog,
         userName: req.session.userName,
+        logged: req.session.isLog,
+        admin: req.session.isAdmin
     }
     try {
         const products = await getProductsFromDB();
@@ -50,8 +51,9 @@ const getCreateForm = async (req, res) => {
         const dues = [ 12, 9, 6, 3 ];
         const view = {
             title: 'Crear - FS',
-            logged: req.session.isLog,
             userName: req.session.userName,
+            logged: req.session.isLog,
+            admin: req.session.isAdmin
         }
         res.render("admin/create_edit", {
             view,
@@ -118,8 +120,9 @@ const successfulCreate = async (req, res) => {
         }
         const view = {
             title: 'Administracion - FS',
-            logged: req.session.isLog,
             userName: req.session.userName,
+            logged: req.session.isLog,
+            admin: req.session.isAdmin
         }
         res.render("admin/admin", {
             view,
@@ -140,8 +143,9 @@ const errorCreate = async (req, res) => {
         }
         const view = {
             title: 'Administracion - FS',
-            logged: req.session.isLog,
             userName: req.session.userName,
+            logged: req.session.isLog,
+            admin: req.session.isAdmin
         }
         res.render("admin/admin", {
             view,
@@ -168,9 +172,10 @@ const getEditForm = async (req, res) => {
         // TODO: pedir a la DB las cuotas.
         const dues = [ 12, 9, 6, 3 ];
         const view = {
-            title: 'Administracion - FS',
-            logged: req.session.isLog,
+            title: `${product.product_name} - FS`,
             userName: req.session.userName,
+            logged: req.session.isLog,
+            admin: req.session.isAdmin
         }
         res.render("admin/create_edit", {
             view,
@@ -274,8 +279,9 @@ const successfulEdit = async (req, res) => {
         }
         const view = {
             title: 'Administracion - FS',
-            logged: req.session.isLog,
             userName: req.session.userName,
+            logged: req.session.isLog,
+            admin: req.session.isAdmin
         }
         res.render("admin/admin", {
             view,
@@ -296,8 +302,9 @@ const errorEdit = async (req, res) => {
         }
         const view = {
             title: 'Administracion - FS',
-            logged: req.session.isLog,
             userName: req.session.userName,
+            logged: req.session.isLog,
+            admin: req.session.isAdmin
         }
         res.render("admin/admin", {
             view,
@@ -357,8 +364,9 @@ const successfulDelete = async (req, res) => {
         }
         const view = {
             title: 'Administracion - FS',
-            logged: req.session.isLog,
             userName: req.session.userName,
+            logged: req.session.isLog,
+            admin: req.session.isAdmin
         }
         res.render("admin/admin", {
             view,
@@ -379,8 +387,9 @@ const errorDelete = async (req, res) => {
         }
         const view = {
             title: 'Administracion - FS',
-            logged: req.session.isLog,
             userName: req.session.userName,
+            logged: req.session.isLog,
+            admin: req.session.isAdmin
         }
         res.render("admin/admin", {
             view,

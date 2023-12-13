@@ -1,5 +1,5 @@
 const clientRequired = (req, res, next) => {
-    if (!req.session.isClient && !req.session.isAdmin) {
+    if (!req.session.isLog && !req.session.isAdmin) {
         return res.redirect("/auth/login")
     }
     next();

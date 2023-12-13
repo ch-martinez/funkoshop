@@ -1,17 +1,71 @@
 <!-- FOOTER -->
 <footer>
     <nav class="navbar container">
-        <ul>
-            <li>
-                <a class="navbar__link" href="../shop/shop.html">SHOP</a>
-            </li>
-            <li>
-                <a class="navbar__link" href="../admin/login.html">INGRESAR</a>
-            </li>
-            <li>
-                <a class="navbar__link" href="../contact.html">CONTACTO</a>
-            </li>
-        </ul>
+        <%if (!view.logged) {%>
+            <!-- INICIO MENU -->
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a class="navbar__link with-icon" href="/shop">SHOP</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="/auth/login">LOGIN</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="/contact">CONTACTO</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="/contact">SOBRE NOSOTROS</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="/contact">PREGUNTAS Y RESPUESTAS</a>
+                </li>
+            </ul>
+            <%}else{%>
+                <%if (!view.admin) {%>
+                    <!-- INICIO MENU -->
+                    <ul class="navbar__menu">
+                        <li class="navbar__item">
+                            <a class="navbar__link with-icon" href="/shop">SHOP</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="/auth/login">LOGIN</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="/contact">CONTACTO</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="/contact">SOBRE NOSOTROS</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="/contact">PREGUNTAS Y RESPUESTAS</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="/auth/logout">SALIR DE <strong><%=view.userName%></strong></a>
+                        </li>
+                    </ul>
+                <%}else{%>
+                    <ul class="navbar__menu--shop">
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="/shop/">VER TIENDA</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="/admin">ADMIN</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="/contact">CONTACTO</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="/contact">SOBRE NOSOTROS</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="/contact">PREGUNTAS Y RESPUESTAS</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="/auth/logout">SALIR DE <strong><%=view.userName%></strong></a>
+                        </li>
+                    </ul>
+                <%}%>
+            <%}%>
 
         <figure class="navbar__logo--footer">
             <a href="../../index.html">
@@ -19,6 +73,8 @@
             </a>
         </figure>
     </nav>
+
+
     <p class="footer__copy">All rights reserved 2023 - Funkoshop&copy;</p>
 </footer>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> <!-- Iconos -->

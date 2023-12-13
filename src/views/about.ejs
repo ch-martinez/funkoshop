@@ -1,0 +1,29 @@
+<%- include('partials/head.ejs',{view}) %>
+<link rel="stylesheet" href="/css/pages/about.css">
+</head>
+
+<body>
+    <%- include('partials/navbar.ejs',{view}) %>
+    <!-- MAIN -->
+    <main class="main-container">
+        <!-- ABOUT US -->
+        <section class="about__container">
+            <span class="about__tittle">Sobre nosotros</span>
+            <p class="about__text">Somos el Grupo#7 del curso de Fullstack Node JS, comisión: 23758. 
+                Nuestra dedicación se refleja en cada aspecto de nuestro trabajo. 
+                Nos esforzamos por superar las expectativas en todo momento. Nuestros miembros son:
+            </p>
+            <ul class="about__list">
+                <li class="about__item">Christian Martinez, <a class="about__link" href="https://github.com/ch-martinez">ch-martinez</a></li> 
+                <li class="about__item">Eduardo Gwiazda, <a class="about__link" href="https://github.com/egwiazda">egwiazda</a></li> 
+                <li class="about__item">Enrique Ramirez, <a class="about__link" href="https://github.com/enriqeram">enriqeram</a></li>    
+                <li class="about__item">Exequiel Macchi, <a class="about__link" href="https://github.com/exeMacchi">exeMacchi</a></li> 
+            </ul>
+            <span class="about__item"><a class="about__link" href="https://github.com/ch-martinez/funkoshop">Enlace del repositorio</a></span>
+            <p class="about__detail">Proyecto integrador tienda de funkos - Codo a Codo 4.0, Fullstack Node JS - Comisión: 23758</p>
+        </section>
+
+    </main>
+    <%- include('partials/footer.ejs',{view}) %>
+</body>
+</html>

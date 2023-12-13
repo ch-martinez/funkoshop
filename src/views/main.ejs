@@ -1,4 +1,4 @@
-    <%- include('../partials/head.ejs',{view}) %>
+    <%- include('partials/head.ejs',{view}) %>
     <!-- CSS Libreria glide -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/pages/index.css"> <!-- Estilos del glide/slider -->
 </head>
 <body>
-    <%- include('../partials/navbar.ejs',{view}) %>
+    <%- include('partials/navbar.ejs',{view}) %>
     <!-- Inicio Hero (Banner) -->
     <section class="hero">
         <article class="hero__content container">
@@ -67,11 +67,11 @@
         <section class="glide glide--carousel container">
             <h2 class="glide__title">ÚLTIMOS LANZAMIENTOS<h2>
             <!-- Slide de cards -->
-            <%- include('../components/glide.ejs')%>
+            <%- include('components/glide.ejs')%>
         </section>
     </main>
 
-    <%- include('../partials/footer.ejs',{view}) %>
+    <%- include('partials/footer.ejs',{view}) %>
     <!------ Scripts EXTERNOS ------>
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script> <!-- Glide (Carrousel) -->
     <!------ Scripts PROPIOS ------>

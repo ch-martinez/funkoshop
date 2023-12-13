@@ -1,70 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/jpg" href="/img/favicon.ico"/>
-    <link rel="stylesheet" href="/css/imports.css">
+    <%- include ("../partials/head") %>
     <link rel="stylesheet" href="/css/pages/cart.css">
     <link rel="stylesheet" href="/css/global/card.css">
-    <title>FS - Carrito de compras</title>
 </head>
 
 <body>
     <!-- HEADER -->
-    <header>
-        <nav class="navbar container">
-            <figure class="navbar__logo--header">
-                <a href="/">
-                    <img src="/img/branding/logo_light_horizontal.svg" 
-                         alt="Isotipo de la tienda FunkoShop">
-                </a>
-            </figure>
-
-            <!-- INICIO MENU -->
-            <ul class="navbar__menu--shop">
-                <li class="navbar__item with-submenu">
-                    <a class="navbar__link with-icon" 
-                        href="/shop">SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
-                    <!-- INICIO SUBMENU -->
-                    <ul class="submenu">
-                        <li class="submenu__item">
-                            <a class="submenu__link"
-                                href="/shop">FUNKOS</a>
-                        </li>
-                        <li class="submenu__item">
-                            <a class="submenu__link" 
-                                href="/shop">REMERAS</a>
-                        </li>
-                        <li class="submenu__item">
-                            <a class="submenu__link" 
-                                href="/shop">LLAVEROS</a>
-                        </li>
-                    </ul>
-                    <!-- FIN SUBMENU -->
-                </li>
-
-                <li class="navbar__item">
-                    <a class="navbar__link" 
-                        href="/auth/login">LOGIN</a>
-                </li>
-
-                <li class="navbar__item">
-                    <a class="navbar__link"
-                        href="/contact">CONTACTO</a>
-                </li>
-                <li class="navbar__item">
-                    <a class="navbar__cart"
-                        href="/shop/cart">
-                        <img src="/img/icons/cart-icon.svg" 
-                             alt="Carrito de compras">
-                    </a>
-                </li>
-            </ul>
-            <!-- FIN MENU -->
-        </nav>
-    </header> 
-
+    <%- include ("../partials/navbar") %>
     <main class="container-cart">
         <!------ Seccion carrito de compra ------>
         <section class="container--cartlist">
@@ -186,44 +127,13 @@
             <form action="/shop/cart" method="post">
                 <button class="btn-link btn-link--resumen" 
                 type="submit">IR A PAGAR</button>
-            <!-- <a class="btn-link btn-link--resumen" 
-            href="/shop/cart">IR A PAGAR</a> -->
             </form>
         </section>
     </main>
-
-
-    <!-- FOOTER -->
-    <footer> 
-        <nav class="navbar container">
-            <ul>
-                <li>
-                    <a class="navbar__link" 
-                        href="/shop">SHOP</a>
-                </li>
-                <li>
-                    <a class="navbar__link"
-                        href="/auth/login">INGRESAR</a>
-                </li>
-                <li>
-                    <a class="navbar__link"
-                        href="/contact">CONTACTO</a>
-                </li>
-            </ul>
-
-            <figure class="navbar__logo--footer">
-                <a href="/">
-                    <img src="/img/branding/isotype.svg" 
-                         alt="Isotipo de la tienda Funkoshop">
-                </a>
-            </figure>
-        </nav>
-        <p class="footer__copy">All rights reserved 2023 - Funkoshop&copy;</p>
-    </footer>
+    <%- include('../partials/footer.ejs',{view}) %>
     <!------ Scripts EXTERNOS ------>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> <!-- Iconos -->
     <!------ Scripts PROPIOS ------>
-    <!-- <script src="/scripts/cart-counter.js"></script> -->
     <script src="/scripts/cart.js"></script>
 </body>
 </html>

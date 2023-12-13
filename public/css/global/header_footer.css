@@ -91,6 +91,22 @@ header {
     background-color: var(--primary-900);
 }
 
+/* Burbuja que indica cantidad de items en carrito */
+.navbar__cart-count{
+    height: 20px;
+    width: 25px;
+    padding: 10px 10px 15px;
+    display: grid;
+    place-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--secondary-solid);
+    border-radius: 50px;
+    font-weight: 900;
+    transition: var(--transition--navbar);
+}
+
 /* --- FOOTER -- */
 footer {
     padding: var(--spacing-100) var(--spacing-100) var(--spacing-16) var(--spacing-100);

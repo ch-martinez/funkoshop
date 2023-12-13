@@ -2,7 +2,6 @@
 const express = require('express');
 const app = express();
 const path = require("node:path");
-const session = require("express-session");
 require("dotenv").config();
 const PORT = process.env.DB_PORT || 3306;
 
@@ -53,6 +52,11 @@ app.use("/admin", adminRoutes);
 
 // AUTH
 app.use('/auth', authRoutes)
+
+/* 404 - Not found */
+app.use('', (req,res,next)=>{
+    res.render('404',view = {title: 'No encontrada',logged: req.session.isLog, glide: false});
+})
 
 /* --- SERVER --- */
 app.listen(PORT, () => {
