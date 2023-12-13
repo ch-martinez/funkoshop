@@ -62,3 +62,13 @@ function upgradeTotalPrice(element) {
     const totalPrice = document.querySelector("#total-price");
     totalPrice.textContent = `$${totalAmount}`;
 }
+
+
+// Verificar si el cliente ha seleccionado un producto para comprar,
+// si no seleccionó ninguno, no puede realizar la compra.
+function checkTotalPrice(event) {
+    const totalPrice = document.querySelector("#total-price");
+    if (totalPrice.textContent === "$ 0") {
+        event.preventDefault();
+    }
+}

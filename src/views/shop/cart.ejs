@@ -113,18 +113,20 @@
                         <% products.forEach(product => { %>
                         <%    subtotal += parseFloat((product.price * product.quantity).toFixed(2)) %>
                         <% }) %>
-                        <span id="subtotal-price">$<%= subtotal %></span>
+                        <span id="subtotal-price">$ <%= subtotal %></span>
                     </div>
                     <div class="resumen__div">
                         <span>ENVIO</span>
-                        <span>$0,00</span>
+                        <span>$ 0,00</span>
                     </div>
                     <div class="resumen__div">
                         <span>TOTAL</span>
-                        <span id="total-price">$<%= subtotal %></span>
+                        <span id="total-price">$ <%= subtotal %></span>
                     </div>
             </section>
-            <form action="/shop/cart" method="post">
+            <form action="/shop/cart" 
+                  method="post" 
+                  onsubmit="checkTotalPrice(event)">
                 <button class="btn-link btn-link--resumen" 
                 type="submit">IR A PAGAR</button>
             </form>
