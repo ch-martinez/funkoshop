@@ -2,8 +2,7 @@
 .faqs__container{
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-36);
-    align-items: center;
+    gap: var(--spacing-48);
     justify-content: space-evenly;
     width: 80%;
     margin: var(--spacing-68) auto;
@@ -14,23 +13,43 @@
 }
 
 /* --- <lista faqs> --- */
-.faqs__list{
+.faqs__list {
     display: flex;
-    align-items: center;
     flex-direction: column;
     gap: var(--spacing-12);
 }
 
-/* --- <preguntas faqs> --- */
-.faqs__pregunta{
+.faqs__list:hover {
     cursor: pointer;
-    padding: 10px;
-    font-family: var(--font-base);
+}
+
+/* --- <preguntas faqs> --- */
+.faqs__pregunta--container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid var(--bg-dark-solid);
+}
+
+.faqs__icon,
+.faqs__icon--active {
+    font-size: var(--font-jumbo);
+}
+
+.faqs__icon--active {
+    color: var(--primary-solid);
+    display: none;
+}
+
+.faqs__pregunta {
+    padding: var(--spacing-12);
+    font-family: var(--font-alternative);
     font-size: var(--font-xlarge);
+    font-weight: 700;
 }
 
 /* --- <respuetas faqs> --- */
-.faqs__respuesta{
+.faqs__respuesta {
     display: none;
     padding: 10px;
     font-family: var(--font-base);
@@ -38,7 +57,7 @@
 }
 
 /* --- <separador faqs> --- */
-.linea-horizontal{
+.linea-horizontal {
     border: 1px solid; 
     color: var(--bg-dark-solid); 
     width: 500px; 

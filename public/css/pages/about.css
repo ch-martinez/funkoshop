@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-28);
-    align-items: center;
     justify-content: space-evenly;
     width: 80%;
     margin: var(--spacing-68) auto;
@@ -14,30 +13,47 @@
 }
 
   /* --- <titulo aboutUs> ---*/
-.about__tittle{
-    font-family: var(--font-base);
-    font-size: var(--font-xlarge);
+.about__title {
+    width: fit-content;
+    font-family: var(--font-alternative);
+    font-size: var(--font-display);
     font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 4px solid var(--primary-solid);
+    align-self: center;
 }
 
 /* --- <texto aboutUs> ---*/
 .about__text{
     font-family: var(--font-alternative);
     font-size: var(--font-large);
-    text-align: center;
+}
+
+.about__list--container {
+    display: flex;
+    gap: var(--spacing-36);
+    position: relative;
 }
 
 /* --- <lista aboutUs> ---*/
 .about__list{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: var(--spacing-16);
 }
 
 /* --- <item aboutUs> ---*/
 .about__item{
     font: var(--font-base);
     font-size: var(--font-large);
+}
+
+/* --- <imagen> --- */
+.about__image {
+    max-width: 330px;
+    position: absolute;
+    right: 90px;
+    top: -95px;
 }
 
 /* --- <detalle aboutUs> ---*/
