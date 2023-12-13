@@ -94,16 +94,25 @@ const recoverRequest = (req, res) => {
 }
 
 const logoutRequest = (req, res) => {
-    req.session.isLog = false
-    const view = {
-        title: 'Login - FS',
-        logged: req.session.isLog,
+    const logged = false;
+    const userName = req.session.userName;
+    req.session.destroy((err) => {
+    if (err) {
+        console.error('Error al destruir la sesión:', err);
+    } 
+    else {
+        const view = {
+            title: 'Login - FS',
+            logged,
+        };
+
+        const alert = {
+            success: false,
+            message: `Se cerró la sesión de ${userName}`
+        };
+        res.render('auth/login', {view, alert})
     }
-    const alert = {
-        success: false,
-        message: `Se cerró la sesión de ${req.session.userName}`
-    }
-    res.render('auth/login', {view, alert})
+  });
 }
 
 module.exports = {
