@@ -1,5 +1,6 @@
 const { registerUser,
-    getPassByEmailFromDB
+    getPassByEmailFromDB,
+    existEmailInDB
 } = require('../models/userModel')
 
 const formatUser = (user) => {
@@ -67,22 +68,39 @@ const registerView = (req, res) => {
         logged: req.session.isLog,
         admin: req.session.isAdmin
     }
-    res.render('auth/register', { view })
+    const alert = false
+    res.render('auth/register', { view, alert })
 }
 
 const registerRequest = async (req, res) => {
     const userData = req.body
-    await registerUser(formatUser(userData))
     const view = {
         title: 'Login - FS',
         logged: req.session.isLog,
         userName: req.session.userName,
     }
-    const alert = {
-        success: true,
-        message: `${req.body.email} fue registrado con éxito`
+    if (await existEmailInDB(userData.email)) {
+        const alert = {
+            success: false,
+            message: `${userData.email} ya fue registrado`
+        }
+        res.render('auth/register', {view, alert})
+    } else {
+        if (!(userData.password == userData.passwordConfirm)) {
+            const alert = {
+                success: false,
+                message: `Las contraseñas no coinciden`
+            }
+            res.render('auth/register', {view, alert})
+        } else {
+            await registerUser(formatUser(userData))
+            const alert = {
+                success: true,
+                message: `${userData.email} fue registrado con éxito`
+            }
+            res.render('auth/login', {view, alert})
+        }
     }
-    res.render('auth/login', {view, alert})
 }
 
 const recoverPass = (req, res) => {
